@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    render json: Photo.all
+    render json: current_user.photos.order(:created_at)
   end
 
   def show
@@ -32,7 +32,6 @@ class Api::PhotosController < ApplicationController
   end
 
   private
-
   def photo_params
     params.require(:photo).permit(
       :album_id,

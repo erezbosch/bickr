@@ -15,5 +15,13 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
+  def redirect_unless_logged_in
+    redirect_to new_session_url unless current_user
+  end
+
+  def redirect_if_logged_in
+    redirect_to root_url if current_user
+  end
+
   helper_method :current_user
 end

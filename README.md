@@ -7,8 +7,8 @@ It's flickr for pictures of arguments! It's built on Rails and Backbone! Users c
 
 - [x] Create accounts
 - [x] Log in and out
-- [ ] Upload photos
-- [ ] View photos
+- [x] Upload photos
+- [x] View photos
 - [ ] Create albums
 - [ ] Follow other users
 - [ ] View a photostream of followed users' photos

@@ -12,6 +12,6 @@ window.Bickr = {
   }
 };
 
-$(document).ready(function(){
-  Bickr.initialize();
-});
+// $(document).ready(function(){
+//   Bickr.initialize();
+// });
