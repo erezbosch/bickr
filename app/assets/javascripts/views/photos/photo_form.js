@@ -14,14 +14,13 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
     e.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       var data = result[0];
-      debugger;
       this.model.set({ image_url: data.url, public_id: data.public_id });
-    });
+    }.bind(this));
   },
 
   addPhoto: function (e) {
     e.preventDefault();
-    var data = this.$('form').serializeJSON();
+    var data = this.$('form').serializeJSON().photo;
     this.model.save(data, {
       success: function () {
         this.collection.add(this.model);
