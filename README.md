@@ -1,14 +1,12 @@
 # Tickr
 
-[Heroku Link][heroku]
-
-[heroku]: bickr.herokuapp.com
+[Heroku Link](http://bickr.herokuapp.com)
 
 ## Minimum Viable Product
 It's flickr for pictures of arguments! It's built on Rails and Backbone! Users can:
 
-- [ ] Create accounts
-- [ ] Log in and out
+- [x] Create accounts
+- [x] Log in and out
 - [ ] Upload photos
 - [ ] View photos
 - [ ] Create albums
@@ -46,7 +44,7 @@ First, I'll add an API route that displays all of the `current_user`'s uploaded 
 Then, I'll add a Backbone collection for photos that fetches from that route, to allow
 the user to view a photostream consisting of all of their uploaded photos.
 I will enable image resizing and have the photostream display
-thumbnail-sized images. I will create a new landing_page_photos API route that provides
+thumbnail-sized images. I will allow the photos index route to optionally provide
 the `current_user`'s `followee_photos`, as well as `recommended` photos, ordered
 chronologically. This will be the page users see after logging in.
 

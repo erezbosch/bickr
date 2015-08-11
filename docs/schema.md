@@ -7,17 +7,18 @@ id          | integer   | not null, primary key
 uploader_id | integer   | not null, foreign key (references users)
 album_id    | integer   | foreign key (references albums)
 title       | string    | not null
-caption     | string    | 
+caption     | string    |
 image       | string    | not null
-recommended | boolean   | 
+recommended | boolean   |
 
 ## albums
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-creator_id  | integer   | not null, foreign key (references users)
-title       | string    | not null
-description | string    |
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+creator_id     | integer   | not null, foreign key (references users)
+title          | string    | not null
+description    | string    |
+cover_photo_id | integer   | foreign key (references photos)
 
 ## users
 column name     | data type | details
@@ -46,4 +47,3 @@ column name | data type | details
 id          | integer   | not null, primary key
 followee_id | integer   | not null, foreign key (references users)
 follower_id | integer   | not null, foreign key (references users)
-
