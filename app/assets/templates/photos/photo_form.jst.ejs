@@ -1,0 +1,26 @@
+<h1><%= photo.isNew() ? "Add Photo" : "Edit Photo" %></h1>
+
+<ul class='form-errors'></ul>
+
+<form class="form-group">
+  <label for="photo_image">Image</label>
+  <input type="text"
+         name="photo[image]"
+         value="<%= photo.escape('image') %>"
+         id="photo_image"
+         class="form-control">
+
+  <label for="photo_title">Title</label>
+  <input type="text"
+         name="photo[title]"
+         value="<%= photo.escape('title') %>"
+         id="photo_title"
+         class="form-control">
+
+  <label for="photo_caption">Caption</label>
+  <textarea name="photo[title]"
+            id="photo_title"
+            class="form-control"><%= photo.escape('caption') %></textarea>
+
+  <button class="submit">Submit</button>
+</form>

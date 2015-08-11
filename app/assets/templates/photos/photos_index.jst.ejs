@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead><tr><td><strong>Photos</strong></td></tr></thead>
+  <tbody>
+    <% photos.each(function (photo) { %>
+        <tr>
+          <td>
+            <a href="#api/photos/<%= photo.id%>"><%= photo.escape('title') %></a>
+          </td>
+          <td>
+            <a href="#api/photos/<%= photo.id %>/edit">Edit</a>
+          </td>
+        </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="#api/photos/new">Create New Photo</a>
