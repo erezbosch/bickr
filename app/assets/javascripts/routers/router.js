@@ -1,9 +1,9 @@
 Bickr.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'photosIndex',
-    'photos/new': 'photoNew',
-    'photos/:id/edit': 'photoEdit',
-    'photos/:id': 'photoShow',
+    'api/photos/new': 'photoNew',
+    'api/photos/:id/edit': 'photoEdit',
+    'api/photos/:id': 'photoShow',
   },
 
   initialize: function (options) {
