@@ -1,5 +1,5 @@
 Bickr.Views.PhotosIndex = Backbone.View.extend({
-  template: JST['photos_index'],
+  template: JST['photos/photos_index'],
 
   initialize: function () {
     this.listenTo(this.collection, 'sync add remove reset', this.render);

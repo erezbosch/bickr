@@ -1,5 +1,5 @@
 Bickr.Views.PhotoShow = Backbone.View.extend({
-  template: JST['photo_show'],
+  template: JST['photos/photo_show'],
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);

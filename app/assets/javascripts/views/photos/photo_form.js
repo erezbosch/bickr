@@ -1,5 +1,5 @@
 Bickr.Views.PhotoForm = Backbone.View.extend({
-  template: JST['photo_form'],
+  template: JST['photos/photo_form'],
 
   events: {
     'click .submit': 'addPhoto'
