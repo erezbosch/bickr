@@ -25,14 +25,14 @@ It's flickr for pictures of arguments! It's built on Rails and Backbone! Users c
 ## Implementation Timeline
 
 ### Phase 1: User Authentication and Basic Photo Upload (~1 day)
-I will implement user authentication in Rails using the practices learned at App 
-Academy. I will add a simple Rails text form to fake photo uploads and push 
+I will implement user authentication in Rails using the practices learned at App
+Academy. I will add a simple Rails text form to fake photo uploads and push
 the app to Heroku.
 
 [Details][phase-one]
 
 ### Phase 2: Photo Upload and View (~1 day)
-I will use the third-party CarrierWave gem to allow users to upload photos and 
+I will use Cloudinary to allow users to upload photos and
 store the photos in the database. I'll add API routes that provide JSON data for
 photos, and a Backbone model to fetch that data. By the end of this
 phase, users will be able to upload photos and view them.
@@ -43,7 +43,7 @@ phase, users will be able to upload photos and view them.
 First, I'll add an API route that displays all of the `current_user`'s uploaded photos.
 Then, I'll add a Backbone collection for photos that fetches from that route, to allow
 the user to view a photostream consisting of all of their uploaded photos.
-I will integrate MiniMagick to enable image resizing and have the photostream display 
+I will enable image resizing and have the photostream display
 thumbnail-sized images. I will create a new landing_page_photos API route that provides
 the `current_user`'s `followee_photos`, as well as `recommended` photos, ordered
 chronologically. This will be the page users see after logging in.
@@ -51,17 +51,17 @@ chronologically. This will be the page users see after logging in.
 [Details][phase-three]
 
 ### Phase 4: Albums (~1 day)
-I'll allow users to create albums and to add photos to their albums on upload or 
-while editing the photos. I'll also make a Backbone `AlbumShow` view with a 
-`photos` collection that is fetched from that route. I'll modify the UserShow Backbone 
+I'll allow users to create albums and to add photos to their albums on upload or
+while editing the photos. I'll also make a Backbone `AlbumShow` view with a
+`photos` collection that is fetched from that route. I'll modify the UserShow Backbone
 view so that it also displays the user's albums.
 
 [Details][phase-four]
 
 ### Phase 5: Search (~2 days)
-I'll add `search` routes to both the photos and albums controllers. The search 
-results should include photos with the search query as a tag, and albums including the 
-query in their title. On the Backbone side, there will be a `SearchResults` composite 
+I'll add `search` routes to both the photos and albums controllers. The search
+results should include photos with the search query as a tag, and albums including the
+query in their title. On the Backbone side, there will be a `SearchResults` composite
 view that has `AlbumsIndex` and `PhotosIndex` subviews which fetch from the `search` routes.
 
 [Details][phase-five]
@@ -83,4 +83,3 @@ view that has `AlbumsIndex` and `PhotosIndex` subviews which fetch from the `sea
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-

@@ -20,4 +20,4 @@ Api::PhotosController (create, destroy, show, update)
 * EditPhotoForm
 
 ## Gems/Libraries
-* CarrierWave
+* Cloudinary

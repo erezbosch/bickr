@@ -23,4 +23,4 @@
 * UserShow (composite view, has PhotoThumbnail subviews)
 
 ## Gems/Libraries
-* MiniMagick
+* MiniMagick (?)
