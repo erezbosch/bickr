@@ -11,7 +11,3 @@ window.Bickr = {
     Backbone.history.start();
   }
 };
-
-// $(document).ready(function(){
-//   Bickr.initialize();
-// });
