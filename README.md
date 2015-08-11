@@ -1,4 +1,4 @@
-# Tickr
+# Bickr
 
 [Heroku Link](http://bickr.herokuapp.com)
 

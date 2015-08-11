@@ -5,10 +5,11 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 uploader_id | integer   | not null, foreign key (references users)
-album_id    | integer   | foreign key (references albums)
 title       | string    | not null
 caption     | string    |
-image       | string    | not null
+image_url   | string    | not null
+public_id   | string    | not null
+album_id    | integer   | foreign key (references albums)
 recommended | boolean   |
 
 ## albums

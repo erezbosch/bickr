@@ -2,11 +2,21 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
   template: JST['photos/photo_form'],
 
   events: {
-    'click .submit': 'addPhoto'
+    'click .submit': 'addPhoto',
+    'click .upload': 'upload',
   },
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  upload: function (e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
+      var data = result[0];
+      debugger;
+      this.model.set({ image_url: data.url, public_id: data.public_id });
+    });
   },
 
   addPhoto: function (e) {
