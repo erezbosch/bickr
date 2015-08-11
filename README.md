@@ -1,6 +1,8 @@
 # Tickr
 
-Heroku Link Will Be Here Later Probably
+[Heroku Link][heroku]
+
+[heroku]: bickr.herokuapp.com
 
 ## Minimum Viable Product
 It's flickr for pictures of arguments! It's built on Rails and Backbone! Users can:

@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811161754) do
+ActiveRecord::Schema.define(version: 20150811164724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "uploader_id",                 null: false
+    t.integer  "album_id"
+    t.string   "title",                       null: false
+    t.string   "caption"
+    t.string   "image",                       null: false
+    t.boolean  "recommended", default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
+  add_index "photos", ["uploader_id"], name: "index_photos_on_uploader_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -27,4 +41,5 @@ ActiveRecord::Schema.define(version: 20150811161754) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
+  add_foreign_key "photos", "users", column: "uploader_id"
 end
