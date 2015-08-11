@@ -1,3 +1,3 @@
 Bickr.Models.Photo = Backbone.Model.extend({
-  urlRoot: 'api/photos',
+  urlRoot: '/api/photos',
 });

@@ -6,7 +6,7 @@ window.Bickr = {
   initialize: function() {
     new Bickr.Routers.Router({
       $rootEl: $('#content'),
-      photos: new Bickr.Collections.Photos()
+      photos: new Bickr.Collections.Photos(),
     });
     Backbone.history.start();
   }

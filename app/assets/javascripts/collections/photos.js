@@ -1,6 +1,6 @@
 Bickr.Collections.Photos = Backbone.Collection.extend({
   model: Bickr.Models.Photo,
-  url: 'api/photos',
+  url: '/api/photos',
 
   getOrFetch: function (id) {
     var photo = this.get(id);

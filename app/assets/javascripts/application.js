@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require serialize_json
 //= require bickr
 //= require_tree ../templates
 //= require_tree ./models
