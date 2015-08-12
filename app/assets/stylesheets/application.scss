@@ -21,3 +21,16 @@
   display: block;
   clear: both;
 }
+
+.photo-li-container {
+  display: block;
+  float: left;
+}
+
+.photo-li-container > .photo {
+  position: relative;
+}
+
+.photo + p.photo-text {
+  color: #ff0;
+}

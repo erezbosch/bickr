@@ -68,7 +68,7 @@ view that has `AlbumsIndex` and `PhotosIndex` subviews which fetch from the `sea
 
 ### Bonus Features (TBD)
 - [ ] Downloading photos
-- [ ] Drag and drop uploading
+- [x] Drag and drop uploading
 - [ ] Likes and like counts for photos
 - [ ] Comments on photos
 - [ ] User avatars
