@@ -4,8 +4,6 @@
 ### Models
 
 ### Controllers
-* API::PhotosController (current_user_photos, landing_page_photos, thumbnail)
-* API::UsersController (photos)
 
 ### Views
 
@@ -20,7 +18,6 @@
 * PhotosIndexThumbnail (composite view, has PhotoThumbnail subviews)
 * PhotoThumbnail
 * PhotoFullsize
-* UserShow (composite view, has PhotoThumbnail subviews)
+* UserShow (composite view, has PhotosIndexThumbnail subview)
 
 ## Gems/Libraries
-* MiniMagick (?)
