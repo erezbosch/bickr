@@ -2,8 +2,10 @@
 
 ## Rails
 ### Models
+* Follow
 
 ### Controllers
+* Api::UsersController (index, show)
 
 ### Views
 

@@ -42,7 +42,7 @@ id          | integer   | not null, primary key
 photo_id    | integer   | not null, foreign key (references photos)
 tag_id      | integer   | not null, foreign key (references tags)
 
-## followings
+## follows
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

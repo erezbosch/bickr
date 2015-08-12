@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811210338) do
+ActiveRecord::Schema.define(version: 20150812170605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followee_id", null: false
+    t.integer  "follower_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "follows", ["followee_id", "follower_id"], name: "index_follows_on_followee_id_and_follower_id", unique: true, using: :btree
+  add_index "follows", ["followee_id"], name: "index_follows_on_followee_id", using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "uploader_id",                 null: false
@@ -42,5 +53,7 @@ ActiveRecord::Schema.define(version: 20150811210338) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
+  add_foreign_key "follows", "users", column: "followee_id"
+  add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "photos", "users", column: "uploader_id"
 end

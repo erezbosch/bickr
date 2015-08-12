@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   before_validation :ensure_session_token
 
-  has_many :photos, foreign_key: :uploader_id
+  has_many :photos, foreign_key: :uploader_id, dependent: :destroy
+  has_many :follows, foreign_key: :follower_id, dependent: :destroy
+  has_many :follows, foreign_key: :followee_id, dependent: :destroy
 
   attr_reader :password
 
