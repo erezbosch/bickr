@@ -11,6 +11,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.photos = options.photos;
+    this.users = options.users;
   },
 
   photosIndex: function () {
@@ -41,9 +42,13 @@ Bickr.Routers.Router = Backbone.Router.extend({
   },
 
   usersIndex: function () {
-    var users = new Bickr.Collections.Users();
-    users.fetch();
-    var view = new Bickr.Views.UsersIndex({ collection: users });
+    this.users.fetch();
+    var view = new Bickr.Views.UsersIndex({ collection: this.users });
+    this._swapView(view);
+  },
+
+  userShow: function (id) {
+    var view = new Bickr.Views.UserShow({ model: this.users.getOrFetch(id) });
     this._swapView(view);
   },
 

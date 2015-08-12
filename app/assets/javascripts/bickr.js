@@ -7,6 +7,7 @@ window.Bickr = {
     new Bickr.Routers.Router({
       $rootEl: $('#content'),
       photos: new Bickr.Collections.Photos(),
+      users: new Bickr.Collections.Users(),
     });
     var nav = new Bickr.Views.Nav();
     nav.render();

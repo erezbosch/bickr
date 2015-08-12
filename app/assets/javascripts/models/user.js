@@ -8,9 +8,22 @@ Bickr.Models.User = Backbone.Model.extend({
     return this._follow;
   },
 
+  photos: function () {
+    if (!this._photos) {
+      this._photos = new Bickr.Collections.Photos();
+    }
+    return this._photos;
+  },
+
   parse: function (payload) {
-    this.follow().set(payload.follow);
-    delete payload.follow;
+    if (payload.follow) {
+      this.follow().set(payload.follow);
+      delete payload.follow;
+    }
+    if (payload.photos) {
+      this.photos().set(payload.photos);
+      delete payload.photos;
+    }
     return payload;
   },
 
