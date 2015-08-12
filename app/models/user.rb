@@ -5,10 +5,30 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
 
   has_many :photos, foreign_key: :uploader_id, dependent: :destroy
-  has_many :follows, foreign_key: :follower_id, dependent: :destroy
-  has_many :follows, foreign_key: :followee_id, dependent: :destroy
+  has_many(
+    :out_follows,
+    foreign_key: :follower_id,
+    class_name: 'Follow',
+    dependent: :destroy
+  )
+  has_many(
+    :in_follows,
+    foreign_key: :followee_id,
+    class_name: 'Follow',
+    dependent: :destroy
+  )
+  has_many :followees, through: :out_follows, source: :followee
+  has_many :followers, through: :in_follows, source: :follower
 
   attr_reader :password
+
+  def follows?(other_user)
+    followees.includes?(other_user)
+  end
+
+  def followed_by?(other_user)
+    followers.includes?(other_user)
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -34,6 +54,7 @@ class User < ActiveRecord::Base
     session_token
   end
 
+  private
   def ensure_session_token
     self.session_token ||= generate_session_token
   end
