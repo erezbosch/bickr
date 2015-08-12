@@ -1,4 +1,6 @@
-<div class="photo"></div>
-<p class="photo-text">
+<a href="#/api/photos/<%= photo.id %>" class="photo-link">
+  <div class="photo"></div>
+</a>
+<p class="photo-li-text">
   <strong><%= photo.escape('title') %></strong> <%= photo.escape('caption') %>
 </p>

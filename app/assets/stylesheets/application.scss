@@ -22,15 +22,24 @@
   clear: both;
 }
 
-.photo-li-container {
+div.photo-li-container {
   display: block;
   float: left;
 }
 
-.photo-li-container > .photo {
+div.photo-li-container div.photo {
   position: relative;
 }
 
-.photo + p.photo-text {
-  color: #ff0;
+.photo-link + p.photo-li-text {
+  color: #fff;
+  font-size: 12;
+  position: absolute;
+  bottom: 0px;
+  text-shadow: 0 0 0.1em black, 0 0 0.2em black;
+  display: none;
+}
+
+.photo-link:hover + p.photo-li-text {
+  display: block;
 }
