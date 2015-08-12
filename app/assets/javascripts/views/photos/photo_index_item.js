@@ -7,5 +7,11 @@ Bickr.Views.PhotoIndexItem = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ photo: this.model }));
+    var image = $.cloudinary.image(this.model.get('public_id'), {
+      width: 200,
+      height: 200,
+      crop: 'fill'
+    });
+    this.$('.photo').append(image);
   },
 });

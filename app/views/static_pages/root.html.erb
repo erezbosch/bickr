@@ -2,6 +2,14 @@
 
 <script type="text/javascript">
   $(function () {
+    window.CLOUDINARY_OPTIONS = {
+      cloud_name: "<%= ENV['CLOUD_NAME'] %>",
+      upload_preset: "<%= ENV['UPLOAD_PRESET'] %>",
+    };
+    $.cloudinary.config({
+      cloud_name: "<%= ENV['CLOUD_NAME'] %>",
+      api_key: "<%= ENV['CLOUD_API_KEY'] %>",
+    });
     Bickr.initialize();
   });
 </script>
