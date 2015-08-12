@@ -2,10 +2,11 @@
 
 ## Rails
 ### Models
+* Albums
 
 ### Controllers
-Api::AlbumsController (show, create)
-Api::UsersController (albums, show)
+* Api::AlbumsController (show, create)
+* Api::UsersController (show for albums only, show for photos only, show for both)
 
 ### Views
 

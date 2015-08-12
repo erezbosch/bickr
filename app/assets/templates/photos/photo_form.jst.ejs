@@ -14,9 +14,11 @@
          class="form-control">
 
   <label for="photo_caption">Caption</label>
-  <textarea name="photo[caption]"
-            id="photo_caption"
-            class="form-control"><%= photo.escape('caption') %></textarea>
+  <input type="text"
+         name="photo[caption]"
+         id="photo_caption"
+         class="form-control"
+         value="<%= photo.escape('caption') %>">
 
   <button class="submit">Submit</button>
 </form>

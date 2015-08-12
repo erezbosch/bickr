@@ -11,14 +11,17 @@
 
 ## Backbone
 ### Models
+* User
 
 ### Collections
 * Photos
+* Users
 
 ### Views
 * PhotosIndex (composite view, has )
 * PhotoThumbnail
 * PhotoFullsize
+* UsersIndex
 * UserShow (composite view, has PhotosIndex subview)
 
 ## Gems/Libraries
