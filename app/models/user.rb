@@ -29,14 +29,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def follows?(other_user)
-    out_follows.exists?(followee_id: other_user.id)
-  end
-
-  def followed_by?(other_user)
-    in_follows.exists?(follower_id: other_user.id)
-  end
-
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
