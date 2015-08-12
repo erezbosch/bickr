@@ -10,8 +10,8 @@ It's flickr for pictures of arguments! It's built on Rails and Backbone! Users c
 - [x] Upload photos
 - [x] View photos
 - [ ] Create albums
-- [ ] Follow other users
-- [ ] View a photostream of followed users' photos
+- [x] Follow other users
+- [x] View a photostream of followed users' photos
 - [ ] Tag photos
 - [ ] Search for photos by tag / albums by title
 
