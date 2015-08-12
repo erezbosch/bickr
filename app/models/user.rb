@@ -22,6 +22,13 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  def out_follows_hash
+    zipped_follows = out_follows.pluck(:followee_id).zip(out_follows)
+    zipped_follows.each_with_object({}) do |(id, follow), hash|
+      hash[id] = follow
+    end
+  end
+
   def follows?(other_user)
     out_follows.exists?(followee_id: other_user.id)
   end

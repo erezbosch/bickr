@@ -1,2 +1,2 @@
 json.(user, :id, :email)
-json.followed current_user.follows?(user)
+json.follow follows_hash[user.id]
