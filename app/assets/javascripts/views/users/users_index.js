@@ -1,5 +1,7 @@
 Bickr.Views.UsersIndex = Backbone.CompositeView.extend({
   template: JST['users/users_index'],
+  tagName: 'table',
+  className: 'table table-striped',
 
   initialize: function (options) {
     this.listenTo(this.collection, 'sync', this.render);

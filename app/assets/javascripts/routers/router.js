@@ -4,6 +4,8 @@ Bickr.Routers.Router = Backbone.Router.extend({
     'api/photos/new': 'photoNew',
     'api/photos/:id/edit': 'photoEdit',
     'api/photos/:id': 'photoShow',
+    'api/users': 'usersIndex',
+    'api/users/:id': 'userShow',
   },
 
   initialize: function (options) {
@@ -35,6 +37,13 @@ Bickr.Routers.Router = Backbone.Router.extend({
 
   photoShow: function (id) {
     var view = new Bickr.Views.PhotoShow({ model: this.photos.getOrFetch(id) });
+    this._swapView(view);
+  },
+
+  usersIndex: function () {
+    var users = new Bickr.Collections.Users();
+    users.fetch();
+    var view = new Bickr.Views.UsersIndex({ collection: users });
     this._swapView(view);
   },
 

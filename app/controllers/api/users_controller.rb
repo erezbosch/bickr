@@ -8,7 +8,9 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @follows_hash = {}
-    @follows_hash[@user.id] = current_user.out_follows.find_by(followee_id: @user.id)
+    @follows_hash[@user.id] = current_user.out_follows.find_by(
+      followee_id: @user.id
+    )
     render :show
   end
 end

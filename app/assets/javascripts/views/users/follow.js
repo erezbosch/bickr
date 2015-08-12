@@ -1,10 +1,12 @@
 Bickr.Views.Follow = Backbone.View.extend({
   template: JST['users/follow'],
 
-  tagName: "button",
-
   events: {
-    "click": "toggleFollow"
+    'click button': 'toggleFollow'
+  },
+
+  initialize: function () {
+    this.listenTo(this.model, 'followtoggle', this.render);
   },
 
   toggleFollow: function (e) {
@@ -14,5 +16,5 @@ Bickr.Views.Follow = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ follow: this.model.follow() }));
-  }
+  },
 });

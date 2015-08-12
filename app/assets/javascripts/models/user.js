@@ -1,6 +1,6 @@
 Bickr.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
-  
+
   follow: function () {
     if (!this._follow) {
       this._follow = new Bickr.Models.Follow();
@@ -15,12 +15,20 @@ Bickr.Models.User = Backbone.Model.extend({
   },
 
   createFollow: function () {
-    this.follow().set();
-    this.follow().save({ 'followee_id': this.id });
+    this.follow().save({ 'followee_id': this.id }, {
+      success: function () {
+        this.trigger('followtoggle');
+      }.bind(this)
+    });
   },
 
   destroyFollow: function () {
-    this.follow().destroy({ success: function (model) { model.unset("id"); } });
+    this.follow().destroy({
+      success: function (model) {
+        model.unset('id');
+        this.trigger('followtoggle');
+      }.bind(this)
+    });
   },
 
   toggleFollow: function () {
