@@ -1,5 +1,5 @@
-Bickr.Views.PhotoIndexItem = Backbone.View.extend({
-  template: JST['photos/photo_index_item'],
+Bickr.Views.PhotoThumbnail = Backbone.View.extend({
+  template: JST['photos/photo_list_item'],
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
@@ -8,9 +8,8 @@ Bickr.Views.PhotoIndexItem = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({ photo: this.model }));
     var image = $.cloudinary.image(this.model.get('public_id'), {
-      width: 250,
       height: 250,
-      crop: 'fill',
+      crop: 'limit',
     });
     this.$('.photo').append(image);
   },

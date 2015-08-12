@@ -4,7 +4,10 @@ Bickr.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.addSubview(
       ".photos-index",
-      new Bickr.Views.PhotosIndex({ collection: this.model.photos() })
+      new Bickr.Views.PhotosIndex({
+        collection: this.model.photos(),
+        thumbnail: true,
+      })
     );
     this.listenTo(this.model, 'sync', this.render);
   },

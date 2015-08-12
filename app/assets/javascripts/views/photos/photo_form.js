@@ -21,21 +21,22 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
   addPhoto: function (e) {
     e.preventDefault();
     var data = this.$('form').serializeJSON().photo;
+    var that = this;
     this.model.save(data, {
       success: function () {
-        this.collection.add(this.model);
+        that.collection.add(that.model);
         Backbone.history.navigate(
-          'api/photos/' + this.model.id,
+          'api/photos/' + that.model.id,
           { trigger: true}
         );
-      }.bind(this),
+      },
 
       error: function (model, response) {
-        this.$('.form-errors').empty();
+        that.$('.form-errors').empty();
         JSON.parse(response.responseText).forEach(function (errorText) {
-          this.$('.form-errors').append('<li>' + errorText + '</li>');
+          that.$('.form-errors').append('<li>' + errorText + '</li>');
         });
-      }.bind(this),
+      },
     });
   },
 
