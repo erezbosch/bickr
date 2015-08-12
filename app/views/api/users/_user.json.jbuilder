@@ -1,2 +1,2 @@
 json.(user, :id, :email)
-json.following current_user.follows?(user)
+json.followed current_user.follows?(user)

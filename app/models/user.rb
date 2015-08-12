@@ -23,11 +23,11 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   def follows?(other_user)
-    followees.includes?(other_user)
+    out_follows.exists?(followee_id: other_user.id)
   end
 
   def followed_by?(other_user)
-    followers.includes?(other_user)
+    in_follows.exists?(follower_id: other_user.id)
   end
 
   def self.find_by_credentials(email, password)
