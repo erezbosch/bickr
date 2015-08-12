@@ -1,14 +1,16 @@
 class Api::PhotosController < ApplicationController
   def index
-    photos = current_user.followee_photos
-                         .order("created_at DESC")
-                         .concat(Photo.recommendations)
-                         .uniq
-    render json: photos
+    @photos = current_user.followee_photos
+                          .includes(:uploader)
+                          .order("photos.created_at DESC")
+                          .concat(Photo.recommendations)
+                          .uniq
+    render :index
   end
 
   def show
-    render json: Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
+    render :show
   end
 
   def create

@@ -3,6 +3,6 @@ class Photo < ActiveRecord::Base
   belongs_to :uploader, foreign_key: :uploader_id, class_name: 'User'
 
   def self.recommendations
-    where(recommended: true).order("created_at DESC")
+    where(recommended: true).includes(:uploader).order("photos.created_at DESC")
   end
 end
