@@ -15,3 +15,90 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+header, header * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  background: #000;
+  color: #fff;
+}
+
+header a, header input {
+  display: block;
+  padding: 10px 20px;
+}
+
+.header-nav {
+  margin: 0 auto;
+  width: 900px;
+}
+
+.header-logo {
+  float: left;
+  font-weight: 700;
+}
+
+.header-logo:hover, .header-list > li:hover {
+  background: #090;
+}
+
+.header-list {
+  float: right;
+}
+
+.header-list > li {
+  float: left;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header-dropdown {
+  position: relative;
+}
+
+.header-options {
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 2px solid #aaa;
+  border-right: 2px solid #aaa;
+  border-bottom: 2px solid #aaa;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+
+li:hover .header-options {
+  display: block;
+}
+
+.header-options > li {
+  border-top: 2px;
+  color: #000;
+}
+
+.header-options > li:hover {
+  background: #eee;
+}
