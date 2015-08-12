@@ -16,10 +16,9 @@
 * Photos
 
 ### Views
-* PhotosIndexFullsize (composite view, has PhotoFullsize subviews)
-* PhotosIndexThumbnail (composite view, has PhotoThumbnail subviews)
+* PhotosIndex (composite view, has )
 * PhotoThumbnail
 * PhotoFullsize
-* UserShow (composite view, has PhotosIndexThumbnail subview)
+* UserShow (composite view, has PhotosIndex subview)
 
 ## Gems/Libraries
