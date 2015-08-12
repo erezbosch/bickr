@@ -18,13 +18,13 @@
           <ul class="dropdown-menu">
             <li><a href="#">Photostream</a></li>
             <li><a href="#">Followed Users</a></li>
-            <li><a href="#">Users</a></li>
+            <li><a href="#/api/users">Users</a></li>
           </ul>
         </li>
         <li><a href="#/api/photos/new">Upload</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="javascript:void(0)">Your Profile</a></li>
+        <li><a href="#/api/users/<%= CURRENT_USER.id %>">Your Profile</a></li>
         <li>
           <a href="/session" data-method="delete" rel="nofollow">Log Out</a>
         </li>
