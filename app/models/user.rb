@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   before_validation :ensure_session_token
 
-  has_many :photos, foreign_key: :uploader_id, dependent: :destroy
   has_many(
     :out_follows,
     foreign_key: :follower_id,
@@ -17,8 +16,11 @@ class User < ActiveRecord::Base
     class_name: 'Follow',
     dependent: :destroy
   )
+  has_many :photos, foreign_key: :uploader_id, dependent: :destroy
   has_many :followees, through: :out_follows, source: :followee
   has_many :followers, through: :in_follows, source: :follower
+  has_many :followee_photos, through: :followees, source: :photos
+  has_many :follower_photos, through: :followers, source: :photos
 
   attr_reader :password
 
