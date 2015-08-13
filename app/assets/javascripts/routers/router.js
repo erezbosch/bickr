@@ -26,17 +26,21 @@ Bickr.Routers.Router = Backbone.Router.extend({
   },
 
   photoNew: function () {
+    this.albums.fetch();
     var view = new Bickr.Views.PhotoForm({
       model: new Bickr.Models.Photo(),
       collection: this.photos,
+      albums: this.albums,
      });
     this._swapView(view);
   },
 
   photoEdit: function (id) {
+    this.albums.fetch();
     var view = new Bickr.Views.PhotoForm({
       model: this.photos.getOrFetch(id),
       collection: this.photos,
+      albums: this.albums,
     });
     this._swapView(view);
   },

@@ -21,5 +21,16 @@
          class="form-control"
          value="<%= photo.escape('caption') %>">
 
+  <label for="photo_album_id">Album</label>
+  <select name="photo[album_id]"
+          id="photo_album_id"
+          class="form-control">
+    <% albums.each(function (album) { %>
+      <option value="<%= album.id %>"
+              selected="<%= photo.escape('album_id') === album.id %>">
+        <%= album.escape('title') %>
+      </option>
+    <% }) %>
+  </select>
   <button class="submit">Submit</button>
 </form>

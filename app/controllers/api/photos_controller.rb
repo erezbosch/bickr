@@ -44,7 +44,7 @@ class Api::PhotosController < ApplicationController
       :title,
       :caption,
       :image_url,
-      :public_id,
+      :public_id
     )
   end
 end

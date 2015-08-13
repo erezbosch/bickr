@@ -6,8 +6,9 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
     'click .upload': 'upload',
   },
 
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
+    this.albums = options.albums;
   },
 
   upload: function (e) {
@@ -47,6 +48,6 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ photo: this.model }));
+    this.$el.html(this.template({ photo: this.model, albums: this.albums }));
   },
 });
