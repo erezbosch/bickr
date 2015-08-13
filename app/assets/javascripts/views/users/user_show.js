@@ -8,7 +8,7 @@ Bickr.Views.UserShow = Backbone.CompositeView.extend({
         collection: this.model.photos(),
         thumbnail: true,
         isSubview: true,
-      });
+      })
     );
     this.listenTo(this.model, 'sync', this.render);
   },

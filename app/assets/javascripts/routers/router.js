@@ -6,12 +6,15 @@ Bickr.Routers.Router = Backbone.Router.extend({
     'api/photos/:id': 'photoShow',
     'api/users': 'usersIndex',
     'api/users/:id': 'userShow',
+    'api/albums': 'albumsIndex',
+    'api/albums/:id': 'albumShow',
   },
 
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.photos = options.photos;
     this.users = options.users;
+    this.albums = options.albums;
   },
 
   photosIndex: function () {
@@ -49,6 +52,11 @@ Bickr.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var view = new Bickr.Views.UserShow({ model: this.users.getOrFetch(id) });
+    this._swapView(view);
+  },
+
+  albumShow: function (id) {
+    var view = new Bickr.Views.AlbumShow({ model: this.albums.getOrFetch(id) });
     this._swapView(view);
   },
 

@@ -8,6 +8,7 @@ window.Bickr = {
       $rootEl: $('#content'),
       photos: new Bickr.Collections.Photos(),
       users: new Bickr.Collections.Users(),
+      albums: new Bickr.Collections.Albums(),
     });
     var nav = new Bickr.Views.Nav();
     nav.render();

@@ -8,13 +8,13 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
         collection: this.model.photos(),
         thumbnail: true,
         isSubview: true,
-      });
+      })
     );
     this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
-    this.$el.html(this.template({ user: this.model }));
+    this.$el.html(this.template({ album: this.model }));
     this.attachSubviews();
   },
 });
