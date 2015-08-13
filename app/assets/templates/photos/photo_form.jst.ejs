@@ -25,7 +25,7 @@
   <select name="photo[album_id]"
           id="photo_album_id"
           class="form-control">
-    <option value=""></option>
+    <option value=""/>
     <% var idStr = photo.escape('album_id') %>
     <% albums.each(function (album) { %>
       <option value="<%= album.id %>"
@@ -34,5 +34,9 @@
       </option>
     <% }) %>
   </select>
+
+  <label for="tags">Tags</label>
+  <div id="tags"/>
+
   <button class="submit">Submit</button>
 </form>
