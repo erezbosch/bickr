@@ -16,12 +16,21 @@
             You <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Photostream</a></li>
-            <li><a href="#">Followed Users</a></li>
-            <li><a href="#/api/users">Users</a></li>
+            <li>
+              <a href="#/api/users/<%= CURRENT_USER.id %>/photostream">
+                Photostream
+              </a>
+            </li>
+            <li>
+              <a href="#/api/users/<%= CURRENT_USER.id %>/albums">
+                Albums
+              </a>
+            </li>
+            <li><a href="#/api/albums/new">Create Album</a></li>
           </ul>
         </li>
         <li><a href="#/api/photos/new">Upload</a></li>
+        <li><a href="#/api/users">Users</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#/api/users/<%= CURRENT_USER.id %>">Your Profile</a></li>

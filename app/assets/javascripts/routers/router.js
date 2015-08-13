@@ -5,8 +5,10 @@ Bickr.Routers.Router = Backbone.Router.extend({
     'api/photos/:id/edit': 'photoEdit',
     'api/photos/:id': 'photoShow',
     'api/users': 'usersIndex',
+    'api/users/:id/albums': 'albumsIndex',
     'api/users/:id': 'userShow',
-    'api/albums': 'albumsIndex',
+    'api/albums/new': 'albumNew',
+    'api/albums/:id/edit': 'albumEdit',
     'api/albums/:id': 'albumShow',
   },
 
@@ -57,6 +59,22 @@ Bickr.Routers.Router = Backbone.Router.extend({
 
   albumShow: function (id) {
     var view = new Bickr.Views.AlbumShow({ model: this.albums.getOrFetch(id) });
+    this._swapView(view);
+  },
+
+  albumNew: function () {
+    var view = new Bickr.Views.AlbumForm({
+      model: new Bickr.Models.Album(),
+      collection: this.albums,
+     });
+    this._swapView(view);
+  },
+
+  albumEdit: function (id) {
+    var view = new Bickr.Views.AlbumForm({
+      model: this.albums.getOrFetch(id),
+      collection: this.albums,
+     });
     this._swapView(view);
   },
 

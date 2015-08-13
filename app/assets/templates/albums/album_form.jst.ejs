@@ -1,0 +1,21 @@
+<h1><%= album.isNew() ? "Create Album" : "Edit Album" %></h1>
+
+<ul class='form-errors'></ul>
+
+<form class="form-group">
+  <label for="album_title">Title</label>
+  <input type="text"
+         name="album[title]"
+         value="<%= album.escape('title') %>"
+         id="album_title"
+         class="form-control">
+
+  <label for="album_description">Description</label>
+  <input type="text"
+         name="album[description]"
+         id="album_description"
+         class="form-control"
+         value="<%= album.escape('description') %>">
+
+  <button class="submit">Submit</button>
+</form>
