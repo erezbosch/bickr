@@ -4,7 +4,7 @@
 ### Models
 
 ### Controllers
-Api::PhotosController (create, destroy, show, update)
+* Api::PhotosController (create, destroy, show, update)
 
 ### Views
 
