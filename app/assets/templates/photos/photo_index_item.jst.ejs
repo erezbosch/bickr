@@ -3,8 +3,5 @@
 </a>
 <p class="photo-li-text">
   <strong><%= photo.escape('title') %></strong>
-  by
-  <a href="#/api/users/<%= photo.escape('uploader_id') %>">
-    <%= photo.escape('uploader_email') %>
-  </a>
+  by <%= photo.escape('uploader_email') %>
 </p>

@@ -36,7 +36,7 @@ div.photo-large-container {
   margin: 0 auto;
 }
 
-div.photo-thumb-container div.photo {
+div.photo-thumb-container {
   position: relative;
 }
 
@@ -44,8 +44,9 @@ div.photo-thumb-container .photo-link + p.photo-li-text {
   color: #fff;
   font-size: 12;
   position: absolute;
-  bottom: 0px;
   text-shadow: 0 0 0.1em black, 0 0 0.2em black;
+  bottom: 0;
+  left: 25px;
   display: none;
 }
 
