@@ -38,6 +38,7 @@ div.photo-large-container {
 
 div.thumb-container {
   position: relative;
+  height: 250px;
 }
 
 div.thumb-container p {
@@ -59,8 +60,9 @@ a.album-link {
 }
 
 .album-placeholder {
-  padding: 40%;
+  padding: 42% 0;
   text-align: center;
   font-size: 16;
   color: black;
+  background: radial-gradient(circle, white, #888);
 }
