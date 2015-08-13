@@ -22,5 +22,7 @@
 * AlbumIndexItem
 * AlbumForm
 * UserShow (composite view, has AlbumsIndex subview and PhotosIndex subview)
+* UserAlbums (composite view, has AlbumsIndex subview)
+* Photostream (composite view, has PhotosIndex subview)
 
 ## Gems/Libraries

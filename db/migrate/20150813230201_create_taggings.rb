@@ -6,7 +6,6 @@ class CreateTaggings < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    remove_index :tags, :label
     add_index :tags, :label, unique: true
     add_index :taggings, [:tag_id, :taggable_id, :taggable_type], unique: true
   end
