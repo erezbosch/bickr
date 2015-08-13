@@ -1,3 +1,6 @@
 <img src="<%= photo.escape('image_url') %>">
 <h2><%= photo.escape('title') %></h2>
+<h3>Uploaded by<a href="#/api/users/<%= photo.escape('uploader_id') %>">
+  <%= photo.escape('uploader_email') %>
+</a></h3>
 <p><%= photo.escape('caption') %></p>

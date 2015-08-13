@@ -2,5 +2,6 @@
   <div class="photo"></div>
 </a>
 <p class="photo-li-text">
-  <strong><%= photo.escape('title') %></strong> <%= photo.escape('caption') %>
+  <strong><%= photo.escape('title') %></strong>
+  by <%= photo.escape('uploader_email') %>
 </p>
