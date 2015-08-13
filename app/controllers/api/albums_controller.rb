@@ -29,6 +29,7 @@ class Api::AlbumsController < ApplicationController
 
   def destroy
     album = Album.find(params[:id])
+    album.photos.each { |photo| photo.update(album_id: nil) }
     album.destroy
     render json: album
   end

@@ -5,4 +5,12 @@
   </a>
 </h2>
 <p><%= album.escape('description') %></p>
+<% if (album.escape('creator_id') === CURRENT_USER.id) { %>
+  <a href="#/api/albums/<%= album.id %>/edit">
+    Edit
+  </a>
+  <a href="javascript:void(0)" class="delete">
+    Delete
+  </a>
+<% } %>
 <div class="photos-index"></div>

@@ -13,6 +13,19 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  events: {
+    'click .delete': 'deleteAlbum',
+  },
+
+  deleteAlbum: function () {
+    this.model.destroy();
+    this.remove();
+    Backbone.history.navigate(
+      '/api/users/' + CURRENT_USER.id + '/albums',
+      { trigger: true }
+    );
+  },
+
   render: function () {
     this.$el.html(this.template({ album: this.model }));
     this.attachSubviews();
