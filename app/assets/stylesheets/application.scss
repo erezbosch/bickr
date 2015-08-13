@@ -40,7 +40,7 @@ div.photo-thumb-container {
   position: relative;
 }
 
-div.photo-thumb-container .photo-link + p.photo-li-text {
+div.photo-thumb-container p.photo-li-text {
   color: #fff;
   font-size: 12;
   position: absolute;
@@ -50,6 +50,6 @@ div.photo-thumb-container .photo-link + p.photo-li-text {
   display: none;
 }
 
-div.photo-thumb-container .photo-link:hover + p.photo-li-text {
+div.photo-thumb-container:hover p.photo-li-text {
   display: block;
 }
