@@ -1,6 +1,6 @@
 Bickr.Views.PhotoThumbnail = Backbone.View.extend({
   template: JST['photos/photo_index_item'],
-  className: 'photo-thumb-container',
+  className: 'thumb-container',
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);

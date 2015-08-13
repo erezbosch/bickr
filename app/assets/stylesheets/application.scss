@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6, p {
   clear: both;
 }
 
-div.photo-thumb-container {
+div.thumb-container {
   display: block;
   float: left;
 }
@@ -36,12 +36,12 @@ div.photo-large-container {
   margin: 0 auto;
 }
 
-div.photo-thumb-container {
+div.thumb-container {
   position: relative;
 }
 
-div.photo-thumb-container p.photo-li-text {
-  color: #fff;
+div.thumb-container p {
+  color: white;
   font-size: 12;
   position: absolute;
   text-shadow: 0 0 0.1em black, 0 0 0.2em black;
@@ -50,6 +50,17 @@ div.photo-thumb-container p.photo-li-text {
   display: none;
 }
 
-div.photo-thumb-container:hover p.photo-li-text {
+div.thumb-container:hover p {
   display: block;
+}
+
+a.album-link {
+  text-decoration: none;
+}
+
+.album-placeholder {
+  padding: 40%;
+  text-align: center;
+  font-size: 16;
+  color: black;
 }
