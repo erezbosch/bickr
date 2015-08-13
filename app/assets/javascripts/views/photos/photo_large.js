@@ -1,5 +1,5 @@
 Bickr.Views.PhotoLarge = Backbone.View.extend({
-  template: JST['photos/photo_list_item'],
+  template: JST['photos/photo_index_item'],
   className: 'photo-li-container',
 
   initialize: function () {

@@ -1,4 +1,8 @@
 <h1 class="index-title"><%= album.escape('title') %></h1>
-<h2 class="album-author">by <%= album.escape('creator_email') %></h2>
+<h2 class="album-author">by
+  <a href="#/api/users/<%= album.escape('creator_id') %>">
+    <%= album.escape('creator_email') %>
+  </a>
+</h2>
 <p><%= album.escape('description') %></p>
 <div class="photos-index"></div>
