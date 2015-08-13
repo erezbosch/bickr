@@ -1,8 +1,8 @@
 class Api::PhotosController < ApplicationController
   def index
     @photos = current_user.followee_photos
+                          .order(id: :desc)
                           .includes(:uploader)
-                          .order("photos.created_at DESC")
                           .concat(Photo.recommendations)
                           .uniq
     render :index

@@ -1,5 +1,5 @@
 Bickr.Views.AlbumsIndex = Backbone.CompositeView.extend({
-  template: JST['photos/albums_index'],
+  template: JST['albums/albums_index'],
 
   initialize: function (options) {
     this.listenTo(this.collection, 'sync', this.render);

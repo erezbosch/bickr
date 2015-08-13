@@ -8,11 +8,13 @@ Bickr.Views.AlbumIndexItem = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ album: this.model }));
-    debugger;
+    // debugger;
     var coverPhotoId = this.model.get('cover_photo_id');
     var coverPhoto, image;
     if (coverPhotoId) {
-      coverPhoto = this.model.photos().getOrFetch(this.model);
+      coverPhoto = this.model.photos().getOrFetch({
+        cover_photo_id: coverPhotoId
+      });
     } else if (this.model.photos().length > 0) {
       coverPhoto = this.model.photos().first();
     }
