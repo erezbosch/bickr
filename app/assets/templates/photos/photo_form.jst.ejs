@@ -25,11 +25,11 @@
   <select name="photo[album_id]"
           id="photo_album_id"
           class="form-control">
-          <% debugger; %>
-    <option value="" selected="<%= !photo.escape('album_id') %>"></option>
+    <option value=""></option>
+    <% var idStr = photo.escape('album_id') %>
     <% albums.each(function (album) { %>
       <option value="<%= album.id %>"
-              selected="<%= photo.escape('album_id') === album.id %>">
+      <%= (idStr.length > 0 && Number(idStr) === album.id) ? "selected" : "" %>>
         <%= album.escape('title') %>
       </option>
     <% }) %>
