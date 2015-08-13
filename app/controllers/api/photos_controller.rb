@@ -33,6 +33,7 @@ class Api::PhotosController < ApplicationController
 
   def destroy
     photo = Photo.find(params[:id])
+    photo.covering_album.update(cover_photo: nil) if photo.covering_album
     photo.destroy
     render json: photo
   end
