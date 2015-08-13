@@ -15,6 +15,13 @@ Bickr.Models.User = Backbone.Model.extend({
     return this._photos;
   },
 
+  albums: function () {
+    if (!this._albums) {
+      this._albums = new Bickr.Collections.Albums();
+    }
+    return this._albums;
+  },
+
   parse: function (payload) {
     if (payload.follow) {
       this.follow().set(payload.follow);
@@ -23,6 +30,10 @@ Bickr.Models.User = Backbone.Model.extend({
     if (payload.photos) {
       this.photos().set(payload.photos);
       delete payload.photos;
+    }
+    if (payload.albums) {
+      this.albums().set(payload.albums);
+      delete payload.albums;
     }
     return payload;
   },

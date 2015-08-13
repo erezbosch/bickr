@@ -17,7 +17,7 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
     } else {
       view = new Bickr.Views.PhotoLarge({ model: photo });
     }
-    this.addSubview('#photos', view);
+    this.addSubview('.photos', view);
   },
 
   render: function () {
@@ -26,6 +26,6 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
   },
 
   removeIndexItem: function (photo) {
-    this.removeModelSubview('#photos', photo);
+    this.removeModelSubview('.photos', photo);
   },
 });
