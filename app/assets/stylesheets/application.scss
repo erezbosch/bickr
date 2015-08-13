@@ -16,22 +16,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h1, h2, h3, h4, h5, h6, p {
+  text-align: center;
+}
+
 .clearfix:after {
   content: "";
   display: block;
   clear: both;
 }
 
-div.photo-li-container {
+div.photo-thumb-container {
   display: block;
   float: left;
 }
 
-div.photo-li-container div.photo {
+div.photo-large-container {
+  display: block;
+  margin: 0 auto;
+}
+
+div.photo-thumb-container div.photo {
   position: relative;
 }
 
-.photo-link + p.photo-li-text {
+div.photo-thumb-container .photo-link + p.photo-li-text {
   color: #fff;
   font-size: 12;
   position: absolute;
@@ -40,6 +49,6 @@ div.photo-li-container div.photo {
   display: none;
 }
 
-.photo-link:hover + p.photo-li-text {
+div.photo-thumb-container .photo-link:hover + p.photo-li-text {
   display: block;
 }
