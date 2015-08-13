@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
   has_many :photos, foreign_key: :uploader_id, dependent: :destroy
-  has_many :followees, through: :out_follows, source: :followee
-  has_many :followers, through: :in_follows, source: :follower
+  has_many :followees, through: :out_follows
+  has_many :followers, through: :in_follows
   has_many :followee_photos, through: :followees, source: :photos
   has_many :follower_photos, through: :followers, source: :photos
 
