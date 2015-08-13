@@ -3,7 +3,11 @@ Bickr.Views.AlbumIndexItem = Backbone.View.extend({
   className: 'thumb-container',
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(
+      this.model,
+      'sync change:title change:cover_photo_id add',
+      this.render
+    );
   },
 
   render: function () {

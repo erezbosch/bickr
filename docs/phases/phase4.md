@@ -5,7 +5,7 @@
 * Albums
 
 ### Controllers
-* Api::AlbumsController (show, create, index)
+* Api::AlbumsController (show, index, create, update, destroy)
 * Api::UsersController (show for albums only, show for photos only, show for both)
 
 ### Views
