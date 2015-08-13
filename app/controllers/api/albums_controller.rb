@@ -1,7 +1,7 @@
 class Api::AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
-    render json: @album, include: :photos
+    render :show
   end
 
   def create

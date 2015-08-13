@@ -1,5 +1,5 @@
-Bickr.Views.UserShow = Backbone.CompositeView.extend({
-  template: JST['users/user_show'],
+Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
+  template: JST['albums/album_show'],
 
   initialize: function () {
     this.addSubview(
