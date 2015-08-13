@@ -24,7 +24,11 @@ class Api::PhotosController < ApplicationController
 
   def update
     photo = Photo.find(params[:id])
-    if photo.update(photo_params)
+    photo_data = photo_params
+    photo_data[:album_id] = nil if photo_data[:album_id].blank?
+    if photo.update(photo_data)
+      puts "**************************************************"
+      p photo
       render json: photo
     else
       render json: photo.errors.full_messages, status: 422
