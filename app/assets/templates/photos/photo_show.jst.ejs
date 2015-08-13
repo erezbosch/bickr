@@ -1,6 +1,15 @@
-<img src="<%= photo.escape('image_url') %>">
-<h2><%= photo.escape('title') %></h2>
-<h3>Uploaded by<a href="#/api/users/<%= photo.escape('uploader_id') %>">
-  <%= photo.escape('uploader_email') %>
-</a></h3>
+<img src="<%= photo.escape('image_url') %>" class="center-block">
+<h1><%= photo.escape('title') %></h1>
+<% if (photo.escape('album_title')) { %>
+  <h2>In
+    <a href="#/api/albums/<%= photo.escape('album_id') %>">
+      <%= photo.escape('album_title') %>
+    </a>
+  </h2>
+<% } %>
+<h3>Uploaded by
+  <a href="#/api/users/<%= photo.escape('uploader_id') %>">
+    <%= photo.escape('uploader_email') %>
+  </a>
+</h3>
 <p><%= photo.escape('caption') %></p>
