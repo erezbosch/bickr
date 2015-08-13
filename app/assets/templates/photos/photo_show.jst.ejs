@@ -13,3 +13,13 @@
   </a>
 </h3>
 <p><%= photo.escape('caption') %></p>
+<p>
+  <% if (photo.escape('uploader_id') === CURRENT_USER.id) { %>
+    <a href="#/api/photos/<%= photo.id %>/edit" class="edit btn btn-primary">
+      Edit
+    </a>
+    <a href="javascript:void(0)" class="delete btn btn-danger">
+      Delete
+    </a>
+  <% } %>
+</p>

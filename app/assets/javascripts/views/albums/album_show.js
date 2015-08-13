@@ -1,6 +1,10 @@
 Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
   template: JST['albums/album_show'],
 
+  events: {
+    'click .delete': 'delete',
+  },
+
   initialize: function () {
     this.addSubview(
       ".photos-index",
@@ -13,11 +17,7 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  events: {
-    'click .delete': 'deleteAlbum',
-  },
-
-  deleteAlbum: function () {
+  delete: function () {
     this.model.destroy();
     this.remove();
     Backbone.history.navigate(
