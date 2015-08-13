@@ -10,6 +10,7 @@ class Api::UsersController < ApplicationController
     @follows_hash = {
       @user.id => current_user.out_follows.find_by(followee_id: @user.id)
     }
+    @show_photos, @show_albums = params[:show_photos], params[:show_albums]
     render :show
   end
 end
