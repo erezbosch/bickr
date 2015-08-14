@@ -1,0 +1,21 @@
+<% if (user.albums().length) { %>
+  <div class="user-albums">
+    <% if (user.get('email') === CURRENT_USER.email) { %>
+      <h1 class="index-title">Your Albums</h1>
+    <% } else { %>
+      <h1 class="index-title"><%= user.escape('email') %>'s Albums</h1>
+    <% } %>
+    <div class="index albums-index"></div>
+  </div>
+<% } %>
+<br>
+<% if (user.photos().length) { %>
+  <div class="photostream">
+    <% if (user.get('email') === CURRENT_USER.email) { %>
+      <h1 class="index-title">Your Photostream</h1>
+    <% } else { %>
+      <h1 class="index-title"><%= user.escape('email') %>'s Photostream</h1>
+    <% } %>
+    <div class="index photos-index"></div>
+  </div>
+<% } %>

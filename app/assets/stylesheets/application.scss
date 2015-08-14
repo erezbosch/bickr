@@ -66,3 +66,11 @@ a.album-link {
   color: black;
   background: radial-gradient(circle, white, #888);
 }
+
+.photostream, .user-albums {
+  width: 100%;
+}
+
+.user-albums {
+  margin-bottom: 250px;
+}
