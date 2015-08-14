@@ -18,6 +18,10 @@ Bickr.Routers.Router = Backbone.Router.extend({
     this.photos = options.photos;
     this.users = options.users;
     this.albums = options.albums;
+
+    this.nav = new Bickr.Views.Nav();
+    this.nav.render();
+    $('#nav').html(this.nav.$el);
   },
 
   photosIndex: function () {

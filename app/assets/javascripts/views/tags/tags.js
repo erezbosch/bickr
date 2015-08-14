@@ -18,8 +18,8 @@ Bickr.Views.Tags = Backbone.View.extend({
     var targetTag = this.collection.find(function (tag) {
       return tag.get('label') === $link.text();
     });
+    // NB we don't want to destroy the tag, just the tagging. Which is done
+    // in rails on form submit.
     this.collection.remove(targetTag);
-    // note we DON'T want to destroy the tag, just the tagging which is done
-    // in rails on form submit
   },
 });
