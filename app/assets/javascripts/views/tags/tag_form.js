@@ -9,10 +9,15 @@ Bickr.Views.TagForm = Backbone.View.extend({
     var keyPressed = String.fromCharCode(e.keyCode);
     if (keyPressed === ",") {
       var tagLabel = this.$('input').val();
-      var tag = new Bickr.Models.Tag({ label: tagLabel });
-      tag.save({ taggable: this.model })
+      var type = this.model instanceof Bickr.Models.Photo ? "Photo" : "Album";
+      var tag = new Bickr.Models.Tag();
+      tag.save({ id: this.model.id, type: type, label: tagLabel }, {
+        success: function () {
+          console.log("What!!");
+        }
+      });
       e.preventDefault();
-      this.$('input').val("");
+      this.$('input').val('');
     }
   },
 
