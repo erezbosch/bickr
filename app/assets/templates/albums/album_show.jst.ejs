@@ -7,7 +7,7 @@
 <p><%= album.escape('description') %></p>
 <p>
   <% album.tags().each(function (tag) { %>
-    <a href="javascript:void(0)" class="tag-link"><%= tag.escape('label') %></a>
+    <%= JST['tags/_tag']({ tag: tag }) %>
   <% }) %>
 </p>
 <p>

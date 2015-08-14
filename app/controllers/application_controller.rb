@@ -28,17 +28,19 @@ class ApplicationController < ActionController::Base
   private
   def handle_tags_data(tagged_item)
     tag_ids = []
-    params[:tags].each do |tag|
-      next if tagged_item.tags.find_by(label: tag['label'])
-      maybe_tag = Tag.find_by(label: tag['label'])
-      if maybe_tag
-        tagged_item.taggings.create!(tag: maybe_tag)
-        tag_ids << maybe_tag.id
-      else
-        tag_ids << tagged_item.tags.create(label: tag['label']).id
+    if params[:tags]
+      params[:tags].each do |tag|
+        next if tagged_item.tags.find_by(label: tag['label'])
+        maybe_tag = Tag.find_by(label: tag['label'])
+        if maybe_tag
+          tagged_item.taggings.create!(tag: maybe_tag)
+          tag_ids << maybe_tag.id
+        else
+          tag_ids << tagged_item.tags.create(label: tag['label']).id
+        end
       end
+      tag_ids += params[:tags].map { |tag| tag['id'] }
     end
-    tag_ids += params[:tags].map { |tag| tag['id'] }
     tagged_item.taggings.where.not(tag_id: tag_ids).destroy_all
   end
 end
