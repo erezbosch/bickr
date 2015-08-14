@@ -1,4 +1,4 @@
-Bickr.Views.AlbumForm = Backbone.View.extend({
+Bickr.Views.AlbumForm = Backbone.CompositeView.extend({
   template: JST['albums/album_form'],
 
   events: {
@@ -7,11 +7,23 @@ Bickr.Views.AlbumForm = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.addSubview(
+      ".tags",
+      new Bickr.Views.Tags({ collection: this.model.tags() })
+    );
+    this.addSubview(
+      ".tag-form",
+      new Bickr.Views.TagForm({ model: this.model })
+    );
   },
 
   addAlbum: function (e) {
     e.preventDefault();
     var data = this.$('form').serializeJSON().album;
+    var tagData = this.model.tags().map(function (tag) {
+       return tag.attributes;
+    });
+    $.extend(data, { tags: tagData });
     var that = this;
     this.model.save(data, {
       success: function () {
@@ -33,5 +45,6 @@ Bickr.Views.AlbumForm = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ album: this.model }));
+    this.attachSubviews();
   },
 });

@@ -6,6 +6,11 @@
 </h2>
 <p><%= album.escape('description') %></p>
 <p>
+  <% album.tags().each(function (tag) { %>
+    <a href="javascript:void(0)" class="tag-link"><%= tag.escape('label') %></a>
+  <% }) %>
+</p>
+<p>
   <% if (album.escape('creator_id') === CURRENT_USER.id) { %>
     <a href="#/api/albums/<%= album.id %>/edit" class="edit btn btn-primary">
       Edit

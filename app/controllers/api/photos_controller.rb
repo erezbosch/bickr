@@ -14,24 +14,24 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-    @photo = current_user.photos.new(photo_params)
-    if @photo.save
-      handle_tags_data(@photo)
-      render json: @photo
+    photo = current_user.photos.new(photo_params)
+    if photo.save
+      handle_tags_data(photo)
+      render json: photo
     else
-      render json: @photo.errors.full_messages, status: 422
+      render json: photo.errors.full_messages, status: 422
     end
   end
 
   def update
-    @photo = Photo.find(params[:id])
+    photo = Photo.find(params[:id])
     photo_data = photo_params
     photo_data[:album_id] = nil if photo_data[:album_id].blank?
-    if @photo.update(photo_data)
-      handle_tags_data(@photo)
-      render json: @photo
+    if photo.update(photo_data)
+      handle_tags_data(photo)
+      render json: photo
     else
-      render json: @photo.errors.full_messages, status: 422
+      render json: photo.errors.full_messages, status: 422
     end
   end
 
@@ -51,21 +51,5 @@ class Api::PhotosController < ApplicationController
       :image_url,
       :public_id
     )
-  end
-
-  def handle_tags_data(tagged_item)
-    tag_ids = []
-    params[:tags].each do |tag|
-      next if tagged_item.tags.find_by(label: tag['label'])
-      maybe_tag = Tag.find_by(label: tag['label'])
-      if maybe_tag
-        tagged_item.taggings.create(tag: maybe_tag)
-        tag_ids << maybe_tag.id
-      else
-        tag_ids << tagged_item.tags.create(label: tag['label']).id
-      end
-    end
-    tag_ids += params[:tags].map { |tag| tag['id'] }
-    tagged_item.taggings.where.not(tag_id: tag_ids).destroy_all
   end
 end

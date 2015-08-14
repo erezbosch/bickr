@@ -12,6 +12,7 @@ class Api::AlbumsController < ApplicationController
   def create
     album = current_user.albums.new(album_params)
     if album.save
+      handle_tags_data(album)
       render json: album
     else
       render json: album.errors.full_messages, status: 422
@@ -21,6 +22,7 @@ class Api::AlbumsController < ApplicationController
   def update
     album = Album.find(params[:id])
     if album.update(album_params)
+      handle_tags_data(album)
       render json: album
     else
       render json: album.errors.full_messages, status: 422
