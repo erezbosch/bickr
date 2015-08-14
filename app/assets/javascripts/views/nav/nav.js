@@ -2,12 +2,11 @@ Bickr.Views.Nav = Backbone.CompositeView.extend({
   template: JST['nav/nav'],
   tagName: 'header',
 
-  initialize: function (options) {
+  initialize: function () {
     this.addSubview(
       '.search-form',
-      new Bickr.Views.Search({ router: options.router })
+      new Bickr.Views.Search()
     );
-    this.router = options.router;
   },
 
   render: function () {

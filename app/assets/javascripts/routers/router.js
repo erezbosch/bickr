@@ -20,7 +20,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     this.users = options.users;
     this.albums = options.albums;
 
-    this.nav = new Bickr.Views.Nav({ router: this });
+    this.nav = new Bickr.Views.Nav();
     this.nav.render();
     $('#nav').html(this.nav.$el);
   },

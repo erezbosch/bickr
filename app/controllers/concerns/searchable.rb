@@ -3,12 +3,6 @@ module Searchable
 
   def search(query)
     query = query.squish.split(', ')
-    # tags = Tag.select { |tag| query.any? { |q| tag.label.include? q } }
-    # targets = tags.each_with_object([]) do |tag, targets|
-    #   tag.send("tagged_#{}")
-    #
-    #
-    # #########
     targets = controller_name.classify.constantize.select do |thing|
       query.all? do |query_segment|
         thing.tags.any? do |tag|

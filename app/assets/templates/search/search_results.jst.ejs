@@ -1,4 +1,8 @@
-<h1>Results for <strong><%= this.query %></strong></h1>
+<% var results = this.albums.length + this.photos.length %>
+<h1>
+  <%= results %> <%= results === 1 ? "result" : "results" %>
+  matching <strong><%= this.query %></strong>
+</h1>
 <% if (this.albums.length) { %>
   <div class="user-albums">
     <h1>Albums</h1>
