@@ -1,13 +1,17 @@
 class Api::PhotosController < ApplicationController
   include Searchable
-  
+
   def index
-    @photos = current_user.followee_photos
-                          .order(id: :desc)
-                          .includes(:uploader)
-                          .concat(Photo.recommendations)
-                          .uniq
-    render :index
+    if params[:query]
+      search(params[:query])
+    else
+      @photos = current_user.followee_photos
+                            .order(id: :desc)
+                            .includes(:uploader)
+                            .concat(Photo.recommendations)
+                            .uniq
+      render :index
+    end
   end
 
   def show
