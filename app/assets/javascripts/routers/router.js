@@ -63,7 +63,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
   },
 
   photostream: function (id) {
-    var view = new Bickr.Views.Photostream({
+    var view = new Bickr.Views.photostream({
       model: this.users.getOrFetch(id, { data: { show_photos: true } })
     });
     this._swapView(view);

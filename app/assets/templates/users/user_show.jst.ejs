@@ -1,7 +1,11 @@
 <% if (user.albums().length) { %>
-  <div class="user-albums"><%= JST['users/user_albums']({ user: user }) %></div>
+  <div class="albums-index-container">
+    <%= JST['users/user_albums']({ user: user }) %>
+  </div>
 <% } %>
 <br>
 <% if (user.photos().length) { %>
-  <div class="photostream"><%= JST['users/photostream']({ user: user }) %></div>
+  <div class="photos-index-container">
+    <%= JST['users/photostream']({ user: user }) %>
+  </div>
 <% } %>

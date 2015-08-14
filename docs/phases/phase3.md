@@ -1,4 +1,4 @@
-# Phase 3: Photostream and Landing Page
+# Phase 3: photostream and Landing Page
 
 ## Rails
 ### Models

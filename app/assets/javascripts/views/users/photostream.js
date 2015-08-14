@@ -1,4 +1,4 @@
-Bickr.Views.Photostream = Backbone.CompositeView.extend({
+Bickr.Views.photostream = Backbone.CompositeView.extend({
   template: JST['users/photostream'],
 
   initialize: function () {

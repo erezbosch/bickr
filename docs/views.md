@@ -6,7 +6,7 @@
 ## Landing Page
 ![landing-page]
 
-## Photostream / Album Show
+## photostream / Album Show
 ![photostream-or-album]
 
 ## Photo Show
