@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
   validates :label, presence: true, uniqueness: true
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many(:tagged_photos,
     through: :taggings,
     source: :taggable,

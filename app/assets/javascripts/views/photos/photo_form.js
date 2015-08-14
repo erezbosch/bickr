@@ -8,7 +8,14 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.albums = options.albums;
-    this.addSubview(".tags", new Bickr.Views.TagForm({ model: this.model }));
+    this.addSubview(
+      ".tags",
+      new Bickr.Views.Tags({ collection: this.model.tags() })
+    );
+    this.addSubview(
+      ".tag-form",
+      new Bickr.Views.TagForm({ model: this.model })
+    );
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.albums, 'sync', this.render);
   },
@@ -30,6 +37,10 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
   addPhoto: function (e) {
     e.preventDefault();
     var data = this.$('form').serializeJSON().photo;
+    var tagData = this.model.tags().map(function (tag) {
+       return tag.attributes;
+    });
+    $.extend(data, { tags: tagData });
     var that = this;
     this.model.save(data, {
       success: function () {
