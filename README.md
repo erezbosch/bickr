@@ -40,29 +40,30 @@ phase, users will be able to upload photos and view them.
 [Details][phase-two]
 
 ### Phase 3: photostream and Landing Page (~3 days)
-First, I'll add an API route that displays all of the `current_user`'s uploaded photos.
-Then, I'll add a Backbone collection for photos that fetches from that route, to allow
-the user to view a photostream consisting of all of their uploaded photos.
-I will enable image resizing and have the photostream display
-thumbnail-sized images. I will allow the photos index route to optionally provide
-the `current_user`'s `followee_photos`, as well as `recommended` photos, ordered
-chronologically. This will be the page users see after logging in.
+First, I'll add an API route that displays all of the `current_user`'s uploaded
+photos. Then, I'll add a Backbone collection for photos that fetches from that
+route, to allow the user to view a photostream consisting of all of their
+uploaded photos. I will enable image resizing and have the photostream display
+thumbnail-sized images. I will alter the photos index route so it can optionally
+provide the `current_user`'s `followee_photos`, as well as `recommended` photos,
+ordered chronologically. This will be the page users see after logging in.
 
 [Details][phase-three]
 
 ### Phase 4: Albums (~1 day)
 I'll allow users to create albums and to add photos to their albums on upload or
 while editing the photos. I'll also make a Backbone `AlbumShow` view with a
-`photos` collection that is fetched from that route. I'll modify the UserShow Backbone
-view so that it also displays the user's albums.
+`photos` collection that is fetched from that route. I'll modify the UserShow
+Backbone view so that it also displays the user's albums.
 
 [Details][phase-four]
 
 ### Phase 5: Search (~2 days)
 I'll add `search` routes to both the photos and albums controllers. The search
-results should include photos with the search query as a tag, and albums including the
-query in their title. On the Backbone side, there will be a `SearchResults` composite
-view that has `AlbumsIndex` and `PhotosIndex` subviews which fetch from the `search` routes.
+results should include both photos and albums which have tags/titles matching
+the search parameters. On the Backbone side, there will be a `SearchResults`
+composite view that has `AlbumsIndex` and `PhotosIndex` subviews which fetch
+from the `search` routes.
 
 [Details][phase-five]
 
