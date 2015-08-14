@@ -17,7 +17,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#/api/users/<%= CURRENT_USER.id %>">
+              <a href="#/api/users/<%= CURRENT_USER.id %>/photos">
                 Photostream
               </a>
             </li>
@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#/api/users/<%= CURRENT_USER.id %>">Your Profile</a></li>
         <li>
-          <a href="/session" data-method="delete" rel="nofollow">Log Out</a>
+          <a href="/session" data-method="delete">Log Out</a>
         </li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
