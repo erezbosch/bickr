@@ -11,6 +11,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     'api/albums/new': 'albumNew',
     'api/albums/:id/edit': 'albumEdit',
     'api/albums/:id': 'albumShow',
+    'api/search?q=:string': 'search',
   },
 
   initialize: function (options) {
@@ -19,7 +20,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     this.users = options.users;
     this.albums = options.albums;
 
-    this.nav = new Bickr.Views.Nav();
+    this.nav = new Bickr.Views.Nav({ router: this });
     this.nav.render();
     $('#nav').html(this.nav.$el);
   },
@@ -103,6 +104,10 @@ Bickr.Routers.Router = Backbone.Router.extend({
       collection: this.albums,
     });
     this._swapView(view);
+  },
+
+  search: function (string) {
+    alert(string);
   },
 
   _swapView: function (view) {
