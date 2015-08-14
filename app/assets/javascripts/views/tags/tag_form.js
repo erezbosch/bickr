@@ -9,6 +9,8 @@ Bickr.Views.TagForm = Backbone.View.extend({
     var keyPressed = String.fromCharCode(e.keyCode);
     if (keyPressed === ",") {
       var tagLabel = this.$('input').val();
+      var tag = new Bickr.Models.Tag({ label: tagLabel });
+      tag.save({ taggable: this.model })
       e.preventDefault();
       this.$('input').val("");
     }
