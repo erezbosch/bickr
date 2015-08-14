@@ -5,7 +5,6 @@
 
 ### Controllers
 * Api::TagsController (create, destroy)
-* Api::TaggingsController (ditto)
 * Api::AlbumsController (search)
 * Api::PhotosController (search)
 

@@ -1,4 +1,4 @@
-Bickr.Views.PhotoForm = Backbone.View.extend({
+Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
   template: JST['photos/photo_form'],
 
   events: {
@@ -8,6 +8,7 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.albums = options.albums;
+    this.addSubview(".tags", new Bickr.Views.TagForm({ model: this.model }));
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.albums, 'sync', this.render);
   },
@@ -50,6 +51,7 @@ Bickr.Views.PhotoForm = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ photo: this.model, albums: this.albums }));
+    this.attachSubviews();
     if (this.model.get('public_id')) {
       var image = $.cloudinary.image(this.model.get('public_id'), {
         width: Math.floor(window.innerWidth * (2 / 3)),

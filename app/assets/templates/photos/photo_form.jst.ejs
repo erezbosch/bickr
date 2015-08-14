@@ -35,8 +35,10 @@
     <% }) %>
   </select>
 
-  <label for="tags">Tags</label>
-  <div id="tags"/>
+  <% if (!photo.isNew()) { %>
+    <br>
+    <div class="tags"/>
+  <% } %>
 
   <button class="submit">Submit</button>
 </form>
