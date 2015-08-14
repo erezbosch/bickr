@@ -14,5 +14,5 @@ Bickr.Models.Photo = Backbone.Model.extend({
       delete payload.tags;
     }
     return payload;
-  }
+  },
 });
