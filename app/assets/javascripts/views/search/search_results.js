@@ -2,6 +2,9 @@ Bickr.Views.SearchResults = Backbone.CompositeView.extend({
   template: JST['search/search_results'],
 
   initialize: function (options) {
+    this.query = options.query;
+    this.albums = options.albums;
+    this.photos = options.photos;
     this.addSubview(
       ".albums-index",
       new Bickr.Views.AlbumsIndex({ collection: this.albums })
@@ -14,7 +17,8 @@ Bickr.Views.SearchResults = Backbone.CompositeView.extend({
         isSubview: true,
       })
     );
-    this.query = options.query;
+    this.listenTo(this.albums, 'sync', this.render);
+    this.listenTo(this.photos, 'sync', this.render);
   },
 
   render: function () {

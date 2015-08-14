@@ -1,9 +1,13 @@
 class Api::AlbumsController < ApplicationController
   include Searchable
-  
+
   def index
-    @albums = current_user.albums.order(id: :desc)
-    render :index
+    if params[:query]
+      search(params[:query])
+    else
+      @albums = current_user.albums.order(id: :desc)
+      render :index
+    end
   end
 
   def show

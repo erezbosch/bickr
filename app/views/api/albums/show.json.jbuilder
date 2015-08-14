@@ -1,6 +1,6 @@
-json.(@album, *Album.column_names)
 email = @album.creator.email
-json.photos @album.photos do |photo|
+json.(@album, *Album.column_names)
+json.photos @album.photos.order(id: :desc) do |photo|
   json.(photo, *Photo.column_names)
   json.uploader_email email
 end

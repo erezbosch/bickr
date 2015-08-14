@@ -18,7 +18,7 @@ Bickr.Views.AlbumIndexItem = Backbone.View.extend({
       coverPhoto = this.model.photos().get(coverPhotoId);
     } else if (this.model.photos().length > 0) {
       coverPhoto = this.model.photos().first();
-    } // else => coverPhoto = Placeholder? Store Placeholder data in DB or as global JS object?
+    }
     if (coverPhoto) {
       image = $.cloudinary.image(coverPhoto.get('public_id'), {
         height: 250,

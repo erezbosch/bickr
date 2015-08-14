@@ -1,17 +1,17 @@
 module Searchable
   extend ActiveSupport::Concern
 
-  def search
-    # search_params should be params[:something] -- QS param provided by Bb
+  def search(query)
+    query = query.split(', ')
     targets = controller_name.classify.constantize.select do |thing|
-      search_params.all? do |param|
+      query.all? do |query_segment|
         thing.tags.any? do |tag|
-          tag.label.include? param
+          tag.label.include? query_segment
         end
       end
     end
     instance_variable_set("@#{controller_name}", targets)
 
-    render :index
+    render :search
   end
 end
