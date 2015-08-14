@@ -12,8 +12,29 @@
 <body>
 
 <% if !current_user %>
-  <%= link_to "Log In", new_session_url %>
-  <%= link_to "Sign Up", new_user_url %>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#collapse"
+                aria-expanded="false">
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">Bickr</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="javascript:void(0)">Log in as Guest</a></li>
+          <li class="<%= current_page?(new_session_url) ? 'active' : ''%>">
+            <%= link_to "Log In", new_session_url %>
+          </li>
+          <li class="<%= current_page?(new_user_url) ? 'active' : ''%>">
+            <%= link_to "Sign Up", new_user_url %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <% end %>
 
 <%= yield %>

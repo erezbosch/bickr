@@ -1,6 +1,6 @@
 <% if (user.get('email') === CURRENT_USER.email) { %>
-  <h1 class="index-title">Your photostream</h1>
+  <h1 class="index-title">Your Photostream</h1>
 <% } else { %>
-  <h1 class="index-title"><%= user.escape('email') %>'s photostream</h1>
+  <h1 class="index-title"><%= user.escape('email') %>'s Photostream</h1>
 <% } %>
 <div class="index photos-index"></div>
