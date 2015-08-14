@@ -93,7 +93,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     var view = new Bickr.Views.AlbumForm({
       model: new Bickr.Models.Album(),
       collection: this.albums,
-     });
+    });
     this._swapView(view);
   },
 
@@ -101,7 +101,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     var view = new Bickr.Views.AlbumForm({
       model: this.albums.getOrFetch(id),
       collection: this.albums,
-     });
+    });
     this._swapView(view);
   },
 

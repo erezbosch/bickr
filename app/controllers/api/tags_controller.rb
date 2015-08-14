@@ -1,8 +1,6 @@
 class Api::TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
-    # We should get some weird params here, id and type. Use them to build the
-    # new Tag on the association. constantize is a good method.
     if @tag.save
       render json: @tag
     else

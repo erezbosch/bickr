@@ -1,4 +1,6 @@
 class Api::PhotosController < ApplicationController
+  include Searchable
+  
   def index
     @photos = current_user.followee_photos
                           .order(id: :desc)

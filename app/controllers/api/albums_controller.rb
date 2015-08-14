@@ -1,4 +1,6 @@
 class Api::AlbumsController < ApplicationController
+  include Searchable
+  
   def index
     @albums = current_user.albums.order(id: :desc)
     render :index
