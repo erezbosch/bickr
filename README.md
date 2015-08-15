@@ -68,7 +68,7 @@ from the `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] Downloading photos
+- [x] Downloading photos
 - [x] Drag and drop uploading
 - [ ] Likes and like counts for photos
 - [ ] Comments on photos

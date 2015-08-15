@@ -8,11 +8,7 @@ Bickr.Views.PhotoLarge = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ photo: this.model }));
-    var image = $.cloudinary.image(this.model.get('public_id'), {
-      width: Math.floor(window.innerWidth * (2 / 3)),
-      height: Math.floor(window.innerHeight - 150),
-      crop: 'limit',
-    });
-    this.$('.photo').append(image);
+    this.$('img').css('max-width', window.innerWidth * 5 / 6)
+                 .css('max-height', window.innerHeight - 150);
   },
 });
