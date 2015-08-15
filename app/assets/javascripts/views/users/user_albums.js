@@ -6,6 +6,10 @@ Bickr.Views.UserAlbums = Backbone.CompositeView.extend({
       ".albums-index",
       new Bickr.Views.AlbumsIndex({ collection: this.model.albums() })
     );
+    this.addSubview(
+      ".follow-container",
+      new Bickr.Views.Follow({ model: this.model })
+    );
     this.listenTo(this.model, 'sync', this.render);
   },
 

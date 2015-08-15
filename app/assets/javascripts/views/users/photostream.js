@@ -10,6 +10,10 @@ Bickr.Views.photostream = Backbone.CompositeView.extend({
         isSubview: true,
       })
     );
+    this.addSubview(
+      ".follow-container",
+      new Bickr.Views.Follow({ model: this.model })
+    );
     this.listenTo(this.model, 'sync', this.render);
   },
 

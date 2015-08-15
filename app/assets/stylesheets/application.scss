@@ -105,3 +105,7 @@ form.log > div, form.log > label {
 .log-form-container > h1 {
   margin-top: 0;
 }
+
+.follow-container:not(:first-of-type) {
+  display: none;
+}

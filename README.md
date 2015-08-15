@@ -39,7 +39,7 @@ phase, users will be able to upload photos and view them.
 
 [Details][phase-two]
 
-### Phase 3: photostream and Landing Page (~3 days)
+### Phase 3: Photostream and Landing Page (~3 days)
 First, I'll add an API route that displays all of the `current_user`'s uploaded
 photos. Then, I'll add a Backbone collection for photos that fetches from that
 route, to allow the user to view a photostream consisting of all of their
