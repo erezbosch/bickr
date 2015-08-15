@@ -1,28 +1,38 @@
-<% if flash[:errors] %>
-  <ul class="errors">
-    <% flash[:errors].each do |error| %>
-      <li class="error"><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1 class="log"><%= action_url == users_url ? 'Sign Up' : 'Log In' %></h1>
 
-<form action="<%= action_url %>" method="post" class="form-group">
-  <input type="hidden"
-         name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+      <% if flash[:errors] %>
+        <ul class="log-errors">
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-  <label for="user_email">Email</label>
-  <input type="text"
-         name="user[email]"
-         value="<%= user.email %>"
-         id="user_email"
-         class="form-control">
-  <br><br>
-  <label for="user_password">Password</label>
-  <input type="password"
-         name="user[password]"
-         id="user_password"
-         class="form-control">
-  <br><br>
-  <input type="submit">
-</form>
+      <form action="<%= action_url %>" method="post" class="form-group">
+        <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+
+        <label for="user_email">Email</label>
+        <input type="text"
+               name="user[email]"
+               value="<%= user.email %>"
+               id="user_email"
+               class="form-control">
+        <br>
+        <label for="user_password">Password</label>
+        <input type="password"
+               name="user[password]"
+               id="user_password"
+               class="form-control">
+        <br>
+        <input type="submit"
+               class="btn btn-large btn-success"
+               value="<%= action_url == users_url ? 'Sign Up' : 'Log In' %>">
+      </form>
+    </div>
+  </div>
+</div>

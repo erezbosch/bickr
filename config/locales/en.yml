@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: "Email address"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
+            password:
+              too_short: "must have at least six characters"
