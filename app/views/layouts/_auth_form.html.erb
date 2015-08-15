@@ -1,37 +1,45 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <h1 class="log"><%= action_url == users_url ? 'Sign Up' : 'Log In' %></h1>
+    <div class="col-xs-6 col-xs-offset-3 log-form-container">
+      <h1><%= action_url == users_url ? 'Sign Up' : 'Log In' %></h1>
 
       <% if flash[:errors] %>
         <ul class="log-errors">
           <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
+            <li><%= error %>!</li>
           <% end %>
         </ul>
       <% end %>
 
-      <form action="<%= action_url %>" method="post" class="form-group">
+      <form action="<%= action_url %>"
+            method="post"
+            class="form-group form-horizontal log">
         <input type="hidden"
                name="authenticity_token"
                value="<%= form_authenticity_token %>">
 
-        <label for="user_email">Email</label>
-        <input type="text"
-               name="user[email]"
-               value="<%= user.email %>"
-               id="user_email"
-               class="form-control">
-        <br>
-        <label for="user_password">Password</label>
-        <input type="password"
-               name="user[password]"
-               id="user_password"
-               class="form-control">
-        <br>
-        <input type="submit"
-               class="btn btn-large btn-success"
-               value="<%= action_url == users_url ? 'Sign Up' : 'Log In' %>">
+        <label for="user_email" class="control-label col-xs-2">Email:</label>
+        <div class="col-xs-10">
+          <input type="text"
+                 name="user[email]"
+                 value="<%= user.email %>"
+                 id="user_email"
+                 class="form-control"
+                 placeholder="Email">
+        </div>
+        <label for="user_password" class="control-label col-xs-2">Password:</label>
+        <div class="col-xs-10">
+          <input type="password"
+                 name="user[password]"
+                 id="user_password"
+                 class="form-control"
+                 placeholder="Password">
+        </div>
+        <div class="col-xs-10 col-xs-offset-2">
+          <input type="submit"
+                 class="btn btn-large btn-success"
+                 value="<%= action_url == users_url ? 'Sign Up' : 'Log In' %>">
+        </div>
       </form>
     </div>
   </div>
