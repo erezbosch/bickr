@@ -19,8 +19,8 @@ Bickr.Views.PhotoShow = Backbone.View.extend({
     this.$el.html(this.template({ photo: this.model }));
     if (this.model.get('public_id')) {
       var image = $.cloudinary.image(this.model.get('public_id'), {
-        width: Math.floor(window.innerWidth * (2 / 3)),
-        height: Math.floor(window.innerHeight - 150),
+        width: Math.floor(window.innerWidth * (5 / 6)),
+        height: Math.floor(window.innerHeight - 300),
         crop: 'limit',
       });
       this.$('#photo').append(image);
