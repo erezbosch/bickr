@@ -4,7 +4,7 @@ Bickr.Views.PhotoModal = Backbone.View.extend({
   events: {
     'click .delete': 'delete',
     'click .m-background': 'remove',
-    'click .close': 'removeBtn',
+    'click .close': 'buttonRemove',
   },
 
   initialize: function () {
