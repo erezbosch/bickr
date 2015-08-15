@@ -26,28 +26,9 @@ h1, h2, h3, h4, h5, h6, p {
   clear: both;
 }
 
-div.grid-item {
-  display: block;
-  float: left;
-}
-
 div.photo-large-container {
   display: block;
   margin: 0 auto;
-}
-
-div.grid-item p {
-  color: white;
-  font-size: 12;
-  position: absolute;
-  text-shadow: 0 0 0.1em black, 0 0 0.2em black;
-  bottom: 0;
-  left: 25px;
-  display: none;
-}
-
-div.grid-item:hover p {
-  display: block;
 }
 
 a.album-link {
@@ -145,16 +126,33 @@ ul.form-errors > li {
   background: #ddd;
 }
 
-.grid-sizer, .grid-item {
+.grid-sizer {
   width: 33.333%;
 }
 
-.grid-item {
+div.grid-item {
+  display: block;
   float: left;
   position: relative;
+  max-width: 33.333%;
 }
 
 .grid-item img {
   display: block;
   max-width: 100%;
+  max-height: 250px;
+}
+
+div.grid-item p {
+  color: white;
+  font-size: 12;
+  position: absolute;
+  text-shadow: 0 0 0.1em black, 0 0 0.2em black;
+  bottom: 0;
+  left: 25px;
+  display: none;
+}
+
+div.grid-item:hover p {
+  display: block;
 }
