@@ -1,8 +1,7 @@
 module Likable
   extend ActiveSupport::Concern
-  included { has_many :likes, as: :likable, dependent: :destroy }
-
-  def num_likes
-    likes.length
+  included do
+    has_many :likes, as: :likable, dependent: :destroy
+    has_many :likers, through: :likes, source: :user
   end
 end
