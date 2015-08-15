@@ -16,15 +16,6 @@ Bickr.Views.AlbumsIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template());
     this.attachSubviews();
-    var $masonGrid = this.$('.grid').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      percentPosition: true,
-    });
-
-    this.$('.grid').imagesLoaded().done(function () {
-      $masonGrid.masonry();
-    });
   },
 
   removeIndexItem: function (album) {
