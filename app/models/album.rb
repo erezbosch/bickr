@@ -1,5 +1,6 @@
 class Album < ActiveRecord::Base
   include Taggable
+  include Likable
 
   validates :creator, :title, presence: :true
   validates :cover_photo, inclusion: { in: :photos, allow_blank: true }
