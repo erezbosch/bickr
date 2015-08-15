@@ -19,14 +19,5 @@
       api_key: "<%= ENV['CLOUD_API_KEY'] %>",
     });
     Bickr.initialize();
-    var $masonGrid = this.$('.grid').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      percentPosition: true,
-    });
-
-    this.$('.grid').imagesLoaded().progress(function () {
-      $masonGrid.masonry();
-    });
   });
 </script>
