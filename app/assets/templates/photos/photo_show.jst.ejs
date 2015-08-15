@@ -19,6 +19,11 @@
   <% }) %>
 </p>
 <p>
+  <a href="<%= photo.escape('image_url') %>"
+    class="btn btn-success"
+    download="<%= photo.escape('title')%>">
+    <span class="glyphicon glyphicon-download-alt"></span>
+  </a>
   <% if (photo.escape('uploader_id') === CURRENT_USER.id) { %>
     <a href="#/api/photos/<%= photo.id %>/edit" class="edit btn btn-primary">
       Edit
