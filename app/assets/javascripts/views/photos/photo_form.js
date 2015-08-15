@@ -46,6 +46,7 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     });
     $.extend(data, { tags: tagData });
     var that = this;
+    
     this.model.save(data, {
       success: function () {
         that.collection.add(that.model);
