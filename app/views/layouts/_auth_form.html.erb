@@ -4,7 +4,7 @@
       <h1><%= action_url == users_url ? 'Sign Up' : 'Log In' %></h1>
 
       <% if flash[:errors] %>
-        <ul class="log-errors">
+        <ul class="form-errors">
           <% flash[:errors].each do |error| %>
             <li><%= error %>!</li>
           <% end %>

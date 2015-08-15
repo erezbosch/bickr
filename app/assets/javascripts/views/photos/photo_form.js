@@ -26,8 +26,8 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
       var data = result[0];
       this.model.set({ image_url: data.url, public_id: data.public_id });
       var image = $.cloudinary.image(data.public_id, {
-        width: Math.floor(window.innerWidth * (2 / 3)),
-        height: Math.floor(window.innerHeight - 150),
+        width: Math.floor(window.innerWidth * (1 / 3)),
+        height: Math.floor(window.innerHeight - 450),
         crop: 'limit',
       });
       this.$('#preview').append(image);

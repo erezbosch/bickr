@@ -79,11 +79,11 @@ form .tags a.tag-link:hover {
   text-decoration: line-through;
 }
 
-ul.log-errors {
+ul.form-errors {
   padding-left: 0;
 }
 
-ul.log-errors > li {
+ul.form-errors > li {
   color: #800;
   font-size: 20;
   font-style: oblique;
@@ -135,4 +135,8 @@ form.log > div, form.log > label {
   border-radius: 20px;
   margin: auto;
   display: table;
+}
+
+.tags-container {
+  border: 0;
 }

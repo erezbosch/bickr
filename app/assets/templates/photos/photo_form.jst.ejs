@@ -2,52 +2,59 @@
 
 <ul class='form-errors'></ul>
 
-<form class="form-group form-horizontal">
-  <div id="preview"></div>
-  <button class="upload">Upload Image</button>
-  <br>
+<div class="col-xs-6 col-xs-offset-3">
+  <form class="form-group form-horizontal">
+    <div id="preview" class="text-center"></div>
+    <button class="upload btn btn-large btn-primary center-block">
+      Upload Image <span class="glyphicon glyphicon-camera"></span>
+    </button>
+    <br>
 
-  <label for="photo_title" class="control-label col-xs-2">Title</label>
-  <div class="col-xs-10">
-    <input type="text"
-           name="photo[title]"
-           value="<%= photo.escape('title') %>"
-           id="photo_title"
-           class="form-control"
-           placeholder="Title">
-  </div>
+    <label for="photo_title" class="control-label col-xs-2">Title</label>
+    <div class="col-xs-10">
+      <input type="text"
+             name="photo[title]"
+             value="<%= photo.escape('title') %>"
+             id="photo_title"
+             class="form-control"
+             placeholder="Title">
+    </div>
 
-  <label for="photo_caption" class="control-label col-xs-2">Caption</label>
-  <div class="col-xs-10">
-    <input type="text"
-           name="photo[caption]"
-           id="photo_caption"
-           class="form-control"
-           value="<%= photo.escape('caption') %>"
-           placeholder="Caption">
-  </div>
+    <label for="photo_caption" class="control-label col-xs-2">Caption</label>
+    <div class="col-xs-10">
+      <input type="text"
+             name="photo[caption]"
+             id="photo_caption"
+             class="form-control"
+             value="<%= photo.escape('caption') %>"
+             placeholder="Caption">
+    </div>
 
-  <label for="photo_album_id" class="control-label col-xs-2">Album</label>
-  <div class="col-xs-10">
-    <select name="photo[album_id]"
-            id="photo_album_id"
-            class="form-control">
-      <option value=""/>
-      <% var idStr = photo.escape('album_id') %>
-      <% albums.each(function (album) { %>
-        <option value="<%= album.id %>"
-        <%= (idStr.length > 0 && Number(idStr) === album.id) ? "selected" : "" %>>
-          <%= album.escape('title') %>
-        </option>
-      <% }) %>
-    </select>
-  </div>
+    <label for="photo_album_id" class="control-label col-xs-2">Album</label>
+    <div class="col-xs-10">
+      <select name="photo[album_id]"
+              id="photo_album_id"
+              class="form-control">
+        <option value=""/>
+        <% var idStr = photo.escape('album_id') %>
+        <% albums.each(function (album) { %>
+          <option value="<%= album.id %>"
+          <%= (idStr.length > 0 && Number(idStr) === album.id) ? "selected" : "" %>>
+            <%= album.escape('title') %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
 
-  <br>
-  <div class="tags"/>
+    <br>
+    <label class="control-label col-xs-2">Add Tags</label>
+    <div class="tag-form col-xs-10"/>
 
-  <br>
-  <div class="tag-form"/>
+    <br>
+    <div class="tags"/>
 
-  <button class="submit">Submit</button>
-</form>
+    <div class="col-xs-offset-2 col-xs-10">
+      <button class="submit btn btn-success">Add Photo</button>
+    </div>
+  </form>
+</div>
