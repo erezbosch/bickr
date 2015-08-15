@@ -123,10 +123,16 @@ form.log > div, form.log > label {
 .m-content {
   z-index: 2;
   position: absolute;
-  top: 10%;
-  left: 33%;
+  top: 55px;
+  left: 16.7%;
+  width: 66.7%;
+}
+
+.photo-modal-container {
   background-color: white;
   padding: 1pc;
   border: 2px solid;
   border-radius: 20px;
+  margin: auto;
+  display: table;
 }

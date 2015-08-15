@@ -39,7 +39,7 @@ Bickr.Views.PhotoModal = Backbone.View.extend({
     if (this.model.get('public_id')) {
       var image = $.cloudinary.image(this.model.get('public_id'), {
         width: Math.floor(window.innerWidth * (2 / 3)),
-        height: Math.floor(window.innerHeight - 150),
+        height: Math.floor(window.innerHeight - 350),
         crop: 'limit',
       });
       this.$('#photo').append(image);
