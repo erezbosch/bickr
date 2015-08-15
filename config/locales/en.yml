@@ -25,6 +25,9 @@ en:
     attributes:
       user:
         email: "Email address"
+      photo:
+        public_id: ""
+        image_url: "Image"
     errors:
       models:
         user:
@@ -33,3 +36,9 @@ en:
               blank: "is required"
             password:
               too_short: "must have at least six characters"
+        photo:
+          attributes:
+            public_id:
+              blank: ""
+            image_url:
+              blank: "must be provided"
