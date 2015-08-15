@@ -25,7 +25,7 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       var data = result[0];
       if (this.$('.title-input').val() === "") {
-        this.$('.title-input').val(decodeURI(data.original_filename));
+        this.$('.title-input').val(decodeURIComponent(data.original_filename));
       }
       this.model.set({ image_url: data.url, public_id: data.public_id });
       var image = $.cloudinary.image(data.public_id, {
