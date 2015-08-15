@@ -33,7 +33,11 @@
         <li><a href="#/api/users">Users</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/api/users/<%= CURRENT_USER.id %>">Your Profile</a></li>
+        <li>
+          <a href="#/api/users/<%= CURRENT_USER.id %>">
+            <span class="glyphicon glyphicon-user"></span>
+          </a>
+        </li>
         <li>
           <a href="/session" data-method="delete">Log Out</a>
         </li>
