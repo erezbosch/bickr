@@ -15,6 +15,17 @@ Bickr.Models.Album = Backbone.Model.extend({
     return this._photos;
   },
 
+  like: function () {
+    if (response.like) {
+      this.like().set(response.like);
+    }
+    return response;
+  },
+
+  isLiked: function() {
+    return !this.like().isNew();
+  },
+
   parse: function (payload) {
     if (payload.photos) {
       this.photos().set(payload.photos);
@@ -23,6 +34,10 @@ Bickr.Models.Album = Backbone.Model.extend({
     if (payload.tags) {
       this.tags().set(payload.tags);
       delete payload.tags;
+    }
+    if (payload.like) {
+      this.like().set(payload.like);
+      delete payload.like;
     }
     return payload;
   },
