@@ -29,7 +29,7 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
       percentPosition: true,
     });
 
-    this.$('.grid').imagesLoaded().progress(function () {
+    this.$('.grid').imagesLoaded().done(function () {
       $masonGrid.masonry();
     });
   },
