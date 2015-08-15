@@ -109,3 +109,24 @@ form.log > div, form.log > label {
 .follow-container:not(:first-of-type) {
   display: none;
 }
+
+.m-background {
+  background: rgba(80, 80, 80, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.m-content {
+  z-index: 2;
+  position: absolute;
+  top: 10%;
+  left: 33%;
+  background-color: white;
+  padding: 1pc;
+  border: 2px solid;
+  border-radius: 20px;
+}

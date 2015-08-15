@@ -2,8 +2,18 @@ Bickr.Views.PhotoThumbnail = Backbone.View.extend({
   template: JST['photos/photo_index_item'],
   className: 'thumb-container',
 
+  events: {
+    'click': 'viewPhoto',
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  viewPhoto: function () {
+    var modalView = new Bickr.Views.PhotoModal({ model: this.model });
+    $('body').append(modalView.$el);
+    modalView.render();
   },
 
   render: function () {
