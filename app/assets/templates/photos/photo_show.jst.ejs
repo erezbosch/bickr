@@ -9,7 +9,7 @@
 <% } %>
 <h3>Uploaded by
   <a href="#/api/users/<%= photo.escape('uploader_id') %>">
-    <%= Number(photo.get('uploader_id')) === CURRENT_USER.id ? 'you' : photo.escape('uploader_email') %>
+    <%= photo.get('uploader_id') === Number(CURRENT_USER.id) ? 'you' : photo.escape('uploader_email') %>
   </a>
 </h3>
 <p><%= photo.escape('caption') %></p>
