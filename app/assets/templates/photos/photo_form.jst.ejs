@@ -54,7 +54,9 @@
     <div class="tags"/>
 
     <div class="col-xs-offset-2 col-xs-10">
-      <button class="submit btn btn-success">Add Photo</button>
+      <button class="submit btn btn-success">
+        <%= photo.isNew() ? "Add Photo" : "Edit Photo" %>
+      </button>
     </div>
   </form>
 </div>

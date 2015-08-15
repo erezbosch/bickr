@@ -2,9 +2,7 @@
 <div class="col-xs-10">
   <div class="form-control tags-container">
     <% tags.each(function (tag) { %>
-      <a href="javascript:void(0)" class="tag-link">
-        <%= tag.escape('label') %>
-      </a>
+      <a href="javascript:void(0)" class="tag-link"><%= tag.escape('label') %></a>
     <% }) %>
   </div>
 </div>
