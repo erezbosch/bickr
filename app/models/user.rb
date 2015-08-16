@@ -2,9 +2,11 @@ class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  
   before_validation :ensure_session_token
-  has_many :albums, foreign_key: :creator_id, class_name: 'Album'
 
+  has_many :albums, foreign_key: :creator_id, class_name: 'Album'
+  has_many :likes
   has_many(
     :out_follows,
     foreign_key: :follower_id,

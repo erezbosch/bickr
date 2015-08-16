@@ -1,5 +1,6 @@
 Bickr.Views.Like = Backbone.View.extend({
   template: JST['likes/like'],
+  tagName: 'span',
 
   events: {
     'click button': 'toggleLike',

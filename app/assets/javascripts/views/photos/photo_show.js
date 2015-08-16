@@ -1,4 +1,4 @@
-Bickr.Views.PhotoShow = Backbone.View.extend({
+Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
   template: JST['photos/photo_show'],
 
   events: {
@@ -7,6 +7,10 @@ Bickr.Views.PhotoShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.addSubview(
+      '.like-container',
+      new Bickr.Views.Like({ model: this.model })
+    );
   },
 
   delete: function () {
@@ -25,5 +29,6 @@ Bickr.Views.PhotoShow = Backbone.View.extend({
       });
       this.$('#photo').append(image);
     }
+    this.attachSubviews();
   },
 });

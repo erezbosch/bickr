@@ -1,13 +1,13 @@
 <div id="photo" class="text-center"/>
-<h1><%= photo.escape('title') %></h1>
-<% if (photo.escape('album_title')) { %>
-  <h2>In
+<h2><%= photo.escape('title') %></h2>
+<h3>
+  <% if (photo.escape('album_title')) { %>
+    in
     <a href="#/api/albums/<%= photo.escape('album_id') %>">
       <%= photo.escape('album_title') %>
     </a>
-  </h2>
-<% } %>
-<h3>Uploaded by
+  <% } %>
+  uploaded by
   <a href="#/api/users/<%= photo.escape('uploader_id') %>">
     <%= photo.get('uploader_id') === Number(CURRENT_USER.id) ? 'you' : photo.escape('uploader_email') %>
   </a>
@@ -18,13 +18,15 @@
     <%= JST['tags/_tag']({ tag: tag }) %>
   <% }) %>
 </p>
-<p>
+<p class="options">
+  <span class="like-container"/>
   <a href="<%= photo.escape('image_url') %>"
     class="btn btn-success"
     download="<%= photo.escape('title')%>">
     <span class="glyphicon glyphicon-download-alt"></span>
   </a>
   <% if (photo.escape('uploader_id') === CURRENT_USER.id) { %>
+    <br>
     <a href="#/api/photos/<%= photo.id %>/edit" class="edit btn btn-primary">
       Edit
     </a>
