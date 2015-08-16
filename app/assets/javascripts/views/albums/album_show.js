@@ -14,6 +14,10 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
         isSubview: true,
       })
     );
+    this.addSubview(
+      '.like-container',
+      new Bickr.Views.Like({ model: this.model })
+    );
     this.listenTo(this.model, 'sync', this.render);
   },
 

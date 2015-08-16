@@ -16,10 +16,10 @@ Bickr.Models.Album = Backbone.Model.extend({
   },
 
   like: function () {
-    if (response.like) {
-      this.like().set(response.like);
+    if (!this._like) {
+      this._like = new Bickr.Models.Like();
     }
-    return response;
+    return this._like;
   },
 
   isLiked: function() {

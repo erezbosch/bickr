@@ -1,5 +1,5 @@
-<h1 class="index-title"><%= album.escape('title') %></h1>
-<h2 class="album-author">by
+<h2 class="index-title"><%= album.escape('title') %>
+  by
   <a href="#/api/users/<%= album.escape('creator_id') %>">
     <%= album.escape('creator_email') %>
   </a>
@@ -11,7 +11,9 @@
   <% }) %>
 </p>
 <p>
+  <span class="like-container"/>
   <% if (album.escape('creator_id') === CURRENT_USER.id) { %>
+    <br><br>
     <a href="#/api/albums/<%= album.id %>/edit" class="edit btn btn-primary">
       Edit
     </a>
