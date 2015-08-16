@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  
+
   before_validation :ensure_session_token
 
   has_many :albums, foreign_key: :creator_id, class_name: 'Album'
@@ -31,6 +31,14 @@ class User < ActiveRecord::Base
     zipped_follows = out_follows.pluck(:followee_id).zip(out_follows)
     zipped_follows.each_with_object({}) do |(id, follow), hash|
       hash[id] = follow
+    end
+  end
+
+  def likes_hash
+    zipped_likes = likes.pluck(:likable_type, :likable_id).zip(likes)
+    zipped_likes.each_with_object({}) do |((type, id), like), hash|
+      hash[type] ||= {}
+      hash[type][id] = like
     end
   end
 

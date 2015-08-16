@@ -70,7 +70,7 @@ from the `search` routes.
 ### Bonus Features (TBD)
 - [x] Downloading photos
 - [x] Drag and drop uploading
-- [ ] Likes and like counts for photos
+- [x] Likes and like counts for photos
 - [ ] Comments on photos
 - [ ] User avatars
 - [ ] Search results are displayed in categories like Your Albums, From People You Follow, Other, etc.
