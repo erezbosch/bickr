@@ -1,1 +1,3 @@
-json.array! @photos, partial: 'photo', likes_hash: @likes_hash, as: :photo
+json.array! @photos do |photo|
+  json.partial! 'photo', photo: photo, likes_hash: @likes_hash
+end
