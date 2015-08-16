@@ -7,4 +7,5 @@ json.array! @albums do |album|
   end
   json.creator_email email
   json.tags album.tags.order(:id)
+  json.like @likes_hash['Album'][album.id]
 end

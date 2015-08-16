@@ -2,6 +2,7 @@ class Api::PhotosController < ApplicationController
   include Searchable
 
   def index
+    @likes_hash = current_user.likes_hash
     if params[:query]
       search(params[:query])
     else
