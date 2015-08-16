@@ -48,8 +48,8 @@ Bickr.Models.User = Backbone.Model.extend({
 
   destroyFollow: function () {
     this.follow().destroy({
-      success: function (model) {
-        model.unset('id');
+      success: function (follow) {
+        follow.unset('id');
         this.trigger('followtoggle');
       }.bind(this)
     });

@@ -24,11 +24,10 @@ Bickr.Models.Photo = Backbone.Model.extend({
       this.tags().set(payload.tags);
       delete payload.tags;
     }
-    return payload;
-
-    if (response.like) {
-      this.like().set(response.like);
+    if (payload.like) {
+      this.like().set(payload.like);
+      delete payload.like;
     }
-    return response;
+    return payload;
   },
 });
