@@ -1,0 +1,6 @@
+<% if (model.like().isNew()) { %>
+  <button class="btn btn-success">LIKE</button>
+<% } else { %>
+  <button class="btn btn-danger">UNLIKE</button>
+<% } %>
+<%= model.escape('numLikes') %>
