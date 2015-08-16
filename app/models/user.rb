@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
 
   def out_follows_hash
     zipped_follows = out_follows.pluck(:followee_id).zip(out_follows)
-    zipped_follows.each_with_object({}) do |(id, follow), hash|
-      hash[id] = follow
+    zipped_follows.each_with_object({}) do |(id, follow), out_follows_hash|
+      out_follows_hash[id] = follow
     end
   end
 

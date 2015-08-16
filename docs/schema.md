@@ -36,11 +36,12 @@ id          | integer   | not null, primary key
 label       | string    | not null, unique
 
 ## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-photo_id    | integer   | not null, foreign key (references photos)
-tag_id      | integer   | not null, foreign key (references tags)
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+taggable_id   | integer   | not null, foreign key (references photos/albums)
+taggable_type | string    | not null (is "Photo"/"Album")
+tag_id        | integer   | not null, foreign key (references tags)
 
 ## follows
 column name | data type | details
