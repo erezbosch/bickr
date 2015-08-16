@@ -36,11 +36,10 @@ class User < ActiveRecord::Base
 
   def likes_hash
     zipped_likes = likes.pluck(:likable_type, :likable_id).zip(likes)
-    likes_hash = Hash.new { {} }
-    zipped_likes.each do |((type, id), like), hash|
+    hash = Hash.new { |h, k| h[k] = {} }
+    zipped_likes.each_with_object(hash) do |((type, id), like), likes_hash|
       likes_hash[type][id] = like
     end
-    likes_hash
   end
 
   def self.find_by_credentials(email, password)

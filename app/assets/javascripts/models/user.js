@@ -28,7 +28,7 @@ Bickr.Models.User = Backbone.Model.extend({
       delete payload.follow;
     }
     if (payload.photos) {
-      this.photos().set(payload.photos);
+      this.photos().set(payload.photos, { parse: true });
       delete payload.photos;
     }
     if (payload.albums) {
