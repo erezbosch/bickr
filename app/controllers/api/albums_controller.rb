@@ -3,6 +3,7 @@ class Api::AlbumsController < ApplicationController
 
   def index
     if params[:query]
+      @likes_hash = current_user.likes_hash
       search(params[:query])
     else
       @albums = current_user.albums.order(id: :desc)
