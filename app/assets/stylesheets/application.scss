@@ -115,16 +115,33 @@ div.grid-item img {
   max-height: 250px;
 }
 
-div.grid-item p {
-  color: white;
-  font-size: 12;
+div.grid-item p, div.grid-item > span {
   position: absolute;
-  text-shadow: 0 0 0.1em black, 0 0 0.2em black;
-  bottom: 0;
-  left: 25px;
   display: none;
 }
 
 div.grid-item:hover p {
   display: block;
+  bottom: 0;
+  left: 25px;
+}
+
+div.grid-item:hover > span {
+  display: block;
+  right: 0;
+  top: 0;
+}
+
+div.grid-item:hover > span button {
+  border-radius: 0 0 0 4px;
+}
+
+div.grid-item:hover > span .badge {
+  background: none;
+}
+
+div.grid-item:hover .badge, div.grid-item:hover p {
+  color: white;
+  font-size: 12;
+  text-shadow: 0 0 0.1em black, 0 0 0.2em black;
 }
