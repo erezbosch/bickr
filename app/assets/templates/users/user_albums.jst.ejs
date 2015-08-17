@@ -2,8 +2,8 @@
   <h1 class="index-title">Your Albums</h1>
 <% } else { %>
   <h1 class="index-title">
-    <div class="follow-container"></div>
     <%= user.escape('email') %>'s Albums
   </h1>
+  <div class="follow-container text-center"></div>
 <% } %>
 <div class="index albums-index"></div>

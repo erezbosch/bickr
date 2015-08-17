@@ -29,7 +29,7 @@ Bickr.Views.Like = Backbone.View.extend({
   unlike: function() {
     this.model.like().destroy({
       success: function (model) {
-        model.unset('id');
+        model.clear();
         this.model.set({ numLikes: this.model.get('numLikes') - 1 });
       }.bind(this),
     });
