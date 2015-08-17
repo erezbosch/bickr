@@ -28,7 +28,10 @@ Bickr.Routers.Router = Backbone.Router.extend({
 
   photosIndex: function () {
     this.photos.fetch();
-    var view = new Bickr.Views.PhotosIndex({ collection: this.photos });
+    var view = new Bickr.Views.PhotosIndex({
+      collection: this.photos,
+      thumbnail: true, 
+    });
     this._swapView(view);
   },
 
