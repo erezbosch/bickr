@@ -2,6 +2,7 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
   template: JST['photos/photos_index'],
 
   initialize: function (options) {
+    this.likes = options.likes;
     this.thumbnail = options.thumbnail;
     this.isSubview = options.isSubview;
     this.listenTo(this.collection, 'sync', this.render);
@@ -13,7 +14,10 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
   addIndexItem: function (photo) {
     var view;
     if (this.thumbnail) {
-      view = new Bickr.Views.PhotoThumbnail({ model: photo });
+      view = new Bickr.Views.PhotoThumbnail({
+        model: photo,
+        likes: this.likes
+      });
     } else {
       view = new Bickr.Views.PhotoLarge({ model: photo });
     }

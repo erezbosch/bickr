@@ -2,6 +2,7 @@ Bickr.Views.AlbumsIndex = Backbone.CompositeView.extend({
   template: JST['albums/albums_index'],
 
   initialize: function (options) {
+    this.likes = options.likes;
     this.listenTo(this.collection, 'sync', this.render);
     this.collection.each(this.addIndexItem.bind(this));
     this.listenTo(this.collection, 'add', this.addIndexItem);
@@ -9,7 +10,10 @@ Bickr.Views.AlbumsIndex = Backbone.CompositeView.extend({
   },
 
   addIndexItem: function (album) {
-    var view = new Bickr.Views.AlbumIndexItem({ model: album });
+    var view = new Bickr.Views.AlbumIndexItem({
+      model: album,
+      likes: this.likes
+    });
     this.addSubview('.albums', view);
   },
 

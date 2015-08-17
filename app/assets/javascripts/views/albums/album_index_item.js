@@ -2,7 +2,7 @@ Bickr.Views.AlbumIndexItem = Backbone.CompositeView.extend({
   template: JST['albums/album_index_item'],
   className: 'grid-item',
 
-  initialize: function () {
+  initialize: function (options) {
     this.addSubview(
       '.like-container',
       new Bickr.Views.Like({ model: this.model })
@@ -12,6 +12,9 @@ Bickr.Views.AlbumIndexItem = Backbone.CompositeView.extend({
       'sync change:title change:cover_photo_id add',
       this.render
     );
+    if (options.likes) {
+      this.listenTo(this.model, 'change:numLikes', this.remove);
+    }
   },
 
   getCoverPhoto: function () {

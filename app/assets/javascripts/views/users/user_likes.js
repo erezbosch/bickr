@@ -6,7 +6,7 @@ Bickr.Views.UserLikes = Backbone.CompositeView.extend({
     this.photos = options.photos;
     this.addSubview(
       ".albums-index",
-      new Bickr.Views.AlbumsIndex({ collection: this.albums })
+      new Bickr.Views.AlbumsIndex({ collection: this.albums, likes: true })
     );
     this.addSubview(
       ".photos-index",
@@ -14,6 +14,7 @@ Bickr.Views.UserLikes = Backbone.CompositeView.extend({
         collection: this.photos,
         thumbnail: true,
         isSubview: true,
+        likes: true
       })
     );
     this.listenTo(this.albums, 'sync', this.render);
