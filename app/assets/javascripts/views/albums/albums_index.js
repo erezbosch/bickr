@@ -20,6 +20,17 @@ Bickr.Views.AlbumsIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template());
     this.attachSubviews();
+    // debugger;
+    // if (this.$('.grid > .grid-item').length) {
+    //   debugger;
+    //   var $grid = this.$('.grid').imagesLoaded(function () {
+    //     $grid.masonry({
+    //       itemSelector: '.grid-item',
+    //       percentPosition: true,
+    //       columnWidth: '.grid-sizer'
+    //     });
+    //   });
+    // }
   },
 
   removeIndexItem: function (album) {

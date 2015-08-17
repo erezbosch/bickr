@@ -27,6 +27,18 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ isSubview: this.isSubview }));
     this.attachSubviews();
+    this.$('.grid').masonry({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      columnWidth: '.grid-sizer'
+    });
+    $grid.imagesLoaded(function () {
+      $grid.masonry({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        columnWidth: '.grid-sizer'
+      });
+    });
   },
 
   removeIndexItem: function (photo) {

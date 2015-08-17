@@ -19,6 +19,9 @@ Bickr.Views.photostream = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ user: this.model }));
+    this.subviews('.photos-index').forEach(function (subview) {
+      subview.render();
+    });
     this.attachSubviews();
   },
 });
