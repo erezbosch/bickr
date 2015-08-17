@@ -1,11 +1,17 @@
+<h1>
+  <%= user.id === Number(CURRENT_USER.id) ? "You" : user.escape('email') %>
+  <div class="follow-container"></div>
+</h1>
 <% if (user.albums().length) { %>
+  <h2>Albums</h2>
   <div class="albums-index-container clearfix">
-    <%= JST['users/user_albums']({ user: user }) %>
+    <div class="index albums-index"></div>
   </div>
 <% } %>
 <br>
 <% if (user.photos().length) { %>
+  <h2>Photos</h2>
   <div class="photos-index-container clearfix">
-    <%= JST['users/photostream']({ user: user }) %>
+    <div class="index photos-index"></div>
   </div>
 <% } %>
