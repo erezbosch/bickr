@@ -1,10 +1,12 @@
-<h2 class="index-title"><%= album.escape('title') %>
+<h3 class="index-title"><%= album.escape('title') %>
+
+</h3>
+<p>
+  <%= album.escape('description') %> &mdash;
   by
   <a href="#/api/users/<%= album.escape('creator_id') %>">
     <%= album.escape('creator_email') %>
   </a>
-</h2>
-<p><%= album.escape('description') %></p>
 <p>
   <% album.tags().each(function (tag) { %>
     <%= JST['tags/_tag']({ tag: tag }) %>

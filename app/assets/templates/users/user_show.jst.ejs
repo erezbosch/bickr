@@ -1,6 +1,10 @@
 <h1>
-  <%= user.id === Number(CURRENT_USER.id) ? "You" : user.escape('email') %>
-  <div class="follow-container"></div>
+  <% if (user.id === Number(CURRENT_USER.id)) { %>
+    You
+  <% } else { %>
+    <%= user.escape('email') %>
+    <div class="follow-container"></div>
+  <% } %>
 </h1>
 <% if (user.albums().length) { %>
   <h2>Albums</h2>
