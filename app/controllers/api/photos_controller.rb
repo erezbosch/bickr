@@ -5,6 +5,9 @@ class Api::PhotosController < ApplicationController
     @likes_hash = current_user.likes_hash
     if params[:query]
       search(params[:query])
+    elsif params[:likes]
+      @photos = current_user.liked_photos.order(id: :desc)
+      render :index
     else
       @photos = current_user.followee_photos
                             .order(id: :desc)

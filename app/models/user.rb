@@ -8,6 +8,18 @@ class User < ActiveRecord::Base
   has_many :albums, foreign_key: :creator_id, class_name: 'Album'
   has_many :likes
   has_many(
+    :liked_photos,
+    through: :likes,
+    source: :likable,
+    source_type: 'Photo'
+  )
+  has_many(
+    :liked_albums,
+    through: :likes,
+    source: :likable,
+    source_type: 'Album'
+  )
+  has_many(
     :out_follows,
     foreign_key: :follower_id,
     class_name: 'Follow',

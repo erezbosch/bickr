@@ -5,6 +5,10 @@ class Api::AlbumsController < ApplicationController
     if params[:query]
       @likes_hash = current_user.likes_hash
       search(params[:query])
+    elsif params[:likes]
+      @likes_hash = current_user.likes_hash
+      @albums = current_user.liked_albums.order(id: :desc)
+      render :index_with_details
     else
       @albums = current_user.albums.order(id: :desc)
       render :index

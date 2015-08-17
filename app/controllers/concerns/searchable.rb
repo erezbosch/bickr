@@ -11,6 +11,6 @@ module Searchable
     end
     instance_variable_set("@#{controller_name}", targets)
 
-    render controller_name == "albums" ? :search : :index
+    render controller_name == "albums" ? :index_with_details : :index
   end
 end
