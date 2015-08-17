@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 log-form-container">
+    <div class="col-xs-6 col-xs-offset-3 form-container log-form-container">
       <h1><%= action_url == users_url ? 'Sign Up' : 'Log In' %></h1>
 
       <% if flash[:errors] %>
@@ -18,8 +18,8 @@
                name="authenticity_token"
                value="<%= form_authenticity_token %>">
 
-        <label for="user_email" class="control-label col-xs-2">Email:</label>
-        <div class="col-xs-10">
+        <label for="user_email" class="control-label col-xs-3">Email:</label>
+        <div class="col-xs-9">
           <input type="text"
                  name="user[email]"
                  value="<%= user.email %>"
@@ -27,15 +27,16 @@
                  class="form-control"
                  placeholder="Email">
         </div>
-        <label for="user_password" class="control-label col-xs-2">Password:</label>
-        <div class="col-xs-10">
+
+        <label for="user_password" class="control-label col-xs-3">Password:</label>
+        <div class="col-xs-9">
           <input type="password"
                  name="user[password]"
                  id="user_password"
                  class="form-control"
                  placeholder="Password">
         </div>
-        <div class="col-xs-10 col-xs-offset-2">
+        <div class="col-xs-9 col-xs-offset-3">
           <input type="submit"
                  class="btn btn-large btn-success"
                  value="<%= action_url == users_url ? 'Sign Up' : 'Log In' %>">

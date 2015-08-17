@@ -46,7 +46,7 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     });
     $.extend(data, { tags: tagData });
     var that = this;
-    
+
     this.model.save(data, {
       success: function () {
         that.collection.add(that.model);
@@ -70,8 +70,8 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     this.attachSubviews();
     if (this.model.get('public_id')) {
       var image = $.cloudinary.image(this.model.get('public_id'), {
-        width: Math.floor(window.innerWidth * (2 / 3)),
-        height: Math.floor(window.innerHeight - 150),
+        width: Math.floor(window.innerWidth * (1 / 2)),
+        height: Math.floor(window.innerHeight - 450),
         crop: 'limit',
       });
       this.$('#preview').append(image);
