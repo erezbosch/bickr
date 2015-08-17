@@ -82,7 +82,7 @@ ul.form-errors > li {
   margin-top: 0;
 }
 
-.follow-container:not(:first-of-type) {
+.clearfix:not(:first-of-type) .follow-container {
   display: none;
 }
 
