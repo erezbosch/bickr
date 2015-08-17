@@ -9,6 +9,25 @@ class Photo < ActiveRecord::Base
   has_one :covering_album, foreign_key: :cover_photo_id, class_name: 'Album'
 
   def self.recommendations
-    where(recommended: true).order(id: :desc).includes(:uploader)
+    sql = <<-SQL
+      SELECT
+        photos.*
+      FROM
+        photos
+      JOIN
+        likes
+      ON
+        likes.likable_id = photos.id
+      WHERE
+        likes.likable_type = 'Photo'
+      GROUP BY
+        photos.id
+      ORDER BY
+        COUNT(likes.id) DESC
+      LIMIT
+        20
+    SQL
+
+    find_by_sql(sql)
   end
 end
