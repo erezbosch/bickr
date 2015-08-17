@@ -15,6 +15,9 @@ Bickr.Views.UserAlbums = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ user: this.model }));
+    this.subviews('.albums-index').forEach(function (subview) {
+      subview.render();
+    });
     this.attachSubviews();
   },
 });

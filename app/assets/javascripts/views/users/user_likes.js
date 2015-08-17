@@ -23,6 +23,12 @@ Bickr.Views.UserLikes = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ albums: this.albums, photos: this.photos, }));
+    this.subviews('.albums-index').forEach(function (subview) {
+      subview.render();
+    });
+    this.subviews('.photos-index').forEach(function (subview) {
+      subview.render();
+    });
     this.attachSubviews();
   },
 });

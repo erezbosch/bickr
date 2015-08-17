@@ -27,6 +27,12 @@ Bickr.Views.SearchResults = Backbone.CompositeView.extend({
       albums: this.albums,
       photos: this.photos,
     }));
+    this.subviews('.albums-index').forEach(function (subview) {
+      subview.render();
+    });
+    this.subviews('.photos-index').forEach(function (subview) {
+      subview.render();
+    });
     this.attachSubviews();
   },
 });
