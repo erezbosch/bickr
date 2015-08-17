@@ -12,6 +12,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     'api/albums/:id/edit': 'albumEdit',
     'api/albums/:id': 'albumShow',
     'api/search?q=:query': 'search',
+    'api/likes': 'likes',
   },
 
   initialize: function (options) {
@@ -115,6 +116,18 @@ Bickr.Routers.Router = Backbone.Router.extend({
       albums: searchAlbums,
       photos: searchPhotos,
       query: query,
+    });
+    this._swapView(view);
+  },
+
+  likes: function () {
+    var likedAlbums = new Bickr.Collections.Albums();
+    var likedPhotos = new Bickr.Collections.Photos();
+    likedAlbums.fetch({ data: { likes: true }});
+    likedPhotos.fetch({ data: { likes: true }});
+    var view = new Bickr.Views.UserLikes({
+      albums: likedAlbums,
+      photos: likedPhotos,
     });
     this._swapView(view);
   },
