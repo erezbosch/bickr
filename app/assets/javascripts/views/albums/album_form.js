@@ -3,6 +3,7 @@ Bickr.Views.AlbumForm = Backbone.CompositeView.extend({
 
   events: {
     'click .submit': 'addAlbum',
+    'click .cancel': 'cancel',
   },
 
   initialize: function () {
@@ -45,6 +46,12 @@ Bickr.Views.AlbumForm = Backbone.CompositeView.extend({
         });
       },
     });
+  },
+
+  cancel: function (e) {
+    e.preventDefault();
+    var destination = this.model.isNew() ? '' : '#/api/albums/' + this.model.id;
+    Backbone.history.navigate(destination, { trigger: true });
   },
 
   render: function () {

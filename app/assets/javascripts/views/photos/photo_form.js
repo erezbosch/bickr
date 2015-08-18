@@ -4,6 +4,7 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
   events: {
     'click .submit': 'addPhoto',
     'click .upload': 'upload',
+    'click .cancel': 'cancel',
   },
 
   initialize: function (options) {
@@ -67,6 +68,12 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
         });
       },
     });
+  },
+
+  cancel: function (e) {
+    e.preventDefault();
+    var destination = this.model.isNew() ? '' : '#/api/photos/' + this.model.id;
+    Backbone.history.navigate(destination, { trigger: true });
   },
 
   render: function () {
