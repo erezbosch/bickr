@@ -11,5 +11,6 @@ window.Bickr = {
       albums: new Bickr.Collections.Albums(),
     });
     Backbone.history.start();
+    $('body').addClass('backbone');
   }
 };

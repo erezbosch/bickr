@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6, p, td {
   text-align: center;
 }
 
+* {
+  color: white;
+}
+
 .clearfix:after {
   content: "";
   display: block;
@@ -113,7 +117,7 @@ div.grid-item {
 div.grid-item img {
   display: block;
   max-width: 100%;
-  border: 2px solid white;
+  border: 2px solid transparent;
 }
 
 div.grid-item p, div.grid-item > span {
@@ -207,10 +211,14 @@ td {
 }
 
 #users {
-  border: 2px solid black;
+  border: 2px solid;
 }
 
 body {
   background-image: image-url("fire.jpg");
   background-size: cover;
+}
+
+body.backbone {
+  background-image: image-url("spider.jpg")
 }
