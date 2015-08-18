@@ -41,6 +41,10 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
   addPhoto: function (e) {
     e.preventDefault();
     var data = this.$('form').serializeJSON().photo;
+    var lastTag = this.$('.tag-form-input').val();
+    if (lastTag && !this.model.tags().where({ label: lastTag }).length) {
+      this.model.tags().add(new Bickr.Models.Tag({ label: lastTag }));
+    }
     var tagData = this.model.tags().map(function (tag) {
        return tag.attributes;
     });
