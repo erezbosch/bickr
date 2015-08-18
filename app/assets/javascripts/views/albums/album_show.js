@@ -6,6 +6,11 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
   },
 
   initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
+    this.addSubview(
+      '.like-container',
+      new Bickr.Views.Like({ model: this.model })
+    );
     this.addSubview(
       ".photos-index",
       new Bickr.Views.PhotosIndex({
@@ -14,11 +19,6 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
         isSubview: true,
       })
     );
-    this.addSubview(
-      '.like-container',
-      new Bickr.Views.Like({ model: this.model })
-    );
-    this.listenTo(this.model, 'sync', this.render);
   },
 
   delete: function () {

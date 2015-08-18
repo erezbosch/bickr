@@ -17,6 +17,7 @@ class Api::AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @likes_hash = current_user.likes_hash
     render :show
   end
 
