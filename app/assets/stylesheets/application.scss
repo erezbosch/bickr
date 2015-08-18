@@ -93,6 +93,14 @@ ul.form-errors > li {
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075);
 }
 
+form .tags .tag-link {
+  color: #66b;
+}
+
+form .tags .tag-link:hover, form .tags .tag-link:focus {
+  color: #449;
+}
+
 // UserShow styles
 .clearfix:not(:first-of-type) .follow-container {
   display: none;
@@ -214,8 +222,8 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    color: #ff6;
-    background-color: #090909;
+  color: #ff6;
+  background-color: #090909;
 }
 
 // UsersIndex styles

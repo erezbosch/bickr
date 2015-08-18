@@ -6,7 +6,9 @@
     <%= album.escape('creator_email') %>
   </a>
 <p>
-  <% album.tags().each(function (tag) { JST['tags/_tag']({ tag: tag }) }) %>
+  <% album.tags().each(function (tag) { %>
+    <%= JST['tags/_tag']({ tag: tag }) %>
+  <% }) %>
 </p>
 <p>
   <span class="like-container"></span>
