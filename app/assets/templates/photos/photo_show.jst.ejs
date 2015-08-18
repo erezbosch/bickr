@@ -13,11 +13,7 @@
     <%= photo.get('uploader_id') === Number(CURRENT_USER.id) ? 'you' : photo.escape('uploader_email') %>
   </a>
 </p>
-<p>
-  <% photo.tags().each(function (tag) { %>
-    <%= JST['tags/_tag']({ tag: tag }) %>
-  <% }) %>
-</p>
+<p><%= JST['tags/_tags']({ tags: photo.tags() }) %></p>
 <p class="photo-options">
   <span class="like-container"></span>
   <a href="<%= photo.escape('image_url') %>"

@@ -5,11 +5,7 @@
   <a href="#/api/users/<%= album.escape('creator_id') %>">
     <%= album.escape('creator_email') %>
   </a>
-<p>
-  <% album.tags().each(function (tag) { %>
-    <%= JST['tags/_tag']({ tag: tag }) %>
-  <% }) %>
-</p>
+<p><%= JST['tags/_tags']({ tags: album.tags() }) %></p>
 <p>
   <span class="like-container"></span>
   <% if (album.escape('creator_id') === CURRENT_USER.id) { %>
