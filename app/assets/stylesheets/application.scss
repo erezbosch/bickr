@@ -31,6 +31,15 @@ h1, h2, h3, h4, h5, h6, p, td {
   clear: both;
 }
 
+body {
+  background-image: image-url("fire.jpg");
+  background-size: cover;
+}
+
+body.backbone {
+  background-image: image-url("spider.jpg");
+}
+
 // PhotoLarge styles
 div.photo-large-container {
   display: block;
@@ -212,13 +221,4 @@ td {
 
 #users {
   border: 2px solid;
-}
-
-body {
-  background-image: image-url("fire.jpg");
-  background-size: cover;
-}
-
-body.backbone {
-  background-image: image-url("spider.jpg")
 }
