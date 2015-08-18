@@ -187,6 +187,19 @@ div.grid-item:hover .badge, div.grid-item:hover p {
   color: #ffa;
 }
 
+.dropdown-menu {
+  background-color: #222;
+}
+
+.dropdown-menu > li > a {
+  color: #f55;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #ff6;
+    background-color: #090909;
+}
+
 // UsersIndex styles
 td {
   width: 25%;
