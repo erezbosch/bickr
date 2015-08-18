@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// General styles
 h1, h2, h3, h4, h5, h6, p, td {
   text-align: center;
 }
@@ -26,30 +27,13 @@ h1, h2, h3, h4, h5, h6, p, td {
   clear: both;
 }
 
+// PhotoLarge styles
 div.photo-large-container {
   display: block;
   margin: 0 auto;
 }
 
-a.album-link {
-  text-decoration: none;
-}
-
-.album-placeholder {
-  padding: 42% 0;
-  text-align: center;
-  font-size: 16;
-  color: black;
-  background: radial-gradient(circle, white, #888);
-  width: 100%;
-  height: 200px;
-  border: 2px solid white;
-}
-
-.photos-index-container, .albums-index-container {
-  width: 100%;
-}
-
+// Form styles
 form .tags a.tag-link:hover {
   text-decoration: line-through;
 }
@@ -84,15 +68,36 @@ ul.form-errors > li {
   margin-top: 0;
 }
 
-.clearfix:not(:first-of-type) .follow-container {
-  display: none;
-}
-
 .tags-container {
   border: 0;
   margin: 0;
   -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075);
+}
+
+// UserShow styles
+.clearfix:not(:first-of-type) .follow-container {
+  display: none;
+}
+
+// AlbumsIndex / PhotosIndex styles
+a.album-link {
+  text-decoration: none;
+}
+
+.album-placeholder {
+  padding: 42% 0;
+  text-align: center;
+  font-size: 16;
+  color: black;
+  background: radial-gradient(circle, white, #888);
+  width: 100%;
+  height: 200px;
+  border: 2px solid white;
+}
+
+.photos-index-container, .albums-index-container {
+  width: 100%;
 }
 
 div.grid-sizer {
@@ -142,8 +147,9 @@ div.grid-item:hover .badge, div.grid-item:hover p {
   text-shadow: 0 0 0.1em black, 0 0 0.2em black;
 }
 
+// Nav styles
 .guest-login {
-  color: #c00;
+  color: #c33;
   background-color: transparent;
   padding: 15px;
   line-height: 20px;
@@ -154,6 +160,7 @@ div.grid-item:hover .badge, div.grid-item:hover p {
   color: #ff6;
 }
 
+// UsersIndex styles
 td {
   width: 25%;
   height: 50px;
