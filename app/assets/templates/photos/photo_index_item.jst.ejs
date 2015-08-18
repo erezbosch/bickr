@@ -1,5 +1,6 @@
 <a href="#/api/photos/<%= photo.id %>" class="photo-link">
-  <img src="<%= photo.escape('image_url') %>" alt="<%= photo.escape('title') %>"/>
+  <img src="<%= photo.escape('image_url') %>"
+       alt="<%= photo.escape('title') %>">
   <p class="photo-caption">
     <strong><%= photo.escape('title') %></strong>
     by <%= photo.escape('uploader_email') %>

@@ -14,12 +14,10 @@
   </a>
 </p>
 <p>
-  <% photo.tags().each(function (tag) { %>
-    <%= JST['tags/_tag']({ tag: tag }) %>
-  <% }) %>
+  <% photo.tags().each(function (tag) {  JST['tags/_tag']({ tag: tag }) }) %>
 </p>
 <p class="photo-options">
-  <span class="like-container"/>
+  <span class="like-container"></span>
   <a href="<%= photo.escape('image_url') %>"
     class="btn btn-success"
     download="<%= photo.escape('title')%>">
