@@ -17,11 +17,6 @@
 @import "bootstrap";
 
 // General styles
-h1, h2, h3, h4, h5, h6, p, td, label {
-  text-align: center;
-  color: white;
-}
-
 a {
   color: #abf;
 }
@@ -37,12 +32,35 @@ a:hover, a:focus {
 }
 
 body {
+  h1, h2, h3, h4, h5, h6, p, td, label {
+    text-align: center;
+    color: gray;
+  }
+
   background-image: image-url("fire.jpg");
   background-size: cover;
 }
 
 body.backbone {
   background-image: image-url("spider.jpg");
+
+  h1, h2, h3, h4, h5, h6, p, td, label {
+    color: white;
+  }
+}
+
+// Login styles
+.new-user-buttons * {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+.new-user-buttons form {
+  padding: 0;
+}
+
+.new-user-buttons a {
 }
 
 // PhotoLarge styles
@@ -178,7 +196,7 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 }
 
 // Nav styles
-.guest-login {
+.navbar-inverse .guest-login {
   color: #f55;
   background-color: transparent;
   padding: 15px;
@@ -187,7 +205,7 @@ div.grid-item:hover .badge, div.grid-item:hover p {
   font-weight: 500;
 }
 
-.guest-login:hover {
+.navbar-inverse .guest-login:hover {
   color: #ff9;
 }
 

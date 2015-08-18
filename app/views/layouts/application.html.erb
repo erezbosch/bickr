@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<% if !current_user %>
+<% if !current_user # special not-logged-in navbar %>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -25,20 +25,7 @@
       <div class="collapse navbar-collapse" id="collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <form action="<%= session_url %>" method="POST">
-              <input type="hidden"
-                     name="user[email]"
-                     value="guest@example.com">
-              <input type="hidden"
-                     name="user[password]"
-                     value="password">
-              <input type="hidden"
-                     name="authenticity_token"
-                     value="<%= form_authenticity_token %>">
-              <input type="submit"
-                     class="guest-login"
-                     value="Log in as Guest">
-            </form>
+            <%= render 'layouts/log_in_as_guest' %>
           </li>
           <li class="<%= current_page?(new_session_url) ? 'active' : ''%>">
             <%= link_to "Log In", new_session_url %>

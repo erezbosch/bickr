@@ -1,1 +1,6 @@
 <%= render 'layouts/auth_form', action_url: session_url, user: @user %>
+<h1>New to Bickr?</h1>
+<div class="new-user-buttons text-center">
+  <a href="<%= new_user_url %>" class="btn btn-large btn-primary">Sign Up</a>
+  <%= render 'layouts/log_in_as_guest' %>
+</div>
