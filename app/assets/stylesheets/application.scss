@@ -149,15 +149,42 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 
 // Nav styles
 .guest-login {
-  color: #c33;
+  color: #f55;
   background-color: transparent;
   padding: 15px;
   line-height: 20px;
   border: 0;
+  font-weight: 500;
 }
 
 .guest-login:hover {
+  color: #ff9;
+}
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+  color: #f55;
+}
+
+.navbar-brand {
+  font-weight: 500;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
   color: #ff6;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+  color: #f97;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+  color: #ffa;
 }
 
 // UsersIndex styles
