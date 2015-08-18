@@ -101,6 +101,10 @@ form .tags .tag-link:hover, form .tags .tag-link:focus {
   color: #449;
 }
 
+form .buttons {
+  margin-top: 5px;
+}
+
 // UserShow styles
 .clearfix:not(:first-of-type) .follow-container {
   display: none;
@@ -119,7 +123,7 @@ a.album-link {
   background: radial-gradient(circle, white, #888);
   width: 100%;
   height: 200px;
-  border: 2px solid white;
+  border: 2px solid transparent;
 }
 
 .photos-index-container, .albums-index-container {
