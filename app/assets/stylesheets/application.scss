@@ -32,13 +32,13 @@ a:hover, a:focus {
 }
 
 body {
-  h1, h2, h3, h4, h5, h6, p, td, label {
-    text-align: center;
-    color: gray;
-  }
-
   background-image: image-url("fire.jpg");
   background-size: cover;
+
+  h1, h2, h3, h4, h5, h6, p, td, label {
+    text-align: center;
+    color: #aaa;
+  }
 }
 
 body.backbone {
@@ -50,17 +50,20 @@ body.backbone {
 }
 
 // Login styles
-.new-user-buttons * {
-  display: inline-block;
-  padding: 10px 15px;
-  font-size: 18px;
+.title-info {
+  margin: 80px auto;
 }
 
-.new-user-buttons form {
-  padding: 0;
-}
+.new-user-buttons {
+  * {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 18px;
+  }
 
-.new-user-buttons a {
+  form {
+    padding: 0;
+  }
 }
 
 // PhotoLarge styles
@@ -76,6 +79,7 @@ form .tags a.tag-link:hover {
 
 ul.form-errors {
   padding-left: 0;
+  background-color: rgba(256, 128, 128, 0.7);
 }
 
 ul.form-errors > li {
@@ -94,10 +98,6 @@ ul.form-errors > li {
   border: 2px solid;
   border-radius: 25px;
   padding: 0;
-}
-
-.log-form-container {
-  margin-top: 100px;
 }
 
 .form-container > h1 {
