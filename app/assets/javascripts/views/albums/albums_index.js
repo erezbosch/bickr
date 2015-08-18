@@ -3,7 +3,7 @@ Bickr.Views.AlbumsIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.likes = options.likes;
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'sync add remove change', this.render);
     this.collection.each(this.addIndexItem.bind(this));
     this.listenTo(this.collection, 'add', this.addIndexItem);
     this.listenTo(this.collection, 'remove', this.removeIndexItem);

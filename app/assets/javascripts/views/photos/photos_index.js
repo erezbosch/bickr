@@ -5,7 +5,7 @@ Bickr.Views.PhotosIndex = Backbone.CompositeView.extend({
     this.likes = options.likes;
     this.thumbnail = options.thumbnail;
     this.isSubview = options.isSubview;
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'sync add remove', this.render);
     this.collection.each(this.addIndexItem.bind(this));
     this.listenTo(this.collection, 'add', this.addIndexItem);
     this.listenTo(this.collection, 'remove', this.removeIndexItem);
