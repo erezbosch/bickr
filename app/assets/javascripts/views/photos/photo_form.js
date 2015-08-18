@@ -27,7 +27,7 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
       if (!result) { return; }
       var data = result[0];
       if (this.$('.title-input').val() === "") {
-        this.$('.title-input').val(decodeURIComponent(data.original_filename));
+        this.$('.title-input').val(this.parseAsTitle(data.original_filename));
       }
       this.model.set({ image_url: data.url, public_id: data.public_id });
       var image = $.cloudinary.image(data.public_id, {
@@ -74,6 +74,14 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     e.preventDefault();
     var destination = this.model.isNew() ? '' : '#/api/photos/' + this.model.id;
     Backbone.history.navigate(destination, { trigger: true });
+  },
+
+  parseAsTitle: function (string) {
+    var title = decodeURIComponent(string).split("");
+    for (var i = 0; i < title.length; i++) {
+      if (title[i] === "_" || title[i] === "-") { title[i] = " "; }
+    }
+    return title.join("");
   },
 
   render: function () {
