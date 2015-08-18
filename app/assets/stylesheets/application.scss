@@ -19,10 +19,15 @@
 // General styles
 h1, h2, h3, h4, h5, h6, p, td {
   text-align: center;
+  color: white;
 }
 
-* {
-  color: white;
+a {
+  color: #abf;
+}
+
+a:hover, a:focus {
+  color: #89d;
 }
 
 .clearfix:after {
