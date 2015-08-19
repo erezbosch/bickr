@@ -1,11 +1,18 @@
-<p>
-  <strong>
-    <a href="#api/users/<%= user.id %>"><%= user.escape("email") %></a>
-  </strong>
+<a href="#api/users/<%= user.id %>">
+  <p>
+    <strong>
+      <%= user.escape("email") %>
+    </strong>
+  </p>
+  <% if (user.escape('avatar_url')) { %>
+    <img src="<%= user.escape('avatar_url') %>"
+         alt="<%= user.escape('email') %>'s Avatar"
+         class="avatar img-circle center-block">
+  <% } %>
+</a>
+<p class="photostream">
+  <a href="#api/users/<%= user.id %>/photos">Photostream</a>
 </p>
-<img src="<%= user.escape('avatar_url') %>"
-     alt="<%= user.escape('email') %>'s Avatar"
-     class="avatar">
-<p><a href="#api/users/<%= user.id %>/photos">Photostream</a></p>
 <p><a href="#api/users/<%= user.id %>/albums">Albums</a></p>
-<div class="<%= user.id != CURRENT_USER.id ? 'follow-cell' : '' %>"></div>
+<div class="<%= user.id != CURRENT_USER.id ? 'follow-cell text-center' : '' %>">
+</div>

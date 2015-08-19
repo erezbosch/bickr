@@ -16,6 +16,15 @@ Bickr.Views.UsersIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template());
     this.attachSubviews();
+    var $grid = this.$('#users');
+    $grid.imagesLoaded(function () {
+      $grid.prepend($('<div>').addClass('grid-sizer'));
+      $grid.masonry({
+        itemSelector: '.user-index-item',
+        percentPosition: true,
+        columnWidth: '.grid-sizer',
+      });
+    });
   },
 
   removeIndexItem: function (user) {

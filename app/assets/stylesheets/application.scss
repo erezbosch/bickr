@@ -17,11 +17,11 @@
 @import "bootstrap";
 
 // General styles
-a {
+a, a p strong {
   color: #abf;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, a:hover p strong, a:focus p strong {
   color: #89d;
 }
 
@@ -255,11 +255,32 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 
 // UsersIndex styles
 #users {
-  border: 0;
+  width: 100%;
+  border-radius: 5px;
+  background: rgba(100, 0, 0, 0.7);
 
-   > tbody > tr > td {
+  .user-index-item {
+    float: left;
+    position: relative;
     width: 25%;
-    height: 50px;
-    border: 0;
+    background: rgba(100, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 20px 0;
+    border-color: transparent;
+    border: 2px;
+
+    p:nth-of-type(2) {
+      margin-top: 10px;
+    }
+
+    strong {
+      font-size: 16px;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 80%;
+    max-height: 300px;
   }
 }
