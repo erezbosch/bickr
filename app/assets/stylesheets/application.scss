@@ -187,6 +187,38 @@ div.photo-large-container {
   margin-left: 20px;
 }
 
+// Albums/Photos tabbing styles
+.nav-pills > li.active {
+  > a, > a:hover, > a:focus {
+    color: #ffa;
+    text-shadow: 0 0 0.12em #ff0;
+    background: none;
+  }
+}
+
+.nav-pills > li {
+  > a {
+    font-size: 24px;
+    color: #f55;
+    background: none;
+  }
+
+  > a:hover, > a:focus {
+    color: #ff6;
+    background: none;
+  }
+}
+
+ // color: #ff9;
+ //
+ // color: #f55;
+ //
+ // color: #ff6;
+ //
+ // color: #f97;
+ //
+ // color: #ffa;
+
 // AlbumsIndex / PhotosIndex styles
 a.album-link {
   text-decoration: none;
