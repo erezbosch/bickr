@@ -21,7 +21,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     this.users = options.users;
     this.albums = options.albums;
 
-    this.nav = new Bickr.Views.Nav();
+    this.nav = new Bickr.Views.Nav({ collection: this.users });
     this.nav.render();
     $('#nav').html(this.nav.$el);
   },
@@ -30,7 +30,7 @@ Bickr.Routers.Router = Backbone.Router.extend({
     this.photos.fetch();
     var view = new Bickr.Views.PhotosIndex({
       collection: this.photos,
-      thumbnail: true, 
+      thumbnail: true,
     });
     this._swapView(view);
   },

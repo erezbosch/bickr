@@ -26,7 +26,6 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       if (!result) { return; }
       var data = result[0];
-      debugger;
       if (this.$('.title-input').val() === "") {
         this.$('.title-input').val(this.parseAsTitle(data.original_filename));
       }
@@ -41,7 +40,8 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
   },
 
   parseAsTitle: function (string) {
-    var title = decodeURIComponent(string).split("");
+    // double decode is necessary because Cloudinary URLsafe-izes filenames
+    var title = decodeURIComponent(decodeURIComponent(string)).split("");
     for (var i = 0; i < title.length; i++) {
       if (title[i] === "_" || title[i] === "-") { title[i] = " "; }
     }
