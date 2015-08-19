@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
   include Taggable
   include Likable
+  include Commentable
 
   validates :uploader, :title, :image_url, :public_id, presence: true
 

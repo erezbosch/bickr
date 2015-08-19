@@ -15,7 +15,7 @@ class Api::CommentsController < ApplicationController
   end
 
   private
-  def follow_params
-    params.require(:comment).permit(:followee_id)
+  def comment_params
+    params.require(:comment).permit(:commentable_id, :commentable_type, :body)
   end
 end
