@@ -1,6 +1,11 @@
-<td><strong>
-  <a href="#api/users/<%= user.id %>"><%= user.escape("email") %></a>
-</strong></td>
-<td><a href="#api/users/<%= user.id %>/photos">Photostream</a></td>
-<td><a href="#api/users/<%= user.id %>/albums">Albums</a></td>
-<td class="<%= user.id != CURRENT_USER.id ? 'follow-cell' : '' %>"></td>
+<p>
+  <strong>
+    <a href="#api/users/<%= user.id %>"><%= user.escape("email") %></a>
+  </strong>
+</p>
+<img src="<%= user.escape('avatar_url') %>"
+     alt="<%= user.escape('email') %>'s Avatar"
+     class="avatar">
+<p><a href="#api/users/<%= user.id %>/photos">Photostream</a></p>
+<p><a href="#api/users/<%= user.id %>/albums">Albums</a></p>
+<div class="<%= user.id != CURRENT_USER.id ? 'follow-cell' : '' %>"></div>

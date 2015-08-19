@@ -1,6 +1,7 @@
 Bickr.Views.UserIndexItem = Backbone.CompositeView.extend({
   template: JST['users/user_index_item'],
-  tagName: 'tr',
+  //tagName: 'tr',
+  className: 'user-index-item',
 
   initialize: function () {
     this.addSubview(
