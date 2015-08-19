@@ -1,4 +1,6 @@
-<div id="photo" class="text-center"/>
+<a href="/photos/<%= photo.escape('id') %>" target="_blank" class="photo-link">
+  <div id="photo" class="text-center"></div>
+</a>
 <h3><%= photo.escape('title') %></h3>
 <p>
   <%= photo.escape('caption') %> &mdash;
