@@ -8,16 +8,20 @@
 <img src="<%= user.escape('avatar_url') %>"
      class="img-circle center-block user-show-avatar"
      alt="<%= user.escape('email') %>'s Avatar">
-<% if (user.albums().length) { %>
-  <h2>Albums</h2>
-  <div class="albums-index-container clearfix">
-    <div class="index albums-index"></div>
-  </div>
-<% } %>
-<br>
-<% if (user.photos().length) { %>
-  <h2>Photos</h2>
-  <div class="photos-index-container clearfix">
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#photos-index-container" data-toggle="tab">Photos</a>
+  </li>
+  <li><a href="#albums-index-container" data-toggle="tab">Albums</a></li>
+</ul>
+<div class="tab-content">
+  <div class="photos-index-container clearfix tab-pane fade in active"
+       id="photos-index-container">
     <div class="index photos-index"></div>
   </div>
-<% } %>
+  <div class="albums-index-container clearfix tab-pane fade"
+       id="albums-index-container">
+    <div class="index albums-index"></div>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 Bickr.Views.UserShow = Backbone.CompositeView.extend({
   template: JST['users/user_show'],
 
+  events: {
+    'click .nav-tabs li:not(.active) a': 'renderTab',
+  },
+
   initialize: function () {
     this.addSubview(
       ".albums-index",
@@ -27,5 +31,10 @@ Bickr.Views.UserShow = Backbone.CompositeView.extend({
       subview.render();
     });
     this.attachSubviews();
+  },
+
+  renderTab: function (e) {
+    var $target = this.$($(e.currentTarget).attr('href'));
+    $target.find('.grid').masonry();
   },
 });
