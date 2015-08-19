@@ -17,11 +17,11 @@
 @import "bootstrap";
 
 // General styles
-a, a p strong {
+a {
   color: #abf;
 }
 
-a:hover, a:focus, a:hover p strong, a:focus p strong {
+a:hover, a:focus {
   color: #89d;
 }
 
@@ -172,7 +172,9 @@ div.grid-item p, div.grid-item > span {
 div.grid-item:hover p {
   display: block;
   bottom: 0;
-  left: 25px;
+  left: 0;
+  margin: 0 5px;
+  width: 100%;
 }
 
 div.grid-item:hover > span {
@@ -276,6 +278,11 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 
     strong {
       font-size: 16px;
+      color: #abf;
+    }
+
+    strong:hover, strong:focus {
+      color: #89d;
     }
   }
 
