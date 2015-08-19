@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
-  has_many :albums, foreign_key: :creator_id, class_name: 'Album'
-  has_many :likes
+  has_many :albums, foreign_key: :creator_id, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many(
     :liked_photos,
     through: :likes,

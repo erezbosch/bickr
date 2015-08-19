@@ -291,7 +291,7 @@ div.grid-item p, div.grid-item > span {
   transition: opacity 0.35s;
 }
 
-div.grid-item:hover img {
+div.grid-item:hover img, div.grid-item:hover .album-placeholder {
   opacity: 0.75;
 }
 
@@ -301,7 +301,7 @@ div.grid-item:hover p {
   opacity: 1;
   bottom: 0;
   left: 0;
-  margin: 0 5px;
+  margin: 0;
   width: 100%;
 }
 
