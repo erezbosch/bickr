@@ -1,9 +1,5 @@
-Bickr.Views.UserShow = Backbone.CompositeView.extend({
+Bickr.Views.UserShow = Backbone.TabView.extend({
   template: JST['users/user_show'],
-
-  events: {
-    'click .nav-pills li:not(.active) a': 'renderTab',
-  },
 
   initialize: function () {
     this.addSubview(
@@ -31,17 +27,5 @@ Bickr.Views.UserShow = Backbone.CompositeView.extend({
       subview.render();
     });
     this.attachSubviews();
-  },
-
-  renderTab: function (e) {
-    if (this.renderedTabs) { return; }
-    // reset layout after allowing opacity transition to occur
-    setTimeout(function () {
-      var $targetGrid = this.$($(e.currentTarget).attr('href')).find('.grid');
-      $targetGrid.imagesLoaded(function() {
-        $targetGrid.masonry('layout');
-      });
-      this.renderedTabs = true;
-    }.bind(this), 200);
   },
 });

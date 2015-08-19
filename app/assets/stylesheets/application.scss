@@ -17,6 +17,10 @@
 @import "bootstrap";
 
 // General styles
+html {
+  overflow-y: scroll;
+}
+
 a {
   color: #abf;
 }
@@ -172,11 +176,6 @@ div.photo-large-container {
   width: 81px;
 }
 
-// UserShow styles
-.clearfix:not(:first-of-type) .follow-container {
-  display: none;
-}
-
 .user-show-avatar {
   max-width: 20%;
   max-height: 20%;
@@ -188,6 +187,10 @@ div.photo-large-container {
 }
 
 // Albums/Photos tabbing styles
+.nav-pills {
+  width: 100%;
+}
+
 .nav-pills > li.active {
   > a, > a:hover, > a:focus {
     color: #ffa;
@@ -208,16 +211,6 @@ div.photo-large-container {
     background: none;
   }
 }
-
- // color: #ff9;
- //
- // color: #f55;
- //
- // color: #ff6;
- //
- // color: #f97;
- //
- // color: #ffa;
 
 // AlbumsIndex / PhotosIndex styles
 a.album-link {

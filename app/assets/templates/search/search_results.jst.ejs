@@ -3,16 +3,24 @@
   <%= results %> <%= results === 1 ? "result" : "results" %>
   matching <strong><%= query %></strong>
 </h1>
-<% if (albums.length) { %>
-  <div class="albums-index-container">
-    <h1>Albums</h1>
-    <div class="albums-index"></div>
+<ul class="nav nav-pills">
+  <li class="active" role="presentation">
+    <a href="#photos-index-container" data-toggle="tab">
+      <%= photos.length %> Photo<%= photos.length === 1 ? "" : "s" %></a>
+  </li>
+  <li role="presentation">
+    <a href="#albums-index-container" data-toggle="tab">
+      <%= albums.length %> Album<%= albums.length === 1 ? "" : "s" %></a>
+    </a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="photos-index-container clearfix tab-pane fade in active"
+       id="photos-index-container">
+    <div class="index photos-index"></div>
   </div>
-<% } %>
-<br>
-<% if (photos.length) { %>
-  <div class="photos-index-container">
-    <h1>Photos</h1>
-    <div class="photos-index"></div>
+  <div class="albums-index-container clearfix tab-pane fade"
+       id="albums-index-container">
+    <div class="index albums-index"></div>
   </div>
-<% } %>
+</div>

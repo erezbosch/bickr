@@ -1,4 +1,4 @@
-Bickr.Views.SearchResults = Backbone.CompositeView.extend({
+Bickr.Views.SearchResults = Backbone.TabView.extend({
   template: JST['search/search_results'],
 
   initialize: function (options) {
