@@ -10,6 +10,7 @@ window.Bickr = {
       users: new Bickr.Collections.Users(),
       albums: new Bickr.Collections.Albums(),
     });
+    $('body').addClass('backbone');
     Backbone.history.start();
   }
 };

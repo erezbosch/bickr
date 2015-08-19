@@ -1,5 +1,6 @@
 Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
   template: JST['photos/photo_show'],
+  className: 'photo-show-container',
 
   events: {
     'click .delete': 'delete',
