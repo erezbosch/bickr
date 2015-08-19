@@ -23,12 +23,18 @@ Bickr.Views.Nav = Backbone.CompositeView.extend({
 
   uploadAvatar: function (e) {
     e.preventDefault();
+    var that = this;
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       if (!result) { return; }
-      var data = result[0];
-      var currentUser = this.collection.getOrFetch(CURRENT_USER.id);
-      currentUser.save({ avatar_url: data.url });
-    }.bind(this));
+      var urlData = result[0].url;
+      var currentUser = that.collection.getOrFetch(CURRENT_USER.id);
+      currentUser.save({ avatar_url: urlData }, {
+        success: function () {
+          CURRENT_USER.avatarUrl = urlData;
+          that.render();
+        }
+      });
+    });
   },
 
   render: function () {

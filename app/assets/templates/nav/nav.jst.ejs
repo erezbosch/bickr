@@ -43,7 +43,13 @@
         <li>
           <a href="#/api/users/<%= CURRENT_USER.id %>">
             <%= CURRENT_USER.email %>
-            <span class="glyphicon glyphicon-user"></span>
+            <% if (CURRENT_USER.avatarUrl) { %>
+              <img src="<%= CURRENT_USER.avatarUrl %>"
+                   alt="Avatar"
+                   class="avatar img-circle">
+            <% } else { %>
+              <span class="glyphicon glyphicon-user"></span>
+            <% } %>
           </a>
         </li>
         <li>
