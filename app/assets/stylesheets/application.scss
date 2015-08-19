@@ -257,19 +257,20 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 #users {
   width: 100%;
   border-radius: 5px;
-  background: rgba(100, 0, 0, 0.7);
 
   .user-index-item {
     float: left;
     position: relative;
     width: 25%;
-    background: rgba(100, 0, 0, 0.7);
+    background: rgba(100, 0, 0, 0.8);
     border-radius: 5px;
     padding: 20px 0;
-    border-color: transparent;
-    border: 2px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+    border: 2px solid transparent;
 
-    p:nth-of-type(2) {
+    a + p {
       margin-top: 10px;
     }
 
