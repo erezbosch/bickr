@@ -14,7 +14,7 @@ class Photo < ActiveRecord::Base
         photos.*
       FROM
         photos
-      JOIN
+      LEFT OUTER JOIN
         likes
       ON
         likes.likable_id = photos.id
