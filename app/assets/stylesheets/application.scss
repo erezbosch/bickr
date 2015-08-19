@@ -32,18 +32,39 @@ a:hover, a:focus {
 }
 
 body {
-  background-image: image-url("fire.jpg");
-  background-size: cover;
-
   h1, h2, h3, h4, h5, h6, p, td, label {
     text-align: center;
     color: #aaa;
   }
+
+  .row {
+    margin: 0;
+  }
+}
+
+body > img {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+div.photo-wrapper + img {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  body > img {
+    left: 50%;
+    margin-left: -512px;
+  }
 }
 
 body.backbone {
-  background-image: image-url("spider.jpg");
-
   h1, h2, h3, h4, h5, h6, p, td, label {
     color: white;
   }
@@ -134,6 +155,11 @@ form .buttons {
 div.photo-large-container {
   display: block;
   margin: 0 auto;
+}
+
+// PhotoShow styles
+#photo > .photo-link {
+  cursor: zoom-in;
 }
 
 // UserShow styles
