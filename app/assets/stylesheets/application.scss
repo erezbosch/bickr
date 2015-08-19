@@ -192,14 +192,43 @@ a.album-link {
   width: 100%;
 }
 
-div.grid-sizer {
-  width: 25%;
+.grid-sizer, .grid-item, .user-index-item {
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 33.3333%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 16.666%;
+  }
 }
 
 div.grid-item {
   float: left;
   position: relative;
-  width: 25%;
 }
 
 div.grid-item img {
@@ -307,7 +336,6 @@ div.grid-item:hover .badge, div.grid-item:hover p {
   .user-index-item {
     float: left;
     position: relative;
-    width: 25%;
     background: rgba(100, 0, 0, 0.8);
     border-radius: 5px;
     padding: 20px 0;
