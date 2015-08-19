@@ -40,6 +40,14 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
+  parseAsTitle: function (string) {
+    var title = decodeURIComponent(string).split("");
+    for (var i = 0; i < title.length; i++) {
+      if (title[i] === "_" || title[i] === "-") { title[i] = " "; }
+    }
+    return title.join("");
+  },
+
   addPhoto: function (e) {
     e.preventDefault();
     var data = this.$('form').serializeJSON().photo;
@@ -75,14 +83,6 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
     e.preventDefault();
     var destination = this.model.isNew() ? '' : '#/api/photos/' + this.model.id;
     Backbone.history.navigate(destination, { trigger: true });
-  },
-
-  parseAsTitle: function (string) {
-    var title = decodeURIComponent(string).split("");
-    for (var i = 0; i < title.length; i++) {
-      if (title[i] === "_" || title[i] === "-") { title[i] = " "; }
-    }
-    return title.join("");
   },
 
   render: function () {

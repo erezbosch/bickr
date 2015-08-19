@@ -249,11 +249,12 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 }
 
 // UsersIndex styles
-td {
-  width: 25%;
-  height: 50px;
-}
-
 #users {
-  border: 2px solid;
+  border: 0;
+
+   > tbody > tr > td {
+    width: 25%;
+    height: 50px;
+    border: 0;
+  }
 }
