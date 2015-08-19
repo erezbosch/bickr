@@ -34,7 +34,13 @@ Bickr.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   renderTab: function (e) {
-    var $target = this.$($(e.currentTarget).attr('href'));
-    $target.find('.grid').masonry();
+    if (this.renderedTabs) { return; }
+    setTimeout(function () {
+      var $targetGrid = this.$($(e.currentTarget).attr('href')).find('.grid');
+      $targetGrid.imagesLoaded(function() {
+        $targetGrid.masonry('layout');
+      });
+      this.renderedTabs = true;
+    }.bind(this), 150);
   },
 });
