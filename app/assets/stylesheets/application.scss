@@ -59,6 +59,7 @@ body.backbone {
     display: inline-block;
     padding: 10px 15px;
     font-size: 18px;
+    vertical-align: middle;
   }
 
   form {
@@ -66,10 +67,16 @@ body.backbone {
   }
 }
 
-// PhotoLarge styles
-div.photo-large-container {
-  display: block;
-  margin: 0 auto;
+.log-form-container {
+  background: rgba(100, 0, 0, 0.5);
+
+  h1, label {
+    color: white;
+  }
+}
+
+.new-user-title {
+  color: white;
 }
 
 // Form styles
@@ -121,6 +128,12 @@ form .tags .tag-link:hover, form .tags .tag-link:focus {
 
 form .buttons {
   margin-top: 5px;
+}
+
+// PhotoLarge styles
+div.photo-large-container {
+  display: block;
+  margin: 0 auto;
 }
 
 // UserShow styles
