@@ -22,12 +22,15 @@ Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ photo: this.model }));
     if (this.model.get('public_id')) {
-      var image = $.cloudinary.image(this.model.get('public_id'), {
+      var $image = $.cloudinary.image(this.model.get('public_id'), {
         width: Math.floor(window.innerWidth * (5 / 6)),
         height: Math.floor(window.innerHeight - 350),
         crop: 'limit',
       });
-      this.$('#photo').append(image);
+      var $link = $('<a>').attr('href', '/photos/' + this.model.id)
+                          .attr('target', '_blank')
+                          .addClass('photo-link');
+      this.$('#photo').append($link.append($image));
     }
     this.attachSubviews();
   },
