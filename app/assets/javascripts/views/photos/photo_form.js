@@ -40,12 +40,18 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
   },
 
   parseAsTitle: function (string) {
-    // double decode is necessary because Cloudinary URLsafe-izes filenames
-    var title = decodeURIComponent(decodeURIComponent(string)).split("");
-    for (var i = 0; i < title.length; i++) {
-      if (title[i] === "_" || title[i] === "-") { title[i] = " "; }
+    // first decode Cloudinary's URLsafe-ized filename
+    var title = decodeURIComponent(string);
+    // avoid URIError which could arise if the string wasn't already
+    try {
+      title = decodeURIComponent(title);
+    } finally {
+      title = title.split("");
+      for (var i = 0; i < title.length; i++) {
+        if (title[i] === "_" || title[i] === "-") { title[i] = " "; }
+      }
+      return title.join("");
     }
-    return title.join("");
   },
 
   addPhoto: function (e) {
