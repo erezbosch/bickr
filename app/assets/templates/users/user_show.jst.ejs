@@ -1,11 +1,13 @@
-<h1>
+<h1 class="user-show-title">
   <% if (user.id === Number(CURRENT_USER.id)) { %>
     You
   <% } else { %>
-    <%= user.escape('email') %>
-    <div class="follow-container"></div>
+    <%= user.escape('email') %><div class="follow-container"></div>
   <% } %>
 </h1>
+<img src="<%= user.escape('avatar_url') %>"
+     class="img-circle center-block user-show-avatar"
+     alt="<%= user.escape('email') %>'s Avatar">
 <% if (user.albums().length) { %>
   <h2>Albums</h2>
   <div class="albums-index-container clearfix">

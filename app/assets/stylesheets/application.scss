@@ -167,9 +167,24 @@ div.photo-large-container {
   cursor: zoom-in;
 }
 
+// Follow styles
+.follow-container button {
+  width: 81px;
+}
+
 // UserShow styles
 .clearfix:not(:first-of-type) .follow-container {
   display: none;
+}
+
+.user-show-avatar {
+  max-width: 20%;
+  max-height: 20%;
+}
+
+.user-show-title div {
+  display: inline-block;
+  margin-left: 20px;
 }
 
 // AlbumsIndex / PhotosIndex styles
