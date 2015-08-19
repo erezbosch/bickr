@@ -57,15 +57,15 @@ body > img {
   z-index: -1;
 }
 
-div.photo-wrapper + img {
-  display: none;
-}
-
 @media screen and (max-width: 1024px) {
   body > img {
     left: 50%;
     margin-left: -512px;
   }
+}
+
+div.photo-wrapper + img {
+  display: none;
 }
 
 body.backbone {
@@ -282,11 +282,23 @@ div.grid-item img {
 
 div.grid-item p, div.grid-item > span {
   position: absolute;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  -moz-transition: opacity 0.35s;
+  -ms-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+div.grid-item:hover img {
+  opacity: 0.75;
 }
 
 div.grid-item:hover p {
+  visibility: visible;
   display: block;
+  opacity: 1;
   bottom: 0;
   left: 0;
   margin: 0 5px;
@@ -294,7 +306,9 @@ div.grid-item:hover p {
 }
 
 div.grid-item:hover > span {
+  visibility: visible;
   display: block;
+  opacity: 1;
   right: 2px;
   top: 2px;
 }

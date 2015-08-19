@@ -72,8 +72,7 @@ from the `search` routes.
 - [x] Drag and drop uploading
 - [x] Likes and like counts for photos
 - [ ] Comments on photos
-- [ ] User avatars
-- [ ] Search results are displayed in categories like Your Albums, From People You Follow, Other, etc.
+- [x] User avatars
 - [ ] Parse Exif metadata of uploaded photos and show date/time and camera data
 - [ ] Pagination/infinite scroll
 - [ ] Multiple sessions/session management
