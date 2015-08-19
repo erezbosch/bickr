@@ -14,5 +14,4 @@
   <a href="#api/users/<%= user.id %>/photos">Photostream</a>
 </p>
 <p><a href="#api/users/<%= user.id %>/albums">Albums</a></p>
-<div class="<%= user.id != CURRENT_USER.id ? 'follow-cell text-center' : '' %>">
-</div>
+<div class="<%= user.id != CURRENT_USER.id ? 'follow-container text-center' : '' %>"></div>

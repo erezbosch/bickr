@@ -4,7 +4,7 @@ Bickr.Views.UserIndexItem = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.addSubview(
-      ".follow-cell",
+      ".follow-container",
       new Bickr.Views.Follow({ model: this.model })
     );
     this.listenTo(this.model, 'sync', this.render);

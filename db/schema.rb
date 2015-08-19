@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150819230713) do
   add_index "albums", ["creator_id"], name: "index_albums_on_creator_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.text     "body"
+    t.text     "body",             null: false
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "user_id"
