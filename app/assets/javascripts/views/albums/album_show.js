@@ -19,6 +19,13 @@ Bickr.Views.AlbumShow = Backbone.CompositeView.extend({
         isSubview: true,
       })
     );
+    this.addSubview(
+      '.comment-form',
+      new Bickr.Views.CommentForm({
+        collection: this.model.comments(),
+        model: this.model,
+      })
+    );
   },
 
   delete: function () {
