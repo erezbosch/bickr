@@ -1,4 +1,5 @@
-email = @album.creator.email
+creator = @album.creator
+email = creator.email
 json.(@album, *Album.column_names)
 json.photos @album.photos.order(id: :desc) do |photo|
   json.(photo, *Photo.column_names)
@@ -10,4 +11,6 @@ json.creator_email email
 json.tags @album.tags.order(:id)
 json.like @likes_hash['Album'][@album.id]
 json.numLikes @album.num_likes
-json.comments @album.comments.order(:id)
+json.comments @album.comments.order(:id) do |comment|
+  json.partial! 'api/comments/comment', comment: comment
+end
