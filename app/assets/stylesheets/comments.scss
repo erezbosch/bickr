@@ -32,6 +32,10 @@ ul.comments li .btn {
   padding-left: 5%;
 }
 
+.comment-form[data-id].active {
+  padding-left: 5%;
+}
+
 .comment-form[data-id]:not(.active) {
   display: inline-block;
   float: right;
