@@ -2,4 +2,6 @@ json.(comment, *Comment.column_names)
 user = comment.user
 json.user_email user.email
 json.user_avatar_url user.avatar_url
-json.comments comment.comments
+json.comments comment.comments do |comment|
+  json.partial! 'api/comments/comment', comment: comment
+end

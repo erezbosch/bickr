@@ -1,7 +1,8 @@
-Bickr.Views.CommentForm = Backbone.CompositeView.extend({
+Bickr.Views.CommentForm = Backbone.View.extend({
   template: JST['comments/comment_form'],
 
   events: {
+    'click .show-form': 'showForm',
     'click .submit': 'addComment',
   },
 
@@ -23,13 +24,17 @@ Bickr.Views.CommentForm = Backbone.CompositeView.extend({
     comment.save(data, {
       success: function () {
         this.collection.add(comment);
-        this.$(':input').val('');
+        this.render();
       }.bind(this),
     });
   },
 
-  render: function () {
+  showForm: function (e) {
+    e.preventDefault();
     this.$el.html(this.template({ comment: null }));
-    this.attachSubviews();
   },
+
+  render: function () {
+    this.$el.html(JST['comments/comment_form_button']({ model: this.model }));
+  }
 });
