@@ -11,6 +11,8 @@ Bickr.Views.CommentForm = Backbone.CompositeView.extend({
     var data = $.extend(this.$('form').serializeJSON().comment, {
       commentable_id: this.model.id,
       commentable_type: type,
+      user_email: CURRENT_USER.email,
+      user_avatar_url: CURRENT_USER.avatarUrl,
     });
     var comment = new Bickr.Models.Comment();
     comment.save(data, {

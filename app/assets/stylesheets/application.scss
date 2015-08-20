@@ -423,13 +423,15 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 }
 
 // Comments Styles
-.comment-header {
-  margin-top: 100px;
-}
-
 ul.comments {
+  margin-top: 50px;
   list-style: none;
   li {
     color: white;
+    margin-top: 7px;
+  }
+
+  .btn {
+    float: right;
   }
 }

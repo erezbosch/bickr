@@ -12,6 +12,17 @@ Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
       '.like-container',
       new Bickr.Views.Like({ model: this.model })
     );
+    this.addSubview(
+      ".comments-index",
+      new Bickr.Views.CommentsIndex({ collection: this.model.comments() })
+    );
+    this.addSubview(
+      '.comment-form',
+      new Bickr.Views.CommentForm({
+        collection: this.model.comments(),
+        model: this.model,
+      })
+    );
   },
 
   delete: function () {
