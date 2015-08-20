@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     when 'albums'
       id_method = :creator_id
     when 'follows'
-      id_method = :followee_id
+      id_method = :follower_id
     else
       id_method = :user_id
     end
