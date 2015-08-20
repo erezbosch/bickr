@@ -31,12 +31,14 @@ class ApplicationController < ActionController::Base
       id_method = :creator_id
     when 'follows'
       id_method = :follower_id
+    when 'users'
+      id_method = :id
     else
       id_method = :user_id
     end
     model = controller_name.classify.constantize.find(id)
     unless current_user && current_user.id == model.send(id_method)
-      render text: '403 FORBIDDEN'
+      render text: '403 FORBIDDEN', status: 403
     end
   end
 
