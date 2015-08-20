@@ -22,7 +22,8 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
     this.remove();
   },
 
-  edit: function () {
+  edit: function (e) {
+    e.preventDefault();
     this.$el.html(JST['comments/comment_form']({ comment: this.model }));
   },
 
