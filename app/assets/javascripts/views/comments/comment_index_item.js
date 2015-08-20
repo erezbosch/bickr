@@ -19,6 +19,7 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
       new Bickr.Views.CommentForm({
         collection: this.model.comments(),
         model: this.model,
+        parentView: this,
       })
     );
   },

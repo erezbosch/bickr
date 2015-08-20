@@ -19,5 +19,5 @@
 <p class="comment-body"><%= comment.escape('body') %></p>
 <div class="comments-index replies-index" data-id="<%= comment.id %>"></div>
 <% if (formView.showingForm) { %>
-  <div class="comment-form" data-id="<%= comment.id %>"></div>
+  <div class="comment-form active" data-id="<%= comment.id %>"></div>
 <% } %>

@@ -457,7 +457,7 @@ ul.comments li .btn {
   padding-left: 5%;
 }
 
-.comment-form[data-id] {
+.comment-form[data-id]:not(.active) {
   display: inline-block;
   float: right;
   margin-left: 2px;

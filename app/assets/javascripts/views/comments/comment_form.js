@@ -6,6 +6,10 @@ Bickr.Views.CommentForm = Backbone.View.extend({
     'click .add-comment': 'addComment',
   },
 
+  initialize: function (options) {
+    this.parentView = options.parentView;
+  },
+
   addComment: function (e) {
     e.preventDefault();
     var type;
@@ -25,13 +29,15 @@ Bickr.Views.CommentForm = Backbone.View.extend({
       success: function () {
         this.collection.add(comment);
         this.render();
+        this.parentView.render();
       }.bind(this),
     });
   },
 
   showForm: function (e) {
-    this.showingForm = true;
     e.preventDefault();
+    this.showingForm = true;
+    this.parentView.render();
     this.$el.html(this.template({ comment: null }));
   },
 
