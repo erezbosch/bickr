@@ -1,0 +1,114 @@
+// AlbumsIndex / PhotosIndex styles
+a.album-link {
+  text-decoration: none;
+}
+
+.album-placeholder {
+  padding: 42% 0;
+  text-align: center;
+  font-size: 16;
+  color: black;
+  background: radial-gradient(circle, white, #888);
+  width: 100%;
+  height: 200px;
+  border: 2px solid transparent;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.photos-index-container, .albums-index-container {
+  width: 100%;
+}
+
+.grid-sizer, .grid-item, .user-index-item {
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 33.333%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .grid-sizer, .grid-item, .user-index-item {
+    width: 16.666%;
+  }
+}
+
+div.grid-item {
+  float: left;
+  position: relative;
+}
+
+div.grid-item img {
+  display: block;
+  max-width: 100%;
+  border: 2px solid transparent;
+}
+
+div.grid-item p, div.grid-item > span {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  -moz-transition: opacity 0.35s;
+  -ms-transition: opacity 0.35s;
+  -o-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+div.grid-item:hover img, div.grid-item:hover .album-placeholder {
+  opacity: 0.75;
+}
+
+div.grid-item:hover p {
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+div.grid-item:hover > span {
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  right: 2px;
+  top: 2px;
+}
+
+div.grid-item:hover > span button {
+  border-radius: 0 0 0 4px;
+}
+
+div.grid-item:hover > span .badge {
+  background: none;
+}
+
+div.grid-item:hover .badge, div.grid-item:hover p {
+  color: white;
+  font-size: 12;
+  text-shadow: 0 0 0.1em black, 0 0 0.2em black;
+}
