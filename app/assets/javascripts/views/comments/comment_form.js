@@ -7,7 +7,12 @@ Bickr.Views.CommentForm = Backbone.CompositeView.extend({
 
   addComment: function (e) {
     e.preventDefault();
-    var type = this.model instanceof Bickr.Models.Photo ? 'Photo' : 'Album';
+    var type;
+    if (this.model instanceof Bickr.Models.Comment) {
+      type = 'Comment';
+    } else {
+      type = this.model instanceof Bickr.Models.Photo ? 'Photo' : 'Album';
+    }
     var data = $.extend(this.$('form').serializeJSON().comment, {
       commentable_id: this.model.id,
       commentable_type: type,
