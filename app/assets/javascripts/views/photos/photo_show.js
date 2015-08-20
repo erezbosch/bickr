@@ -19,7 +19,7 @@ Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
     this.addSubview(
       '.comment-form[data-nested=false]',
       new Bickr.Views.CommentForm({
-        collection: this.collection,
+        collection: this.model.comments(),
         model: this.model,
       })
     );
