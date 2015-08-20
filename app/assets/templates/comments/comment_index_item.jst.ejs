@@ -1,16 +1,23 @@
-<a href="#/api/users/<%= comment.escape('user_id') %>">
-  <img src="<%= comment.escape('user_avatar_url') %>"
-       class="img-circle avatar-small">
-  <strong><%= comment.escape('user_email') %></strong>
-</a>
-<% if (comment.escape('user_id') === CURRENT_USER.id) { %>
-  <a href="javascript:void(0)" class="delete-comment btn btn-sm btn-danger">
-    Delete
+<div class="comment-header">
+  <a href="#/api/users/<%= comment.escape('user_id') %>">
+    <img src="<%= comment.escape('user_avatar_url') %>"
+         class="img-circle avatar-small">
+    <strong><%= comment.escape('user_email') %></strong>
   </a>
-  <a href="javascript:void(0)" class="edit-comment btn btn-sm btn-primary">
-    Edit
-  </a>
-<% } %>
+  <% if (!formView.showingForm) { %>
+    <div class="comment-form" data-id="<%= comment.id %>"></div>
+  <% } %>
+  <% if (comment.escape('user_id') === CURRENT_USER.id) { %>
+    <a href="javascript:void(0)" class="delete-comment btn btn-sm btn-danger">
+      Delete
+    </a>
+    <a href="javascript:void(0)" class="edit-comment btn btn-sm btn-primary">
+      Edit
+    </a>
+  <% } %>
+</div>
 <p class="comment-body"><%= comment.escape('body') %></p>
 <div class="comments-index replies-index" data-id="<%= comment.id %>"></div>
-<div class="comment-form" data-id="<%= comment.id %>"></div>
+<% if (formView.showingForm) { %>
+  <div class="comment-form" data-id="<%= comment.id %>"></div>
+<% } %>

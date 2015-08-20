@@ -24,7 +24,11 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ comment: this.model }));
+    this.$el.html(this.template({
+      comment: this.model,
+      formView: this.subviews('.comment-form[data-id=' + this.model.id + ']')
+                    .first()
+     }));
     this.attachSubviews();
   },
 
