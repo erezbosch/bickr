@@ -71,7 +71,7 @@ from the `search` routes.
 - [x] Downloading photos
 - [x] Drag and drop uploading
 - [x] Likes and like counts for photos
-- [ ] Comments on photos
+- [x] Comments on photos
 - [x] User avatars
 - [ ] Parse Exif metadata of uploaded photos and show date/time and camera data
 - [ ] Pagination/infinite scroll

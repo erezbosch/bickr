@@ -10,7 +10,6 @@ caption     | string    |
 image_url   | string    | not null
 public_id   | string    | not null
 album_id    | integer   | foreign key (references albums)
-recommended | boolean   |
 
 ## albums
 column name    | data type | details
