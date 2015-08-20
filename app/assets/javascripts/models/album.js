@@ -1,6 +1,13 @@
 Bickr.Models.Album = Backbone.Model.extend({
   urlRoot: '/api/albums',
 
+  comments: function () {
+    if (!this._comments) {
+      this._comments = new Bickr.Collections.Comments();
+    }
+    return this._comments;
+  },
+
   tags: function () {
     if (!this._tags) {
       this._tags = new Bickr.Collections.Tags();
@@ -34,6 +41,10 @@ Bickr.Models.Album = Backbone.Model.extend({
     if (payload.tags) {
       this.tags().set(payload.tags);
       delete payload.tags;
+    }
+    if (payload.comments) {
+      this.comments().set(payload.comments, { parse: true });
+      delete payload.comments;
     }
     if (payload.like) {
       this.like().set(payload.like);
