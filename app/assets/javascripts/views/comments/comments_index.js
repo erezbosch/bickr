@@ -3,10 +3,10 @@ Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.collection = this.model.comments();
-    this.listenTo(this.collection, 'sync add remove', this.render);
+    this.listenTo(this.collection, 'sync', this.render);
     this.collection.each(this.addIndexItem.bind(this));
     this.addSubview(
-      '.comment-form',
+      '.comment-form:not(.replies-index .comment-form)',
       new Bickr.Views.CommentForm({
         collection: this.collection,
         model: this.model,
@@ -18,7 +18,7 @@ Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
 
   addIndexItem: function (comment) {
     var view = new Bickr.Views.CommentIndexItem({ model: comment });
-    this.addSubview('.comments', view);
+    this.addSubview('.comments:not(.replies-index .comments)', view);
   },
 
   render: function () {
@@ -27,6 +27,6 @@ Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
   },
 
   removeIndexItem: function (comment) {
-    this.removeModelSubview('.comments', comment);
+    this.removeModelSubview('.comments:not(.replies-index .comments)', comment);
   },
 });
