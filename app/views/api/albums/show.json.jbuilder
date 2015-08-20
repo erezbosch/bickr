@@ -10,3 +10,4 @@ json.creator_email email
 json.tags @album.tags.order(:id)
 json.like @likes_hash['Album'][@album.id]
 json.numLikes @album.num_likes
+json.comments @album.comments.order(:id)
