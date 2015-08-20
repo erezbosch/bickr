@@ -1,2 +1,4 @@
 json.(comment, *Comment.column_names)
-json.user comment.user, :email, :avatar_url
+user = comment.user
+json.user_email user.email
+json.user_avatar_url user.avatar_url

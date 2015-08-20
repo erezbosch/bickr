@@ -19,7 +19,15 @@
   <% } %>
 </p>
 <div class="photos-index"></div>
-<ul>
-  <% album.comments().each { %>
-  <% } %>
+<ul class="comments">
+  <% album.comments().each(function (comment) { %>
+    <li>
+      <a href="#/api/users/<%= comment.escape('user_id') %>">
+        <img src="<%= comment.escape('user_avatar_url') %>"
+             class="img-circle avatar-small">
+        <strong><%= comment.escape('user_email') %></strong>
+      </a>
+      <%= comment.escape('body') %>
+    </li>
+  <% }) %>
 </ul>

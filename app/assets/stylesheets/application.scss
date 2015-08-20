@@ -79,6 +79,11 @@ body.backbone {
   }
 }
 
+.avatar-small {
+  width: 24px;
+  height: 24px;
+}
+
 // Login styles
 .title-info {
   margin: 80px auto;
@@ -380,11 +385,6 @@ div.grid-item:hover .badge, div.grid-item:hover p {
   background-color: #090909;
 }
 
-.navbar-inverse .avatar {
-  width: 24px;
-  height: 24px;
-}
-
 // UsersIndex styles
 #users {
   width: 100%;
@@ -419,5 +419,14 @@ div.grid-item:hover .badge, div.grid-item:hover p {
     display: block;
     max-width: 80%;
     max-height: 300px;
+  }
+}
+
+// Comments Styles
+ul.comments {
+  margin-top: 100px;
+  list-style: none;
+  li {
+    color: white;
   }
 }
