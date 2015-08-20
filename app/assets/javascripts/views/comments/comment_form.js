@@ -30,11 +30,13 @@ Bickr.Views.CommentForm = Backbone.View.extend({
   },
 
   showForm: function (e) {
+    this.showingForm = true;
     e.preventDefault();
     this.$el.html(this.template({ comment: null }));
   },
 
   render: function () {
+    this.showingForm = false;
     this.$el.html(JST['comments/comment_form_button']({ model: this.model }));
   }
 });

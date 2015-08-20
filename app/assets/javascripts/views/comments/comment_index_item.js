@@ -21,7 +21,8 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
     this.attachSubviews();
   },
 
-  delete: function () {
+  delete: function (e) {
+    e.preventDefault();
     this.model.destroy();
     this.remove();
   },
