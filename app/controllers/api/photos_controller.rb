@@ -1,4 +1,9 @@
 class Api::PhotosController < ApplicationController
+  before_action only: [:update, :destroy] do |c|
+    c.prevent_illegal_changes params[:id]
+  end
+  before_action :redirect_unless_logged_in
+  
   include Searchable
 
   def index

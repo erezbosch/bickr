@@ -23,6 +23,23 @@ class ApplicationController < ActionController::Base
     redirect_to root_url if current_user
   end
 
+  def prevent_illegal_changes id
+    case controller_name
+    when 'photos'
+      id_method = :uploader_id
+    when 'albums'
+      id_method = :creator_id
+    when 'follows'
+      id_method = :followee_id
+    else
+      id_method = "#{controller_name}_id"
+    end
+    model = controller_name.classify.constantize.find(id)
+    unless current_user && current_user.id == model.send(id_method)
+      render text: '403 FORBIDDEN'
+    end
+  end
+
   helper_method :current_user
 
   private

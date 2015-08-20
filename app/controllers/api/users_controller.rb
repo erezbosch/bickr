@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+  before_action only: :update do |c|
+    c.prevent_illegal_changes params[:id]
+  end
+  before_action :redirect_unless_logged_in
+
   def index
     @users = User.order(:id)
     @follows_hash = current_user.out_follows_hash

@@ -1,4 +1,9 @@
 class Api::FollowsController < ApplicationController
+  before_action only: :destroy do |c|
+    c.prevent_illegal_changes params[:id]
+  end
+  before_action :redirect_unless_logged_in
+
   def create
     @follow = current_user.out_follows.new(follow_params)
     if @follow.save

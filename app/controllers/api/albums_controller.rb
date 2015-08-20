@@ -1,6 +1,11 @@
 class Api::AlbumsController < ApplicationController
   include Searchable
 
+  before_action only: [:update, :destroy] do |c|
+    c.prevent_illegal_changes params[:id]
+  end
+  before_action :redirect_unless_logged_in
+
   def index
     if params[:query]
       @likes_hash = current_user.likes_hash

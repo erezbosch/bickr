@@ -1,4 +1,9 @@
 class Api::LikesController < ApplicationController
+  before_action only: :destroy do |c|
+    c.prevent_illegal_changes params[:id]
+  end
+  before_action :redirect_unless_logged_in
+
   def create
     @like = current_user.likes.new(like_params)
     if @like.save
