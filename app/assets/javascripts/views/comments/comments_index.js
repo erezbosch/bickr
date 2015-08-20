@@ -1,11 +1,6 @@
 Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
   template: JST['comments/comments_index'],
 
-  events: {
-    'click .delete': 'delete',
-    'click .edit': 'edit',
-  },
-
   initialize: function (options) {
     this.listenTo(this.collection, 'sync add remove', this.render);
     this.collection.each(this.addIndexItem.bind(this));

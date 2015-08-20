@@ -5,10 +5,10 @@
 </a>
 <%= comment.escape('body') %>
 <% if (comment.escape('user_id') === CURRENT_USER.id) { %>
-  <a href="javascript:void(0)" class="edit-comment btn btn-sm btn-primary">
-    Edit
-  </a>
   <a href="javascript:void(0)" class="delete-comment btn btn-sm btn-danger">
     Delete
+  </a>
+  <a href="javascript:void(0)" class="edit-comment btn btn-sm btn-primary">
+    Edit
   </a>
 <% } %>
