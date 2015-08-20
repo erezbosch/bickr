@@ -6,6 +6,8 @@ module Likable
   end
 
   def num_likes
-    likes.size
+    @num_likes ||= likes.size
   end
+
+  attr_writer :num_likes
 end
