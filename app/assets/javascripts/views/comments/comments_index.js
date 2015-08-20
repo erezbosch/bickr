@@ -5,16 +5,8 @@ Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
     this.collection = this.model.comments();
     this.listenTo(this.collection, 'sync', this.render);
     this.collection.each(this.addIndexItem.bind(this));
-    this.addSubview(
-      '.comment-form[data-id=' + this.model.id + ']',
-      new Bickr.Views.CommentForm({
-        collection: this.collection,
-        model: this.model,
-      })
-    );
     this.listenTo(this.collection, 'add', this.addIndexItem);
     this.listenTo(this.collection, 'remove', this.removeIndexItem);
-    this.notNested = options.notNested;
   },
 
   addIndexItem: function (comment) {

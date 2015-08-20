@@ -14,7 +14,14 @@ Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
     );
     this.addSubview(
       ".comments-index",
-      new Bickr.Views.CommentsIndex({ model: this.model, notNested: true })
+      new Bickr.Views.CommentsIndex({ model: this.model })
+    );
+    this.addSubview(
+      '.comment-form[data-nested=false]',
+      new Bickr.Views.CommentForm({
+        collection: this.collection,
+        model: this.model,
+      })
     );
   },
 

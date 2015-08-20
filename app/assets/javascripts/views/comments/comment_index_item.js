@@ -14,6 +14,13 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
       '.comments-index[data-id=' + this.model.id + ']',
       new Bickr.Views.CommentsIndex({ model: this.model })
     );
+    this.addSubview(
+      '.comment-form[data-id=' + this.model.id + ']',
+      new Bickr.Views.CommentForm({
+        collection: this.model.comments(),
+        model: this.model,
+      })
+    );
   },
 
   render: function () {
@@ -34,7 +41,9 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
 
   submitEdit: function (e) {
     e.preventDefault();
-    var data = this.$('form').serializeJSON().comment;
-    this.model.save(data, { success: this.render.bind(this) });
+    if ($(e.currentTarget).data('id') === this.model.id) {
+      var data = this.$('form').serializeJSON().comment;
+      this.model.save(data, { success: this.render.bind(this) });
+    }
   },
 });
