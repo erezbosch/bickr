@@ -5,10 +5,11 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
   events: {
     'click .delete-comment': 'delete',
     'click .edit-comment': 'edit',
+    'click .submit': 'submitEdit',
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync change', this.render);
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
@@ -22,6 +23,12 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
   },
 
   edit: function () {
-    
+    this.$el.html(JST['comments/comment_form']({ comment: this.model }));
+  },
+
+  submitEdit: function (e) {
+    e.preventDefault();
+    var data = this.$('form').serializeJSON().comment;
+    this.model.save(data, { success: this.render.bind(this) });
   },
 });

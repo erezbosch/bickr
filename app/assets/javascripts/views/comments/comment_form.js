@@ -18,12 +18,13 @@ Bickr.Views.CommentForm = Backbone.CompositeView.extend({
     comment.save(data, {
       success: function () {
         this.collection.add(comment);
+        this.$(':input').val('');
       }.bind(this),
     });
   },
 
   render: function () {
-    this.$el.html(this.template());
+    this.$el.html(this.template({ comment: null }));
     this.attachSubviews();
   },
 });
