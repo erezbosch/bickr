@@ -5,11 +5,15 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
   events: {
     'click .delete-comment': 'delete',
     'click .edit-comment': 'edit',
-    'click .submit': 'submitEdit',
+    'click .submit-edit': 'submitEdit',
   },
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.addSubview(
+      '.comments-index',
+      new Bickr.Views.CommentsIndex({ model: this.model })
+    );
   },
 
   render: function () {

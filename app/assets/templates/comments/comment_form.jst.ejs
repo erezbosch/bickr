@@ -4,7 +4,7 @@
             class="form-control"
             placeholder="Your comment goes here"
             ><%= comment ? comment.escape('body') : '' %></textarea>
-  <button class="submit btn btn-success add-comment">
+  <button class="btn btn-success <%= comment ? 'submit-edit' : 'add-comment' %>">
     <%= comment ? 'Submit Changes' : 'Add Comment' %>
   </button>
 </form>

@@ -3,7 +3,7 @@ Bickr.Views.CommentForm = Backbone.View.extend({
 
   events: {
     'click .show-form': 'showForm',
-    'click .submit': 'addComment',
+    'click .add-comment': 'addComment',
   },
 
   addComment: function (e) {

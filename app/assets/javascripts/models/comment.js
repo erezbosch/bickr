@@ -9,7 +9,8 @@ Bickr.Models.Comment = Backbone.Model.extend({
   },
 
   parse: function (payload) {
-    if (payload.comments) {
+    debugger;
+    if (payload.comments && payload.comments.length) {
       this.comments().set(payload.comments, { parse: true });
       delete payload.comments;
     }
