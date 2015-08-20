@@ -426,12 +426,19 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 ul.comments {
   margin-top: 50px;
   list-style: none;
-  li {
-    color: white;
-    margin-top: 7px;
+  padding: 0;
+}
+
+ul.comments > li {
+  color: white;
+
+  > .btn {
+    float: right;
+    margin-left: 3px;
   }
 
-  .btn {
-    float: right;
+  > .comment-body {
+    text-align: left;
+    margin: 10px 0 20px 28px;
   }
 }

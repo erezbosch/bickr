@@ -3,7 +3,6 @@
        class="img-circle avatar-small">
   <strong><%= comment.escape('user_email') %></strong>
 </a>
-<%= comment.escape('body') %>
 <% if (comment.escape('user_id') === CURRENT_USER.id) { %>
   <a href="javascript:void(0)" class="delete-comment btn btn-sm btn-danger">
     Delete
@@ -12,3 +11,4 @@
     Edit
   </a>
 <% } %>
+<p class="comment-body"><%= comment.escape('body') %></p>
