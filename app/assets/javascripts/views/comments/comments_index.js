@@ -1,7 +1,7 @@
 Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
   template: JST['comments/comments_index'],
 
-  initialize: function () {
+  initialize: function (options) {
     this.collection = this.model.comments();
     this.listenTo(this.collection, 'sync', this.render);
     this.collection.each(this.addIndexItem.bind(this));
@@ -14,6 +14,7 @@ Bickr.Views.CommentsIndex = Backbone.CompositeView.extend({
     );
     this.listenTo(this.collection, 'add', this.addIndexItem);
     this.listenTo(this.collection, 'remove', this.removeIndexItem);
+    this.notNested = options.notNested;
   },
 
   addIndexItem: function (comment) {

@@ -14,7 +14,7 @@ Bickr.Views.PhotoShow = Backbone.CompositeView.extend({
     );
     this.addSubview(
       ".comments-index",
-      new Bickr.Views.CommentsIndex({ model: this.model })
+      new Bickr.Views.CommentsIndex({ model: this.model, notNested: true })
     );
   },
 

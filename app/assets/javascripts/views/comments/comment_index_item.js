@@ -11,7 +11,7 @@ Bickr.Views.CommentIndexItem = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.addSubview(
-      '.comments-index:not(.replies-index .comments-index)',
+      '.comments-index[data-id=' + this.model.id + ']',
       new Bickr.Views.CommentsIndex({ model: this.model })
     );
   },
