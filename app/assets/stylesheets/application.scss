@@ -423,8 +423,11 @@ div.grid-item:hover .badge, div.grid-item:hover p {
 }
 
 // Comments Styles
-ul.comments {
+.comment-header {
   margin-top: 100px;
+}
+
+ul.comments {
   list-style: none;
   li {
     color: white;

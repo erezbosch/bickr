@@ -1,0 +1,6 @@
+<a href="#/api/users/<%= comment.escape('user_id') %>">
+  <img src="<%= comment.escape('user_avatar_url') %>"
+       class="img-circle avatar-small">
+  <strong><%= comment.escape('user_email') %></strong>
+</a>
+<%= comment.escape('body') %>
