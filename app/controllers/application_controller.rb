@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     when 'follows'
       id_method = :followee_id
     else
-      id_method = "#{controller_name}_id"
+      id_method = :user_id
     end
     model = controller_name.classify.constantize.find(id)
     unless current_user && current_user.id == model.send(id_method)
