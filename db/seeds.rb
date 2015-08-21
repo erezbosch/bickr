@@ -1,5 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+Wordnik.configure do |config|
+    config.api_key = 'b8426bd719b21e632c566529d040a11ff5be1c172b48fd839'
+end
+
 photos = [
 	{
 		image_url: 'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1440141004/Hamilton-burr-duel_k94pso.jpg',
@@ -200,16 +204,31 @@ photos = [
 	},
 ] # Goal: 100 x { image_url: , public_id: , title: , caption: [leave this off for some] }
 
+words = []
+[
+	'argument',
+	'fight',
+	'conflict',
+	'opposition',
+	'disagreement',
+].each do |term|
+	words.concat(Wordnik.word.get_related(term)[0]['words'])
+end
+
+sentences = words.each_with_object([]) do |term, ary|
+	examples = Wordnik.word.get_examples(term)['examples']
+	ary.concat(examples.map { |example| example['text'] }) if examples
+end
+
 albums = Array.new(10) do
-  {
-    title: Faker::Name.title,
-    description: rand(1) < 0.8 ? Faker::Company.bs : nil
-  }
+	title = Array.new(rand(5) + 1) { words.sample }
+	title.map! { |word| word.split(' ').map(&:capitalize) }.join(' ')
+	description = Array.new(rand(5) + 1) { sentences.sample }.join(' ')
+  { title: title, description: description }
 end
 
 avatars = [
   'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1440089963/rhf52skfmx94r6jwo8qi.png',
-  'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1439945523/pi4d8snzwytzgzyx331x.gif',
   'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1439944477/gaulcveo3rlmszca2pof.jpg',
   'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1439853846/xbdqzxz9fxpugvcipbck.jpg',
   'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1440173888/Astronotus_ocellatus_-_closeup__aka_jwy14g.jpg',
@@ -222,14 +241,14 @@ avatars = [
 tags = Array.new(25) do
   tag = nil
   loop do
-    tag = Tag.new(label: Faker::Company.catch_phrase)
+    tag = Tag.new(label: words.sample)
     break if tag.save
   end
   tag
 end
 
 comment_hashes = Array.new(250) do
-  { body: Faker::Lorem.paragraph(rand(4)) }
+  { body: Array.new(rand(5) + 1) { sentences.sample }.join(' ') }
 end
 
 users = Array.new(avatars.length * 1.25) do |i| # give them avatar_url
@@ -251,10 +270,6 @@ guest = User.new(
   avatar_url: 'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1440005771/gknctceka4r9zfrlbng9.jpg'
 )
 users << guest if guest.save
-
-Wordnik.configure do |config|
-    config.api_key = 'YOUR_API_KEY_HERE'
-end
 
 albums.map! do |album_hash|
   users.sample.albums.create(album_hash)
@@ -291,6 +306,6 @@ end
   users.sample.in_follows.create(follower_id: rand(users.length - 1) + 1)
 end
 
-(users.length - 1).times do |i|
-  guest.out_follows.create(followee_id: users[i + 1])
+(users.length / 2).times do |i|
+  users.last.out_follows.create(followee_id: i + 1)
 end

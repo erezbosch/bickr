@@ -20,6 +20,9 @@
     strong {
       font-size: 16px;
       color: #abf;
+      word-wrap: break-word;
+      max-width: 100%;
+      text-overflow: '';
     }
 
     strong:hover, strong:focus {
