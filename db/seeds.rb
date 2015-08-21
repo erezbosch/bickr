@@ -205,7 +205,7 @@ albums = Array.new(10) do
     title: Faker::Name.title,
     description: rand(1) < 0.8 ? Faker::Company.bs : nil
   }
-end # Goal: 10 x { title: , description: }
+end
 
 avatars = [
   'http://res.cloudinary.com/dbxvb3ap5/image/upload/v1440089963/rhf52skfmx94r6jwo8qi.png',
@@ -220,12 +220,17 @@ avatars = [
 ]
 
 tags = Array.new(25) do
-  { label: Faker::Company.catch_phrase }
-end # Goal: 25 x { label: }
+  tag = nil
+  loop do
+    tag = Tag.new(label: Faker::Company.catch_phrase)
+    break if tag.save
+  end
+  tag
+end
 
 comment_hashes = Array.new(500) do
   { body: Faker::Lorem.paragraph(rand(4)) }
-end # some faker things
+end
 
 users = Array.new(avatars.length * 1.25) do |i| # give them avatar_url
   user = nil
@@ -277,7 +282,7 @@ albums[0...albums.length / 2].each do |album|
   album.update(cover_photo: album.photos.sample)
 end
 
-(photos.concat(albums).length * 4).times do
+(photos.concat(albums).length * 5).times do
   photos.concat(albums).sample.taggings.create(tag_id: rand(tags.length))
   photos.concat(albums).sample.likes.create(user_id: rand(users.length))
 end
