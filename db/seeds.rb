@@ -205,15 +205,22 @@ photos = [
 ] # Goal: 100 x { image_url: , public_id: , title: , caption: [leave this off for some] }
 
 words = []
-[
+terms = [
 	'argument',
 	'fight',
 	'conflict',
 	'opposition',
 	'disagreement',
-].each do |term|
-	words.concat(Wordnik.word.get_related(term)[0]['words'])
+]
+types = ['synonym', 'hypernym', 'hyponym', 'cross-reference']
+terms.each do |term|
+	types.each do |type|
+		words.concat(
+			Wordnik.word.get_related(term, type: type, limit: 25).first['words']
+		)
+	end
 end
+words.uniq!
 
 sentences = words.each_with_object([]) do |term, ary|
 	examples = Wordnik.word.get_examples(term)['examples']
