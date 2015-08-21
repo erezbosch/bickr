@@ -13,10 +13,6 @@ Bickr.Views.PhotoForm = Backbone.CompositeView.extend({
       ".tags",
       new Bickr.Views.Tags({ collection: this.model.tags() })
     );
-    this.addSubview(
-      ".tag-form",
-      new Bickr.Views.TagForm({ model: this.model })
-    );
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.albums, 'sync', this.render);
   },

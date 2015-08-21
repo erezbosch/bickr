@@ -252,7 +252,7 @@ ul.form-errors > li {
   overflow: hidden;
 }
 
-.tag-form-container .tags, .tag-form-container .tag-form {
+.tag-form-container .tags {
   display: block;
   float: left;
   width: auto;
@@ -261,34 +261,34 @@ ul.form-errors > li {
   height: auto;
 }
 
-.tag-form-container .tags {
-
-}
-
 .tag-form-container .tags-container {
   border: 1px solid #ccc;
-  border-right: 0;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  padding-right: 0;
+  padding: 0;
   height: auto;
   min-height: 34px;
 }
 
 .tag-form-container .tag-form-input {
-  border-left: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  padding-left: 10px;
-  vertical-align: top;
+  border: 0;
+  width: 120px;
+  display: block;
+  float: left;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .tag-form-container {
   height: auto;
+  width: 75%;
 }
 
 form .tags .tag-link {
   color: #66b;
+  height: 34px;
+  display: block;
+  float: left;
+  padding-left: 0.4em;
+  line-height: 34px;
 }
 
 form .tags .tag-link:hover, form .tags .tag-link:focus {
