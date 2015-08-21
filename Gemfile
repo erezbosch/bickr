@@ -15,6 +15,8 @@ gem 'bcrypt', '>= 3.1.7'
 gem 'serialize_json-rails'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
+gem 'faker'
+gem 'wordnik'
 
 group :development, :test do
   gem 'byebug'
