@@ -204,7 +204,6 @@ photos = [
 	},
 ] # Goal: 100 x { image_url: , public_id: , title: , caption: [leave this off for some] }
 
-words = []
 terms = [
 	'argument',
 	'fight',
@@ -213,6 +212,8 @@ terms = [
 	'disagreement',
 ]
 types = ['synonym', 'hypernym', 'hyponym', 'cross-reference']
+
+words = []
 terms.each do |term|
 	types.each do |type|
 		words.concat(
@@ -220,7 +221,7 @@ terms.each do |term|
 		)
 	end
 end
-words.uniq!
+words.reject! { |word| ['reverse', 'row', 'reset'].include?(word) }.uniq!
 
 sentences = words.each_with_object([]) do |term, ary|
 	examples = Wordnik.word.get_examples(term)['examples']
@@ -255,11 +256,7 @@ tags = Array.new(25) do
   tag
 end
 
-comment_hashes = Array.new(250) do
-  { body: Array.new(rand(5) + 1) { sentences.sample }.join(' ') }
-end
-
-users = Array.new(avatars.length * 1.25) do |i| # give them avatar_url
+users = Array.new(avatars.length * 1.25) do |i|
   user = nil
   loop do
     user = User.new(
@@ -271,7 +268,6 @@ users = Array.new(avatars.length * 1.25) do |i| # give them avatar_url
   end
   user
 end
-
 guest = User.new(
   email: 'guest@example.com',
   password: 'password',
@@ -279,9 +275,7 @@ guest = User.new(
 )
 users << guest if guest.save
 
-albums.map! do |album_hash|
-  users.sample.albums.create(album_hash)
-end
+albums.map! { |album_hash| users.sample.albums.create(album_hash) }
 
 photos.map! do |photo_hash|
   user = users.sample
@@ -292,6 +286,9 @@ photos.map! do |photo_hash|
   end
 end
 
+comment_hashes = Array.new(250) do
+  { body: Array.new(rand(5) + 1) { sentences.sample }.join(' ') }
+end
 comments = []
 comment_hashes.each do |hash|
   commentable = (comments + albums * 2 + photos * 2).sample

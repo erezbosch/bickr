@@ -5,9 +5,11 @@
     <%= user.escape('email') %><div class="follow-container"></div>
   <% } %>
 </h1>
-<img src="<%= user.escape('avatar_url') %>"
-     class="img-circle center-block user-show-avatar"
-     alt="<%= user.escape('email') %>'s Avatar">
+<% if (user.escape('avatar_url')) { %>
+  <img src="<%= user.escape('avatar_url') %>"
+       class="img-circle center-block user-show-avatar"
+       alt="<%= user.escape('email') %>'s Avatar">
+<% } %>
 
 <ul class="nav nav-pills">
   <li class="active" role="presentation">
