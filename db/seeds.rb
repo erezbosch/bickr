@@ -6,23 +6,31 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = Array.new(10) do
-  User.create!({ email: Faker::Internet.safe_email, password: 'password' })
-end
+avatars = Array.new(10)
 
-albums = [] # 20 x { title: , description: }
-albums.map! { |album| }
-photos = [] # 100 x { image_url: , public_id: , title: , description: }
+users = Array.new(10) do |i| # give them avatar_url
+  User.create!(
+    email: Faker::Internet.safe_email,
+    password: 'password',
+    avatar_url: avatars[i],
+  )
+end
+guest = User.create!(
+  email: 'guest@example.com',
+  password: 'password',
+  avatar_url: '',
+)
+
+albums = [] # 10 x { title: , description: }
+photos = [] # 100 x { image_url: , public_id: , title: , caption: [leave this off for some] }
 tags = [] # 25 x { label: }
+albums.map! { |album| users.sample.albums.create!()}
 
 photos.map! do |photo|
   user = users.sample
-  unless [true, true, false].sample || user.albums.blank?
+  unless [true, false, false].sample || user.albums.blank?
     photo = user.photos.create!(photo)
   else
-    photo = user.albums.sample.photos.create!(photo)
+    photo = user.albums.sample.photos.create!(photo.merge({ uploader: user }))
   end
 end
-
-
-users << User.create!({email: 'guest@example.com', password: 'password' })
