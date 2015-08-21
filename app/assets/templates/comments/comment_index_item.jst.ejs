@@ -1,7 +1,12 @@
 <div class="comment-header">
   <a href="#/api/users/<%= comment.escape('user_id') %>">
-    <img src="<%= comment.escape('user_avatar_url') %>"
-         class="img-circle avatar-small">
+    <% if (comment.escape('user_avatar_url')) { %>
+      <img src="<%= comment.escape('user_avatar_url') %>"
+           alt="Avatar"
+           class="avatar-small img-circle">
+    <% } else { %>
+      <span class="glyphicon glyphicon-user"></span>
+    <% } %>
     <strong><%= comment.escape('user_email') %></strong>
   </a>
   <% if (!formView.showingForm) { %>

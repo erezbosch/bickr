@@ -48,5 +48,8 @@ div.comment-header {
   img {
     margin-top: 3px;
   }
+  a .glyphicon-user, a strong {
+    vertical-align: middle;
+  }
   border-radius: 30px;
 }

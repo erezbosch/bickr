@@ -12,13 +12,14 @@ users = Array.new(10) do |i| # give them avatar_url
   User.create!(
     email: Faker::Internet.safe_email,
     password: 'password',
-    avatar_url: avatars[i],
+    avatar_url: avatars[i]
   )
 end
+
 guest = User.create!(
   email: 'guest@example.com',
   password: 'password',
-  avatar_url: '',
+  avatar_url: ''
 )
 
 albums = [] # 10 x { title: , description: }
