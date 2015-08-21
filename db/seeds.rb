@@ -222,7 +222,7 @@ end
 
 albums = Array.new(10) do
 	title = Array.new(rand(5) + 1) { words.sample }
-	title.map! { |word| word.split(' ').map(&:capitalize) }.join(' ')
+	title.map! { |word| word.split(' ').map(&:capitalize) }.flatten.join(' ')
 	description = Array.new(rand(5) + 1) { sentences.sample }.join(' ')
   { title: title, description: description }
 end
