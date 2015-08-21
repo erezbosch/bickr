@@ -228,7 +228,7 @@ tags = Array.new(25) do
   tag
 end
 
-comment_hashes = Array.new(500) do
+comment_hashes = Array.new(250) do
   { body: Faker::Lorem.paragraph(rand(4)) }
 end
 
@@ -273,7 +273,7 @@ comments = []
 comment_hashes.each do |hash|
   commentable = (comments + albums * 2 + photos * 2).sample
   comment = commentable.comments.new(hash.merge({
-    user_id: rand(users.length)
+    user_id: rand(users.length) + 1
   }))
   comments << comment if comment.save
 end
@@ -282,15 +282,15 @@ albums[0...albums.length / 2].each do |album|
   album.update(cover_photo: album.photos.sample)
 end
 
-(photos.concat(albums).length * 5).times do
-  photos.concat(albums).sample.taggings.create(tag_id: rand(tags.length))
-  photos.concat(albums).sample.likes.create(user_id: rand(users.length))
+((albums + photos).length * 5).times do
+  (albums + photos).sample.taggings.create(tag_id: rand(tags.length) + 1)
+  (albums + photos).sample.likes.create(user_id: rand(users.length) + 1)
 end
 
 (users.length * 3).times do
-  users.sample.in_follows.create(follower_id: rand(users.length - 1))
+  users.sample.in_follows.create(follower_id: rand(users.length - 1) + 1)
 end
 
 (users.length - 1).times do |i|
-  users.last.out_follows.create(followee_id: users[i])
+  guest.out_follows.create(followee_id: users[i + 1])
 end
