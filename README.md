@@ -1,7 +1,8 @@
 # Bickr
 
-[Live](http://bickr.co)
-It's flickr for pictures of arguments! It's built on Rails and Backbone!
+###[Live](http://bickr.co)
+
+###Flickr for pictures of arguments! Built on Rails and Backbone!
 
 ### Features
 
