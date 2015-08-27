@@ -1,5 +1,5 @@
 <div class="comment-header">
-  <a href="#/api/users/<%= comment.escape('user_id') %>">
+  <a href="#/api/users/<%= comment.escape('user_id') %>" class="comment-title">
     <% if (comment.escape('user_avatar_url')) { %>
       <img src="<%= comment.escape('user_avatar_url') %>"
            alt="Avatar"

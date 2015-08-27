@@ -232,7 +232,7 @@ albums = Array.new(10) do
 	title = Array.new(rand(5) + 1) { words.sample }
 	title = title.map { |word| word.split(' ').map(&:capitalize) }
 							 .flatten.join(' ')
-	description = Array.new(rand(5) + 1) { sentences.sample }.join(' ')
+	description = Array.new(rand(3) + 1) { sentences.sample }.join(' ')
   { title: title, description: description }
 end
 
@@ -287,7 +287,12 @@ photos.map! do |photo_hash|
 end
 
 comment_hashes = Array.new(250) do
-  { body: Array.new(rand(5) + 1) { sentences.sample }.join(' ') }
+  if rand() > 0.6
+    body = words.sample
+  else
+    body = Array.new(rand(4) + 1) { sentences.sample }.join(' ')
+  end
+  { body: body }
 end
 comments = []
 comment_hashes.each do |hash|

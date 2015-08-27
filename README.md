@@ -1,26 +1,35 @@
 # Bickr
 
-###[Live](http://bickr.co)
+##[Live](http://bickr.co)
 
-###Flickr for pictures of arguments! Built on Rails and Backbone!
+An argument photo website built on Rails and Backbone.
 
-### Features
+You can:
 
-Users can:
-- [x] Create accounts
-- [x] Log in and out
-- [x] Upload photos
-- [x] View photos
-- [x] Create and view albums
-- [x] Follow other users
-- [x] View a photostream of followed users' photos
-- [x] Tag photos and albums
-- [x] Search for photos and albums by tag and title
-- [x] Download photos
-- [x] Like and see the like counts of photos/albums
-- [x] Comment on photos/albums
-- [x] Reply to their own or other users' comments
-- [x] Upload avatar images
+* Create accounts
+* Log in and out
+* Upload photos
+* View photos
+* Create and view albums
+* Follow other users
+* View a photostream of followed users' photos
+* Tag photos and albums
+* Search for photos and albums by tag and title
+* Download photos
+* Like and see the like counts of photos/albums
+* Comment on photos/albums
+* Reply to your own or other users' comments
+* Upload avatar images
+
+### Details
+
+* The `Masonry` JS library is used to organize photo thumbnails.
+* The `Cloudinary` API is used to upload and store photos.
+* The `Wordnik` API is used to obtain seed data for comments, tags, album titles
+and album descriptions.
+* The `faker` gem is used to create sample user data.
+* Bootstrap is used for styling.
+* JBuilder is used to massage JSON responses to AJAX requests.
 
 ### To Do: Bonus Features
 - [ ] Parse Exif metadata of uploaded photos and show date/time and camera data
