@@ -1,4 +1,5 @@
+tagged: 
 <% tags.each(function (tag) { %>
   <a href="#/api/search?q=<%= tag.escape('label') %>" class="tag-link"><%= tag.escape('label') %></a>
-  <%= tag === tags.last() ? '' : '| ' %> 
+  <%= tag === tags.last() ? '' : '| ' %>
 <% }) %>

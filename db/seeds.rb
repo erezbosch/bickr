@@ -286,8 +286,8 @@ photos.map! do |photo_hash|
   end
 end
 
-comment_hashes = Array.new(250) do
-  if rand() > 0.6
+comment_hashes = Array.new(250) do |i|
+  if i % 3 == 0
     body = words.sample
   else
     body = Array.new(rand(4) + 1) { sentences.sample }.join(' ')

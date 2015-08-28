@@ -26,7 +26,13 @@ Bickr.Views.AlbumIndexItem = Backbone.CompositeView.extend({
       coverPhoto = this.model.photos().first();
     }
     if (coverPhoto) {
-      $image = $('<img>').attr('src', coverPhoto.escape('image_url'))
+      var url = coverPhoto.escape('image_url');
+      url = url.split('upload/');
+      var numCols = Math.min(Math.floor(window.innerWidth / 250), 6);
+      var colWidth = Math.floor((window.innerWidth - 15) / numCols);
+      url[1] = 'w_' + colWidth + ',c_limit/' + url[1];
+      url = url.join('upload/');
+      $image = $('<img>').attr('src', url)
                         .attr('alt', this.model.escape('title'));
     } else {
       $image = $('<div>').addClass('album-placeholder')
