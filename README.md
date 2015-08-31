@@ -29,7 +29,7 @@ You can:
 * The Cloudinary API is used to upload and store photos.
 * The Wordnik API is used to obtain seed data for comments, tags, album titles
 and album descriptions.
-* Bootstrap` is used for styling.
+* Bootstrap is used for styling.
 * JBuilder is used to massage JSON responses to AJAX requests.
 * faker is used to create sample user data.
 * BCrypt is used for user authentication.
